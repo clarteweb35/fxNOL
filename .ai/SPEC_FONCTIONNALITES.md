@@ -3,7 +3,7 @@
 Ce que le visiteur voit et peut faire sur le site. À mettre à jour à chaque ajout ou modification visible (pas pour les refactos internes).
 
 Dernière mise à jour : 2026-10-29
-Fichier du site : `index.html` (page unique, HTML + Tailwind CDN + JS vanilla).
+Pages : `index.html` (accueil) + 4 pages légales. HTML + Tailwind CDN + JS vanilla, sans build.
 
 ## Structure de la page
 
@@ -44,10 +44,18 @@ Fichier du site : `index.html` (page unique, HTML + Tailwind CDN + JS vanilla).
 
 ### Pied de page
 - Avertissement complet sur les risques Forex/CFD.
-- Liens « Légal » : pages **pas encore créées** (voir ci-dessous).
+- Liens « Légal » vers les 4 pages ci-dessous. En-tête et pied de page sont identiques sur toutes les pages (définis une fois dans `assets/site.js`).
+
+### Pages légales
+- `mentions-legales.html`, `confidentialite.html`, `transparence-affiliation.html`, `contact.html`.
+- Chacune porte un encadré jaune « Page à compléter » : identité de l'éditeur, hébergeur, e-mail, méthode de notation sont marqués `[À COMPLÉTER]`.
+- La politique de confidentialité décrit l'état actuel : pas de mesure d'audience, compteur de clics local au navigateur, polices Google et Tailwind chargés depuis des serveurs tiers. À mettre à jour dès qu'un outil de mesure est ajouté.
+
+### Fichiers partagés
+- `assets/tailwind-config.js` : couleurs et polices. `assets/site.js` : nom, menu, liens légaux, avertissement de risque, mention d'affiliation, header et footer.
 
 ## Pas encore fait
-- Pages légales : mentions légales, confidentialité, transparence affiliation, contact.
+- Compléter les pages légales avec les vraies informations, puis les faire valider par un juriste.
 - Vrais partenaires et liens d'affiliation.
 - Bandeau cookies (nécessaire dès qu'un outil de mesure est branché).
 - Vraies cotations.
