@@ -36,7 +36,7 @@ Pages : `index.html` (accueil) + 4 pages légales. HTML + Tailwind CDN + JS vani
 - Carte : badge de type, note, nombre d'avis, points forts, champ « agrément » (brokers), bouton d'affiliation.
 - Liens en `rel="sponsored nofollow noopener noreferrer"`, mention « Lien partenaire · publicité » sous chaque bouton, bandeau de transparence au-dessus de la grille.
 - **Brokers (réels, 6)** : XTB, eToro, Exness, Vantage, AvaTrade, XM. Sans note ni avis (pas de méthode de notation), carte « Fiche détaillée à venir », agrément « À vérifier sur REGAFI » (à contrôler un par un avant mise en ligne), liens `#` tant que les programmes d'affiliation ne sont pas signés.
-- **Logos** : pastille d'initiales par défaut ; le logo officiel s'affiche dès qu'il est déposé dans `assets/logos/` et déclaré dans `PARTNERS` (voir `assets/logos/LISEZ-MOI.md`). À n'utiliser qu'avec l'accord du programme d'affiliation.
+- **Logos** : les 6 brokers affichent leur logo (`assets/logos/*.png`, tuile blanche 2:1 à côté du nom). Sans fichier, pastille d'initiales. Fichiers fournis par l'éditeur : à remplacer par ceux du kit média officiel de chaque programme (voir `assets/logos/LISEZ-MOI.md`).
 - **Prop firms et outils : 6 partenaires FICTIFS** (liens `#`, notes inventées) : FundedEdge, Vertex Capital Funding, PipForge Challenge ; ChartLab Pro, MacroPulse Calendar, JournalFX. À remplacer avant toute mise en ligne.
 
 ### Suivi des clics d'affiliation (invisible pour le visiteur)

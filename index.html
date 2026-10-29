@@ -253,12 +253,12 @@ const PARTNERS = [
   // Vrais courtiers : pas de note ni d'avis tant qu'on n'a pas de méthode de notation réelle.
   // logo : chemin du fichier déposé dans assets/logos/ (voir LISEZ-MOI.md) ; vide = initiales.
   // affiliateProgram : nom du programme (non affiché, pour mémoire).
-  { id:'xtb', name:'XTB', type:'broker', rating:null, reviews:0, pros:[], url:'#', cta:'Voir le courtier', regulator:'À vérifier sur REGAFI', regNumber:'', logo:'', affiliateProgram:'XTB Partners' },
-  { id:'etoro', name:'eToro', type:'broker', rating:null, reviews:0, pros:[], url:'#', cta:'Voir le courtier', regulator:'À vérifier sur REGAFI', regNumber:'', logo:'', affiliateProgram:'eToro Partners' },
-  { id:'exness', name:'Exness', type:'broker', rating:null, reviews:0, pros:[], url:'#', cta:'Voir le courtier', regulator:'À vérifier sur REGAFI', regNumber:'', logo:'', affiliateProgram:'Exness Affiliates' },
-  { id:'vantage', name:'Vantage', type:'broker', rating:null, reviews:0, pros:[], url:'#', cta:'Voir le courtier', regulator:'À vérifier sur REGAFI', regNumber:'', logo:'', affiliateProgram:'Vantage Partners' },
-  { id:'avatrade', name:'AvaTrade', type:'broker', rating:null, reviews:0, pros:[], url:'#', cta:'Voir le courtier', regulator:'À vérifier sur REGAFI', regNumber:'', logo:'', affiliateProgram:'AvaPartner' },
-  { id:'xm', name:'XM', type:'broker', rating:null, reviews:0, pros:[], url:'#', cta:'Voir le courtier', regulator:'À vérifier sur REGAFI', regNumber:'', logo:'', affiliateProgram:'XM Partners' },
+  { id:'xtb', name:'XTB', type:'broker', rating:null, reviews:0, pros:[], url:'#', cta:'Voir le courtier', regulator:'À vérifier sur REGAFI', regNumber:'', logo:'assets/logos/xtb.png', affiliateProgram:'XTB Partners' },
+  { id:'etoro', name:'eToro', type:'broker', rating:null, reviews:0, pros:[], url:'#', cta:'Voir le courtier', regulator:'À vérifier sur REGAFI', regNumber:'', logo:'assets/logos/etoro.png', affiliateProgram:'eToro Partners' },
+  { id:'exness', name:'Exness', type:'broker', rating:null, reviews:0, pros:[], url:'#', cta:'Voir le courtier', regulator:'À vérifier sur REGAFI', regNumber:'', logo:'assets/logos/exness.png', affiliateProgram:'Exness Affiliates' },
+  { id:'vantage', name:'Vantage', type:'broker', rating:null, reviews:0, pros:[], url:'#', cta:'Voir le courtier', regulator:'À vérifier sur REGAFI', regNumber:'', logo:'assets/logos/vantage.png', affiliateProgram:'Vantage Partners' },
+  { id:'avatrade', name:'AvaTrade', type:'broker', rating:null, reviews:0, pros:[], url:'#', cta:'Voir le courtier', regulator:'À vérifier sur REGAFI', regNumber:'', logo:'assets/logos/avatrade.png', affiliateProgram:'AvaPartner' },
+  { id:'xm', name:'XM', type:'broker', rating:null, reviews:0, pros:[], url:'#', cta:'Voir le courtier', regulator:'À vérifier sur REGAFI', regNumber:'', logo:'assets/logos/xm.png', affiliateProgram:'XM Partners' },
   { id:'fundededge', name:'FundedEdge', type:'prop', rating:4.5, reviews:2150, pros:['Challenge en 1 ou 2 phases','Partage des profits jusqu\'à 90 %','Drawdown clairement défini'], url:'#', cta:'Démarrer le challenge', regulator:'', regNumber:'' },
   { id:'vertex', name:'Vertex Capital Funding', type:'prop', rating:4.2, reviews:970, pros:['Pas de limite de temps','Scaling du capital','Retraits bimensuels'], url:'#', cta:'Voir les règles', regulator:'', regNumber:'' },
   { id:'pipforge', name:'PipForge Challenge', type:'prop', rating:3.9, reviews:410, pros:["Frais d'entrée abordables",'Règles simples','Communauté active'], url:'#', cta:'Démarrer le challenge', regulator:'', regNumber:'' },
@@ -297,10 +297,10 @@ function trackClick(p) {
   renderAdmin();
 }
 // Pastille aux initiales quand on n'a pas (encore) le logo officiel
-const initialsHtml = p => `<span class="grid h-10 w-10 shrink-0 place-items-center rounded-lg border border-borderSubtle bg-darkBg text-xs font-bold text-slate-300" aria-hidden="true">${esc(p.name.slice(0, 2).toUpperCase())}</span>`;
-// Tuile blanche : les logos officiels sont souvent sombres et illisibles sur le fond de la page
+const initialsHtml = p => `<span class="grid h-12 w-12 shrink-0 place-items-center rounded-lg border border-borderSubtle bg-darkBg text-xs font-bold text-slate-300" aria-hidden="true">${esc(p.name.slice(0, 2).toUpperCase())}</span>`;
+// Tuile blanche 2:1 : les logos sont larges et certains sont sombres, illisibles sur le fond de la page
 const logoHtml = p => p.logo
-  ? `<img src="${esc(p.logo)}" alt="Logo ${esc(p.name)}" data-pid="${p.id}" width="40" height="40" loading="lazy" class="logo h-10 w-10 shrink-0 rounded-lg bg-white object-contain p-1">`
+  ? `<img src="${esc(p.logo)}" alt="Logo ${esc(p.name)}" data-pid="${p.id}" width="96" height="48" loading="lazy" class="logo h-12 w-24 shrink-0 rounded-lg bg-white object-contain">`
   : initialsHtml(p);
 const stars = r => '★'.repeat(Math.round(r)) + '<span class="text-slate-600">' + '★'.repeat(5 - Math.round(r)) + '</span>';
 
