@@ -23,8 +23,13 @@
 <div id="siteHeader"></div>
 
 <!-- TICKER -->
-<div class="ticker bg-deepBg border-b border-borderSubtle py-2.5 overflow-hidden whitespace-nowrap text-xs text-slate-400" aria-label="Cotations simulées">
-  <div id="ticker" class="inline-flex animate-marquee"></div>
+<div class="ticker bg-deepBg border-b border-borderSubtle h-10 flex items-center overflow-hidden whitespace-nowrap text-xs text-slate-400" aria-label="Cotations simulées">
+  <div id="ticker" class="inline-flex shrink-0 animate-marquee"></div>
+</div>
+
+<!-- DÉFILÉ DES LOGOS (même hauteur que le ticker) -->
+<div class="ticker bg-deepBg border-b border-borderSubtle h-10 flex items-center overflow-hidden whitespace-nowrap" aria-label="Courtiers présentés">
+  <div id="logoBand" class="inline-flex shrink-0 items-center animate-marquee"></div>
 </div>
 
 <main id="top">
@@ -350,7 +355,19 @@ function renderAdmin() {
     <tr class="border-t border-borderSubtle font-semibold"><td class="py-1.5" colspan="2">Total</td><td class="text-right">${total}</td></tr></tbody></table>`;
 }
 $('#resetClicks').addEventListener('click', () => { try { localStorage.removeItem(CONFIG.storageKey); } catch {} renderAdmin(); });
-renderFilters(); renderPartners(); renderAdmin();
+
+/* ============ DÉFILÉ DES LOGOS ============ */
+// Logos des courtiers (source : PARTNERS). Chaque moitié doit être plus large que l'écran
+// pour que la boucle soit continue, d'où la répétition ; seule la 1re copie est lue par les lecteurs d'écran.
+function renderLogoBand() {
+  const logos = PARTNERS.filter(p => p.type === 'broker' && p.logo);
+  if (!logos.length) return;
+  const REPEAT = 6;
+  const tile = (p, first) => `<a href="#partenaires" ${first ? '' : 'tabindex="-1" aria-hidden="true"'} class="mx-4 block h-7 w-14 shrink-0"><img src="${esc(p.logo)}" alt="${first ? esc(p.name) : ''}" width="56" height="28" class="h-7 w-14 rounded bg-white object-contain"></a>`;
+  const half = readable => Array.from({ length: REPEAT }, (_, i) => logos.map(p => tile(p, readable && i === 0)).join('')).join('');
+  $('#logoBand').innerHTML = `<div class="flex items-center">${half(true)}</div><div class="flex items-center" aria-hidden="true">${half(false)}</div>`;
+}
+renderFilters(); renderPartners(); renderAdmin(); renderLogoBand();
 </script>
 </body>
 </html>

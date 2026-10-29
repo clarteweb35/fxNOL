@@ -11,6 +11,7 @@ Pages : `index.html` (accueil) + 4 pages légales. HTML + Tailwind CDN + JS vani
 |---|---|---|
 | En-tête | `#top` | Logo « fx NOL », menu de navigation (desktop), slogan « Maîtriser le Forex par la connaissance » |
 | Ticker | — | Bandeau défilant : EUR/USD, GBP/USD, USD/JPY, GBP/JPY, XAU/USD, BTC/USD |
+| Défilé logos | — | Bandeau défilant des logos de brokers, sous le ticker (page d'accueil) |
 | Formation | `#formation` | Quiz de 10 questions |
 | Calculateur | `#calculateur` | Calculateur de taille de lot |
 | Partenaires | `#partenaires` | Grille filtrable de partenaires d'affiliation |
@@ -20,6 +21,10 @@ Pages : `index.html` (accueil) + 4 pages légales. HTML + Tailwind CDN + JS vani
 
 ### Ticker
 - Prix **simulés** (marche aléatoire), pas de vraies cotations. À assumer comme pédagogique ou à brancher sur une API.
+
+### Défilé des logos
+- Bandeau défilant sous le ticker, même hauteur (40 px), avec les logos des brokers qui ont un fichier dans `assets/logos/` (même taille de tuile pour tous). Clic : renvoie à la section Partenaires. Pause au survol, arrêté si l'utilisateur réduit les animations.
+- Alimenté automatiquement par `PARTNERS` : ajouter un logo à un broker l'ajoute au bandeau.
 
 ### Quiz
 - 10 questions mélangées (pips, levier, risque, paires, spread, margin call…).
