@@ -109,7 +109,7 @@ Dépôt GitHub : https://github.com/clarteweb35/fxNOL.git, branche `main`.
 - Ne pas pousser si la vérification échoue : me le dire.
 - Mettre à jour la spec et l'avancement dans le même commit.
 - Cela ne couvre pas les actions destructrices (`push --force`, suppression de branche, réécriture de l'historique) : toujours me demander avant.
-- Pas d'hébergement pour l'instant : le push ne met pas le site en ligne.
+- **Le site est déjà public** : GitHub Pages publie la branche `main` sur https://clarteweb35.github.io/fxNOL/ (chaque push déclenche une mise en ligne). Il contient encore des partenaires fictifs et des pages légales à compléter : à traiter en priorité (voir `.ai/AVANCEMENT.md`).
 
 ## Explication du code
 

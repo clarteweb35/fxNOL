@@ -18,6 +18,10 @@ Dernière mise à jour : 2026-10-29
 - Vérifier les conditions d'utilisation du widget TradingView avant la mise en ligne.
 - **Trading Central** (analyse technique, existe toujours en 2026) : distribué via les courtiers, pas de widget public ; ses niveaux et signaux sont à éviter sur le site (risque de conseil en investissement). Seule idée : le mentionner dans une fiche courtier si celui-ci l'indique lui-même.
 
+## ⚠ Site déjà public (GitHub Pages)
+https://clarteweb35.github.io/fxNOL/ publie `main`. Il montre encore 6 partenaires fictifs avec notes inventées, la phrase « notes éditoriales » et des pages légales incomplètes. Décider : retirer les fictifs et compléter les pages légales, ou mettre le site hors ligne (Settings → Pages) en attendant.
+Constaté le 2026-10-29 : les envois après `b0c8280` n'ont pas déclenché de déploiement (logos, journal et TradingView absents en ligne). À vérifier dans l'onglet Actions du dépôt.
+
 ## Prochaine action
 Compléter les `[À COMPLÉTER]` des pages légales (éditeur, hébergeur, e-mail), puis candidater aux 6 programmes d'affiliation (récupérer liens et logos du kit média) et vérifier chaque courtier sur REGAFI.
 
