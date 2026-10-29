@@ -35,7 +35,9 @@ Pages : `index.html` (accueil) + 4 pages légales. HTML + Tailwind CDN + JS vani
 - Filtres : Tous / Brokers / Prop Firms / Outils.
 - Carte : badge de type, note, nombre d'avis, points forts, champ « agrément » (brokers), bouton d'affiliation.
 - Liens en `rel="sponsored nofollow noopener noreferrer"`, mention « Lien partenaire · publicité » sous chaque bouton, bandeau de transparence au-dessus de la grille.
-- **Les 9 partenaires actuels sont FICTIFS** (liens `#`, notes inventées) : AlphaECN Markets, Meridian Prime, NovaTrade Direct (brokers) ; FundedEdge, Vertex Capital Funding, PipForge Challenge (prop firms) ; ChartLab Pro, MacroPulse Calendar, JournalFX (outils). À remplacer avant toute mise en ligne.
+- **Brokers (réels, 6)** : XTB, eToro, Exness, Vantage, AvaTrade, XM. Sans note ni avis (pas de méthode de notation), carte « Fiche détaillée à venir », agrément « À vérifier sur REGAFI » (à contrôler un par un avant mise en ligne), liens `#` tant que les programmes d'affiliation ne sont pas signés.
+- **Logos** : pastille d'initiales par défaut ; le logo officiel s'affiche dès qu'il est déposé dans `assets/logos/` et déclaré dans `PARTNERS` (voir `assets/logos/LISEZ-MOI.md`). À n'utiliser qu'avec l'accord du programme d'affiliation.
+- **Prop firms et outils : 6 partenaires FICTIFS** (liens `#`, notes inventées) : FundedEdge, Vertex Capital Funding, PipForge Challenge ; ChartLab Pro, MacroPulse Calendar, JournalFX. À remplacer avant toute mise en ligne.
 
 ### Suivi des clics d'affiliation (invisible pour le visiteur)
 - `CONFIG` : `appendUtm`, `trackingEndpoint`, `storageKey`.

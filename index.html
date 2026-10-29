@@ -250,9 +250,15 @@ const CONFIG = {
    - regulator / regNumber : agrément à vérifier sur REGAFI (ex. passeport MiFID II) ; laisse '' pour les outils
    - disclosure : mention spécifique éventuellement exigée par le programme */
 const PARTNERS = [
-  { id:'alphaecn', name:'AlphaECN Markets', type:'broker', rating:4.6, reviews:1280, pros:['Spreads bruts dès 0,0 pip','Exécution ECN rapide','Dépôt minimum 100 $'], url:'#', cta:'Ouvrir un compte', regulator:'À renseigner (REGAFI)', regNumber:'' },
-  { id:'meridian', name:'Meridian Prime', type:'broker', rating:4.4, reviews:860, pros:['Régulation de niveau 1','MT5 et cTrader','Support francophone'], url:'#', cta:"Voir l'offre", regulator:'À renseigner (REGAFI)', regNumber:'' },
-  { id:'novatrade', name:'NovaTrade Direct', type:'broker', rating:4.1, reviews:540, pros:['Compte démo illimité','Micro-lots disponibles','Frais de retrait réduits'], url:'#', cta:'Ouvrir un compte', regulator:'À renseigner (REGAFI)', regNumber:'' },
+  // Vrais courtiers : pas de note ni d'avis tant qu'on n'a pas de méthode de notation réelle.
+  // logo : chemin du fichier déposé dans assets/logos/ (voir LISEZ-MOI.md) ; vide = initiales.
+  // affiliateProgram : nom du programme (non affiché, pour mémoire).
+  { id:'xtb', name:'XTB', type:'broker', rating:null, reviews:0, pros:[], url:'#', cta:'Voir le courtier', regulator:'À vérifier sur REGAFI', regNumber:'', logo:'', affiliateProgram:'XTB Partners' },
+  { id:'etoro', name:'eToro', type:'broker', rating:null, reviews:0, pros:[], url:'#', cta:'Voir le courtier', regulator:'À vérifier sur REGAFI', regNumber:'', logo:'', affiliateProgram:'eToro Partners' },
+  { id:'exness', name:'Exness', type:'broker', rating:null, reviews:0, pros:[], url:'#', cta:'Voir le courtier', regulator:'À vérifier sur REGAFI', regNumber:'', logo:'', affiliateProgram:'Exness Affiliates' },
+  { id:'vantage', name:'Vantage', type:'broker', rating:null, reviews:0, pros:[], url:'#', cta:'Voir le courtier', regulator:'À vérifier sur REGAFI', regNumber:'', logo:'', affiliateProgram:'Vantage Partners' },
+  { id:'avatrade', name:'AvaTrade', type:'broker', rating:null, reviews:0, pros:[], url:'#', cta:'Voir le courtier', regulator:'À vérifier sur REGAFI', regNumber:'', logo:'', affiliateProgram:'AvaPartner' },
+  { id:'xm', name:'XM', type:'broker', rating:null, reviews:0, pros:[], url:'#', cta:'Voir le courtier', regulator:'À vérifier sur REGAFI', regNumber:'', logo:'', affiliateProgram:'XM Partners' },
   { id:'fundededge', name:'FundedEdge', type:'prop', rating:4.5, reviews:2150, pros:['Challenge en 1 ou 2 phases','Partage des profits jusqu\'à 90 %','Drawdown clairement défini'], url:'#', cta:'Démarrer le challenge', regulator:'', regNumber:'' },
   { id:'vertex', name:'Vertex Capital Funding', type:'prop', rating:4.2, reviews:970, pros:['Pas de limite de temps','Scaling du capital','Retraits bimensuels'], url:'#', cta:'Voir les règles', regulator:'', regNumber:'' },
   { id:'pipforge', name:'PipForge Challenge', type:'prop', rating:3.9, reviews:410, pros:["Frais d'entrée abordables",'Règles simples','Communauté active'], url:'#', cta:'Démarrer le challenge', regulator:'', regNumber:'' },
@@ -261,7 +267,7 @@ const PARTNERS = [
   { id:'journalfx', name:'JournalFX', type:'outil', rating:4.5, reviews:1100, pros:['Journal de trading automatisé','Statistiques de performance','Import MT4/MT5'], url:'#', cta:'Essayer gratuitement', regulator:'', regNumber:'' }
 ];
 const NO_LINK = '#'; // partenaire sans lien d'affiliation réel (exemples fictifs)
-const TYPES = { broker:['Broker ECN','border-brandBlue/40 bg-brandBlue/10 text-brandBlue'], prop:['Prop Firm','border-brandGreen/40 bg-brandGreen/10 text-brandGreen'], outil:["Outil d'analyse",'border-slate-500/40 bg-slate-500/10 text-slate-300'] };
+const TYPES = { broker:['Broker','border-brandBlue/40 bg-brandBlue/10 text-brandBlue'], prop:['Prop Firm','border-brandGreen/40 bg-brandGreen/10 text-brandGreen'], outil:["Outil d'analyse",'border-slate-500/40 bg-slate-500/10 text-slate-300'] };
 const FILTERS = [['all','Tous'],['broker','Brokers'],['prop','Prop Firms'],['outil','Outils']];
 let filter = 'all';
 
@@ -290,6 +296,12 @@ function trackClick(p) {
   }
   renderAdmin();
 }
+// Pastille aux initiales quand on n'a pas (encore) le logo officiel
+const initialsHtml = p => `<span class="grid h-10 w-10 shrink-0 place-items-center rounded-lg border border-borderSubtle bg-darkBg text-xs font-bold text-slate-300" aria-hidden="true">${esc(p.name.slice(0, 2).toUpperCase())}</span>`;
+// Tuile blanche : les logos officiels sont souvent sombres et illisibles sur le fond de la page
+const logoHtml = p => p.logo
+  ? `<img src="${esc(p.logo)}" alt="Logo ${esc(p.name)}" data-pid="${p.id}" width="40" height="40" loading="lazy" class="logo h-10 w-10 shrink-0 rounded-lg bg-white object-contain p-1">`
+  : initialsHtml(p);
 const stars = r => '★'.repeat(Math.round(r)) + '<span class="text-slate-600">' + '★'.repeat(5 - Math.round(r)) + '</span>';
 
 function renderFilters() {
@@ -306,16 +318,22 @@ function renderPartners() {
     const reg = p.type === 'broker' ? `<p class="mt-3 text-[11px] text-slate-500">Agrément : ${esc(p.regulator || 'à renseigner')}${p.regNumber ? ' · n° ' + esc(p.regNumber) : ''}</p>` : '';
     return `<article class="flex flex-col rounded-xl border border-borderSubtle bg-cardBg p-5 transition hover:border-brandBlue/60">
       <div class="flex items-start justify-between gap-3">
-        <h3 class="font-heading text-lg font-semibold leading-tight text-white">${esc(p.name)}</h3>
+        <div class="flex items-center gap-3">${logoHtml(p)}<h3 class="font-heading text-lg font-semibold leading-tight text-white">${esc(p.name)}</h3></div>
         <span class="shrink-0 rounded-full border px-2.5 py-1 text-[11px] font-semibold ${cls}">${label}</span>
       </div>
-      <div class="mt-3 flex items-center gap-2 text-sm"><span class="text-yellow-300" aria-hidden="true">${stars(p.rating)}</span><span class="font-semibold">${p.rating.toFixed(1)}</span><span class="text-slate-500">(${p.reviews.toLocaleString('fr-FR')} avis)</span></div>
-      <ul class="mt-4 flex-1 space-y-2 text-sm text-slate-300">${p.pros.map(x => `<li class="flex gap-2"><span class="text-brandGreen">✓</span><span>${esc(x)}</span></li>`).join('')}</ul>
+      ${p.rating ? `<div class="mt-3 flex items-center gap-2 text-sm"><span class="text-yellow-300" aria-hidden="true">${stars(p.rating)}</span><span class="font-semibold">${p.rating.toFixed(1)}</span><span class="text-slate-500">(${p.reviews.toLocaleString('fr-FR')} avis)</span></div>` : ''}
+      ${p.pros.length
+        ? `<ul class="mt-4 flex-1 space-y-2 text-sm text-slate-300">${p.pros.map(x => `<li class="flex gap-2"><span class="text-brandGreen">✓</span><span>${esc(x)}</span></li>`).join('')}</ul>`
+        : '<p class="mt-4 flex-1 text-sm text-slate-500">Fiche détaillée à venir.</p>'}
       ${reg}
       <a href="${esc(buildUrl(p))}" data-pid="${p.id}" target="_blank" rel="sponsored nofollow noopener noreferrer" class="aff mt-4 block rounded-lg bg-brandBlue px-4 py-2.5 text-center text-sm font-semibold text-white transition hover:bg-sky-600">${esc(p.cta)} →</a>
       <p class="mt-2 text-center text-[10px] uppercase tracking-wide text-slate-500">${SITE.affiliateLabel}</p>
     </article>`;
   }).join('');
+  // Logo introuvable (fichier absent) : on retombe sur les initiales
+  $$('img.logo').forEach(img => img.addEventListener('error', () => {
+    img.outerHTML = initialsHtml(PARTNERS.find(x => x.id === img.dataset.pid));
+  }));
   $$('.aff').forEach(a => a.addEventListener('click', e => {
     const p = PARTNERS.find(x => x.id === a.dataset.pid);
     if (a.getAttribute('href') === NO_LINK) e.preventDefault();
