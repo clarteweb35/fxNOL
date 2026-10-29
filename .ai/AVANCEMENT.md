@@ -12,13 +12,12 @@ Dernière mise à jour : 2026-10-29
 
 - Page `journal.html` : calendrier économique TradingView, chargé après clic (option A).
 
-- Page `school.html` (fxNOL School) : 4 modules, 15 leçons, laboratoire interactif, module cryptos.
+- Page `school.html` (fxNOL School) : 4 modules, 21 leçons en 2 niveaux (Débutant / Pro), mini-quiz par module, laboratoire (Bollinger, RSI, stochastique, MACD, moyenne mobile). Contenu dans `assets/school-data.js`. ETH/USD ajouté au ticker.
 
 ## Idées en réserve (fxNOL School)
-- Leçons à ajouter : stochastique, Fibonacci, volumes, psychologie du trader, ordres (marché / limite / stop), fiscalité des cryptos (sources officielles).
-- Mini-quiz à la fin de chaque module ; brancher le quiz de l'accueil sur les leçons.
-- Cryptos : ETH/USD dans le ticker et le calculateur ; section partenaires crypto seulement après vérification du statut (AMF / MiCA) de chaque prestataire.
-- Faire relire le module crypto par un juriste (cadre réglementaire évolutif).
+- Brancher le quiz de l'accueil sur les leçons ; plus de leçons (ichimoku, ATR, ordres avancés, gestion de portefeuille).
+- Section partenaires crypto seulement après vérification du statut (AMF / MiCA) de chaque prestataire.
+- Faire relire le module crypto et la leçon fiscalité par un juriste (cadre évolutif) ; faire relire les textes Débutant par un vrai débutant.
 
 ## Idées en réserve (journal du jour)
 - **B** : calendrier automatique via API gratuite + tâche GitHub planifiée qui écrit un fichier de données chaque matin (pas de script tiers). Vérifier les conditions de l'API (gratuité, réaffichage).

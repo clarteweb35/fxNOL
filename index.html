@@ -149,7 +149,8 @@ const MARKET = {
   'EUR/JPY': { price: 168.30,  dec: 2, ticker: false, calc: true,  pip: pipJpy },
   'GBP/JPY': { price: 196.30,  dec: 2, ticker: true,  calc: true,  pip: pipJpy },
   'XAU/USD': { price: 2335.80, dec: 2, ticker: true,  calc: true,  pip: () => PIP_USD }, // or : 100 oz × 0,10 $
-  'BTC/USD': { price: 67450,   dec: 0, ticker: true,  calc: false, pip: null }
+  'BTC/USD': { price: 67450,   dec: 0, ticker: true,  calc: false, pip: null, crypto: true },
+  'ETH/USD': { price: 3450,    dec: 2, ticker: true,  calc: false, pip: null, crypto: true }
 };
 Object.values(MARKET).forEach(m => m.open = m.price);
 const TICKER = Object.keys(MARKET).filter(s => MARKET[s].ticker);
@@ -166,7 +167,7 @@ renderTicker();
 // Les prix bougent et le ticker se redessine au même rythme. Le calculateur, lui, ne se
 // recalcule que sur une action de l'utilisateur (sinon les résultats bougent pendant la lecture).
 setInterval(() => {
-  Object.entries(MARKET).forEach(([s, m]) => { m.price *= 1 + (Math.random() - .5) * (s === 'BTC/USD' ? .0014 : .0003); });
+  Object.entries(MARKET).forEach(([s, m]) => { m.price *= 1 + (Math.random() - .5) * (m.crypto ? .0014 : .0003); });
   renderTicker();
 }, 2500);
 
