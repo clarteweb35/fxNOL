@@ -18,12 +18,14 @@ const SITE = {
     ['index.html#formation', 'Formation & Quiz'],
     ['index.html#calculateur', 'Calculateur de Risque'],
     ['index.html#partenaires', 'Partenaires'],
+    ['journal.html', 'Journal du jour'],
     ['index.html#risques', 'Risques']
   ],
   footerNav: [
     ['index.html#formation', 'Quiz'],
     ['index.html#calculateur', 'Calculateur'],
     ['index.html#partenaires', 'Partenaires'],
+    ['journal.html', 'Journal du jour'],
     ['index.html#top', 'Haut de page']
   ],
   legalNav: [

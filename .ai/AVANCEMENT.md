@@ -10,6 +10,13 @@ Dernière mise à jour : 2026-10-29
 - 4 pages légales créées (squelettes à compléter).
 - Onglet Partenaires : 6 vrais courtiers (XTB, eToro, Exness, Vantage, AvaTrade, XM) à la place des brokers fictifs ; logos des 6 courtiers en place (`assets/logos/`, à remplacer par les kits officiels après acceptation des programmes).
 
+- Page `journal.html` : calendrier économique TradingView, chargé après clic (option A).
+
+## Idées en réserve (journal du jour)
+- **B** : calendrier automatique via API gratuite + tâche GitHub planifiée qui écrit un fichier de données chaque matin (pas de script tiers). Vérifier les conditions de l'API (gratuité, réaffichage).
+- **C** : note du jour rédigée à la main sous le calendrier (factuelle, sans prédiction).
+- Vérifier les conditions d'utilisation du widget TradingView avant la mise en ligne.
+
 ## Prochaine action
 Compléter les `[À COMPLÉTER]` des pages légales (éditeur, hébergeur, e-mail), puis candidater aux 6 programmes d'affiliation (récupérer liens et logos du kit média) et vérifier chaque courtier sur REGAFI.
 

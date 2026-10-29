@@ -26,6 +26,12 @@ Pages : `index.html` (accueil) + 4 pages légales. HTML + Tailwind CDN + JS vani
 - Bandeau défilant sous le ticker, même hauteur (40 px), avec les logos des brokers qui ont un fichier dans `assets/logos/` (même taille de tuile pour tous). Clic : renvoie à la section Partenaires. Pause au survol, arrêté si l'utilisateur réduit les animations.
 - Alimenté automatiquement par `PARTNERS` : ajouter un logo à un broker l'ajoute au bandeau.
 
+### Journal du jour (`journal.html`)
+- Page accessible depuis le menu et le footer : date du jour, calendrier économique **TradingView** (publications du jour, impact, précédent, prévision, résultat), explication de chaque colonne, avertissement (pas de conseil, pas de prédiction de sens).
+- Le widget n'est chargé qu'après un clic sur « Afficher le calendrier » (message d'information avant). Mentionné dans la politique de confidentialité.
+- Réglages du widget dans la constante `CALENDAR` de la page.
+- **Options en réserve** : (B) calendrier automatique via une API gratuite, enregistré chaque matin dans un fichier de données par une tâche GitHub, sans script tiers ; (C) note du jour rédigée à la main, à ajouter sous le calendrier. Contenu toujours factuel, sans prédiction.
+
 ### Quiz
 - 10 questions mélangées (pips, levier, risque, paires, spread, margin call…).
 - Correction immédiate avec explication, barre de progression, score final avec niveau, bouton « Recommencer ».
