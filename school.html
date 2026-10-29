@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>fxNOL School — Apprendre le trading — fxNOL</title>
+<meta name="description" content="fxNOL School : apprendre à lire un graphique, les indicateurs (Bollinger, RSI, MACD, moyennes mobiles), la gestion du risque et les bases des cryptos. Contenu éducatif.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="assets/tailwind-config.js"></script>
+<style>
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior:auto; } }
+  details > summary { list-style:none; }
+  details > summary::-webkit-details-marker { display:none; }
+  details[open] .chev { transform:rotate(90deg); }
+</style>
+</head>
+<body class="bg-darkBg text-slate-100 font-sans antialiased selection:bg-brandBlue selection:text-white">
+<div id="siteHeader"></div>
+
+<main id="top">
+  <!-- Introduction -->
+  <section class="max-w-4xl mx-auto px-6 pt-16 pb-10">
+    <p class="text-sm font-medium text-brandBlue mb-3">Formation gratuite et éducative</p>
+    <h1 class="font-heading text-3xl md:text-5xl font-bold text-white mb-4">fx<span class="text-brandBlue">NOL</span> School</h1>
+    <p class="text-slate-400 max-w-2xl leading-relaxed">Apprendre à lire un graphique, comprendre les indicateurs les plus utilisés (Bollinger, RSI, MACD, moyennes mobiles), gérer son risque, et découvrir les bases des cryptos. Chaque leçon explique <strong class="text-slate-200">ce que l'outil mesure</strong>, <strong class="text-slate-200">comment le lire</strong> et surtout <strong class="text-slate-200">où il se trompe</strong>.</p>
+    <p class="mt-6 rounded-lg border border-brandBlue/30 bg-brandBlue/5 px-4 py-3 text-xs text-slate-300">Contenu éducatif. Aucun indicateur ne prédit l'avenir et aucun ne garantit un gain. Rien ici n'est un conseil en investissement. Pour vous exercer, restez en compte démo tant que les notions ne sont pas acquises.</p>
+    <nav id="moduleNav" class="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4" aria-label="Modules de la formation"></nav>
+  </section>
+
+  <!-- Graphique interactif -->
+  <section id="labo" class="py-16 border-t border-borderSubtle bg-altBg">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="font-heading text-2xl font-bold text-white mb-2">Le laboratoire : testez les indicateurs</h2>
+      <p class="text-sm text-slate-400 mb-6">Un faux marché est généré au hasard. Activez un indicateur, changez la volatilité, relancez une simulation : observez comment chaque outil réagit. <strong class="text-slate-300">Les données sont simulées, pas de vrais prix.</strong></p>
+
+      <div class="rounded-xl border border-borderSubtle bg-cardBg p-4 md:p-6">
+        <div class="flex flex-wrap items-center gap-x-6 gap-y-3 mb-4 text-sm text-slate-300">
+          <label class="inline-flex items-center gap-2"><input id="optSma" type="checkbox" class="accent-sky-500"> Moyenne mobile (20)</label>
+          <label class="inline-flex items-center gap-2"><input id="optBoll" type="checkbox" class="accent-sky-500" checked> Bandes de Bollinger (20, 2)</label>
+          <label class="inline-flex items-center gap-2"><input id="optRsi" type="checkbox" class="accent-sky-500" checked> RSI (14)</label>
+        </div>
+        <div class="flex flex-wrap items-center gap-3 mb-4 text-sm">
+          <label class="inline-flex items-center gap-2 text-slate-300">Volatilité
+            <select id="optVol" class="rounded-lg bg-darkBg border border-borderSubtle px-3 py-2 text-slate-100 focus:outline-none focus:border-brandBlue">
+              <option value="0.4">Calme</option><option value="0.8" selected>Normale</option><option value="1.6">Agitée</option>
+            </select></label>
+          <button id="optNew" type="button" class="px-4 py-2 rounded-lg bg-brandBlue text-white font-semibold text-sm hover:bg-sky-600 transition-all">Nouvelle simulation</button>
+        </div>
+        <div id="chartBox" class="overflow-x-auto"></div>
+        <p id="chartReading" class="mt-4 rounded-lg bg-darkBg border border-borderSubtle px-4 py-3 text-xs leading-relaxed text-slate-300" aria-live="polite"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Leçons -->
+  <section class="py-16 border-t border-borderSubtle">
+    <div id="modules" class="max-w-4xl mx-auto px-6 space-y-14"></div>
+  </section>
+
+  <!-- Suite -->
+  <section class="py-16 border-t border-borderSubtle bg-altBg">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <h2 class="font-heading text-2xl font-bold text-white mb-3">Testez ce que vous avez appris</h2>
+      <p class="text-sm text-slate-400 mb-6">Le quiz corrige chaque réponse avec une explication, et le calculateur vous aide à dimensionner une position selon votre risque.</p>
+      <div class="flex flex-col sm:flex-row justify-center gap-3">
+        <a href="index.html#formation" class="px-6 py-3 rounded-lg bg-brandBlue text-white font-semibold text-sm hover:bg-sky-600 transition-all">Faire le quiz</a>
+        <a href="index.html#calculateur" class="px-6 py-3 rounded-lg bg-cardBg border border-borderSubtle text-slate-300 font-semibold text-sm hover:text-white transition-all">Ouvrir le calculateur</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="siteFooter"></div>
+<script src="assets/site.js"></script>
+<script>
+'use strict';
+
+/* ============ CONTENU DE LA FORMATION (source unique) ============
+   Chaque leçon : id, module, title, summary, what (principe), how (comment le lire), limits (ses limites).
+   formula et link sont facultatifs. Pour ajouter une leçon, ajouter un objet ici. */
+const MODULES = [
+  { id:'graphique',  title:'Lire un graphique', intro:'Avant tout indicateur, savoir lire le prix lui-même.' },
+  { id:'indicateurs', title:'Les indicateurs',  intro:'Des calculs faits sur les prix passés pour mieux les lire. Ils décrivent, ils ne prédisent pas.' },
+  { id:'risque',     title:'Gérer son risque',   intro:'Ce qui distingue un trader qui dure de celui qui disparaît.' },
+  { id:'crypto',     title:'Les cryptos',        intro:'Un univers à part : ouvert 24 h/24, très volatil, et un cadre réglementaire encore récent.' }
+];
+
+const LESSONS = [
+  // ---- Lire un graphique ----
+  { id:'chandeliers', module:'graphique', title:'Les chandeliers japonais',
+    summary:'Résumer une période de prix en une seule bougie.',
+    what:"Une bougie résume une période (une minute, une heure, un jour…) avec quatre prix : ouverture, plus haut, plus bas et clôture. Le corps va de l'ouverture à la clôture, les mèches montrent les extrêmes atteints.",
+    how:["Corps de la couleur « haussière » : la clôture est au-dessus de l'ouverture. Couleur « baissière » : l'inverse.","Un corps long indique un mouvement net sur la période ; un corps court, une indécision.","Une longue mèche montre que le prix est allé loin avant de revenir."],
+    limits:["Une bougie seule n'est pas un signal : seul le contexte (tendance, niveaux) lui donne un sens.","Les noms de figures (marteau, étoile…) décrivent le passé ; ils ne garantissent pas la suite."] },
+  { id:'tendance', module:'graphique', title:'Tendance, supports et résistances',
+    summary:'Repérer la direction générale et les zones où le prix a réagi.',
+    what:"Une tendance haussière est une suite de sommets et de creux de plus en plus hauts ; baissière, de plus en plus bas ; sinon le marché est « en range ». Un support est une zone où le prix a déjà rebondi, une résistance une zone où il a déjà buté.",
+    how:["Tracer les zones là où le prix a réagi plusieurs fois.","Observer si les sommets et creux successifs montent, descendent ou stagnent.","Comparer plusieurs unités de temps : la tendance du graphique journalier donne le cadre."],
+    limits:["Ce sont des zones, pas des lignes exactes : deux personnes ne les tracent jamais pareil.","Un niveau cassé n'annonce pas toujours la suite : les fausses cassures sont fréquentes."] },
+  { id:'unites-temps', module:'graphique', title:"Les unités de temps",
+    summary:"Le même marché ne raconte pas la même histoire à toutes les échelles.",
+    what:"Une unité de temps correspond à la durée d'une bougie : M1 (1 minute), H1 (1 heure), D1 (1 jour)… Plus l'unité est courte, plus il y a de bruit.",
+    how:["Commencer par une unité longue pour voir le contexte, puis descendre pour affiner.","Rester cohérent : choisir une ou deux unités et s'y tenir.","Vérifier que les indicateurs sont paramétrés pour l'unité choisie : un RSI de 14 périodes ne dit pas la même chose en M5 et en D1."],
+    limits:["Multiplier les unités de temps peut donner des messages contradictoires et paralyser la décision."] },
+
+  // ---- Indicateurs ----
+  { id:'moyennes-mobiles', module:'indicateurs', title:'Les moyennes mobiles',
+    summary:'Lisser le prix pour mieux voir la tendance.',
+    what:"La moyenne mobile simple (SMA) est la moyenne des N dernières clôtures. La moyenne exponentielle (EMA) donne plus de poids aux prix récents. Les périodes 20, 50 et 200 sont des conventions très répandues.",
+    formula:"SMA(N) = (somme des N dernières clôtures) ÷ N",
+    how:["Prix au-dessus de la moyenne et moyenne qui monte : contexte plutôt haussier.","Une moyenne courte qui croise une moyenne longue est souvent utilisée pour repérer un changement de tendance.","La pente de la moyenne est plus informative que sa position."],
+    limits:["Elle est calculée sur le passé : elle réagit toujours avec retard.","En marché sans tendance (« range »), les croisements multiplient les faux signaux."] },
+  { id:'bollinger', module:'indicateurs', title:'Les bandes de Bollinger',
+    summary:'Mesurer si le marché est calme ou agité par rapport à sa moyenne.',
+    what:"Trois lignes : une moyenne mobile simple (en général sur 20 périodes) au centre, et deux bandes placées à 2 écarts-types au-dessus et en dessous. Les bandes s'élargissent quand la volatilité augmente et se resserrent quand elle baisse.",
+    formula:"Bande haute = SMA(20) + 2 × écart-type(20)   ·   Bande basse = SMA(20) − 2 × écart-type(20)",
+    how:["Bandes resserrées : marché calme, qui précède souvent une phase plus agitée (sans en donner le sens).","Bandes écartées : forte volatilité.","Dans la zone centrale, la moyenne sert de repère de prix « moyen » récent."],
+    limits:["Toucher une bande n'est pas un signal d'achat ou de vente : dans une tendance forte, le prix peut longer une bande très longtemps.","L'indicateur mesure la volatilité, pas la direction.","Les valeurs (20 et 2) sont des réglages par défaut, pas des vérités."] },
+  { id:'rsi', module:'indicateurs', title:'Le RSI (Relative Strength Index)',
+    summary:'Comparer la force des hausses récentes à celle des baisses.',
+    what:"Le RSI oscille entre 0 et 100. Il compare la moyenne des hausses à la moyenne des baisses sur une période, 14 le plus souvent. Par convention, au-dessus de 70 on parle de zone de « surachat », en dessous de 30 de « survente ».",
+    formula:"RSI = 100 − 100 ÷ (1 + RS)   avec   RS = moyenne des hausses ÷ moyenne des baisses (14 périodes)",
+    how:["Autour de 50 : rapport de force équilibré.","Au-dessus de 70 : les hausses récentes ont dominé nettement ; en dessous de 30 : les baisses.","Comparer le RSI et le prix : un prix qui monte quand le RSI ne suit pas s'appelle une divergence, à regarder avec prudence."],
+    limits:["« Surachat » ne veut pas dire « va baisser » : en forte tendance, le RSI reste longtemps au-dessus de 70 (ou sous 30).","Sensible à la période choisie et à l'unité de temps."] },
+  { id:'macd', module:'indicateurs', title:'Le MACD',
+    summary:"Suivre l'écart entre deux moyennes exponentielles.",
+    what:"Le MACD est la différence entre une EMA courte (12) et une EMA longue (26). Une « ligne de signal » (EMA 9 du MACD) le lisse, et l'histogramme montre l'écart entre les deux.",
+    formula:"MACD = EMA(12) − EMA(26)   ·   Signal = EMA(9) du MACD   ·   Histogramme = MACD − Signal",
+    how:["MACD au-dessus de zéro : la moyenne courte est au-dessus de la longue, contexte plutôt haussier ; en dessous : l'inverse.","Un croisement du MACD et de sa ligne de signal est un repère d'accélération ou de ralentissement.","Un histogramme qui rétrécit indique un élan qui faiblit."],
+    limits:["Indicateur retardé, construit sur des moyennes elles-mêmes retardées.","Nombreux faux signaux quand le marché stagne."] },
+
+  // ---- Gestion du risque ----
+  { id:'stop-loss', module:'risque', title:'Stop loss et ratio risque / rendement',
+    summary:"Décider à l'avance combien on accepte de perdre.",
+    what:"Un stop loss est un ordre qui clôture la position si le prix atteint un niveau défini à l'avance. Le ratio risque/rendement compare la perte acceptée au gain visé : un ratio de 1:2 vise 2 pour 1 risqué.",
+    how:["Fixer le stop avant d'entrer, selon le graphique, jamais selon la somme qu'on « voudrait » perdre.","Avec un ratio 1:2, environ un trade sur trois gagnant suffit à l'équilibre, hors frais.","Ne pas déplacer le stop pour « laisser une chance au trade »."],
+    limits:["Un stop peut être exécuté à un prix moins favorable lors de mouvements rapides (« slippage »).","Un bon ratio ne compense pas un taux de réussite très faible."] },
+  { id:'taille-position', module:'risque', title:'La taille de position',
+    summary:'Risquer un petit pourcentage du capital par trade.',
+    what:"La taille de position se calcule à partir du capital, du pourcentage de risque (1 à 2 % chez les traders prudents) et de la distance du stop loss en pips.",
+    formula:"Taille de lot = risque en $ ÷ (stop loss en pips × valeur du pip par lot)",
+    how:["Déterminer le risque en $ : capital × pourcentage de risque.","Mesurer la distance du stop en pips.","Utiliser le calculateur du site pour obtenir la taille de lot."],
+    limits:["La valeur du pip du calculateur est une estimation : à vérifier dans votre plateforme.","Le levier ne réduit pas le risque : il agrandit la taille des positions possibles."],
+    link:["index.html#calculateur","Ouvrir le calculateur"] },
+  { id:'plan-trading', module:'risque', title:'Le plan de trading',
+    summary:"Écrire ses règles pour ne pas improviser sous pression.",
+    what:"Un plan de trading décrit à l'avance : quels marchés, quelles unités de temps, quelles conditions d'entrée, où placer le stop, quel risque par trade, quand arrêter la journée.",
+    how:["Écrire le plan avant de trader, en une page.","Noter chaque trade : raison, risque, résultat, émotion ressentie.","Relire ses notes chaque semaine et ne changer qu'une règle à la fois."],
+    limits:["Un plan n'élimine pas les pertes : il sert à les garder sous contrôle.","Un plan non testé en compte démo reste une hypothèse."] },
+
+  // ---- Cryptos ----
+  { id:'crypto-bases', module:'crypto', title:"Qu'est-ce qu'une crypto-monnaie ?",
+    summary:'Un actif numérique enregistré sur une blockchain.',
+    what:"Une crypto-monnaie (ou crypto-actif) est un actif numérique dont les transactions sont enregistrées dans un registre partagé, la blockchain. Bitcoin, créé en 2009, est la première ; Ethereum est une autre très connue. Il en existe des milliers, de nature très différente.",
+    how:["Distinguer les grandes cryptos (Bitcoin, Ethereum) des milliers de petits projets, bien plus risqués.","Se demander qui émet l'actif, à quoi il sert et comment son prix se forme.","Les prix s'expriment en général en paire, comme BTC/USD : même logique de lecture qu'une paire de devises."],
+    limits:["Une crypto n'a pas de valeur « garantie » : son prix dépend de l'offre et de la demande.","Beaucoup de projets disparaissent. Le succès d'un projet passé ne garantit rien pour les autres."] },
+  { id:'forex-vs-crypto', module:'crypto', title:'Forex et cryptos : les différences',
+    summary:'Ce qui change quand on passe des devises aux cryptos.',
+    what:"Le marché des changes est ouvert 24 h/24 du lundi au vendredi ; celui des cryptos fonctionne 24 h/24 et 7 j/7. Les cryptos sont en général bien plus volatiles que les grandes paires de devises, et leurs prix peuvent différer d'une plateforme à l'autre.",
+    how:["Prévoir un risque par position plus faible : des mouvements de plusieurs pourcents en quelques heures sont possibles.","Les indicateurs (Bollinger, RSI, MACD) se lisent de la même façon, mais les réglages standards sont souvent dépassés par la volatilité.","Acheter la crypto elle-même et prendre un CFD dessus sont deux choses différentes : le CFD est un produit à levier, très risqué."],
+    limits:["Un marché ouvert en continu oblige à gérer le risque la nuit et le week-end (stops, taille de position).","Moins d'historique et moins de règles qu'en Forex : plus d'incertitude."] },
+  { id:'crypto-conservation', module:'crypto', title:'Où et comment conserver ses cryptos',
+    summary:'Plateforme ou portefeuille personnel : qui détient les clés ?',
+    what:"Sur une plateforme d'échange, c'est elle qui conserve vos cryptos pour vous. Avec un portefeuille personnel (« wallet »), vous détenez vous-même les clés privées qui donnent accès aux fonds.",
+    how:["Activer la double authentification et utiliser un mot de passe unique et long.","Ne jamais communiquer sa phrase de récupération : aucun service sérieux ne la demande.","Ne conserver sur une plateforme que ce dont on a besoin pour échanger."],
+    limits:["Clés privées perdues : fonds perdus, sans recours possible.","Plateforme défaillante ou piratée : les fonds peuvent être perdus ou gelés."] },
+  { id:'crypto-risques', module:'crypto', title:'Risques et arnaques',
+    summary:'Reconnaître les pièges les plus fréquents.',
+    what:"Les cryptos concentrent un grand nombre d'arnaques : fausses plateformes, faux « conseillers », usurpations de comptes, promesses de rendements garantis. Les variations de prix peuvent aussi faire perdre l'essentiel d'un capital.",
+    how:["Se méfier de toute promesse de gain garanti, de « rendement sans risque » ou de pression pour agir vite.","Ne jamais envoyer de fonds à une personne rencontrée en ligne qui propose de « les faire fructifier ».","Vérifier l'adresse exacte du site avant de saisir un mot de passe (hameçonnage)."],
+    limits:["Même un projet légitime peut perdre l'essentiel de sa valeur.","Ne placez que de l'argent que vous pouvez vous permettre de perdre."] },
+  { id:'crypto-cadre', module:'crypto', title:'Le cadre réglementaire en France',
+    summary:"Vérifier qu'un prestataire est autorisé avant de lui confier de l'argent.",
+    what:"En Europe, les prestataires de services sur crypto-actifs sont encadrés : en France, un régime national (PSAN) a existé avant la mise en place d'un régime européen (règlement MiCA). Les règles et les listes évoluent : ce paragraphe est un repère, pas un conseil juridique.",
+    how:["Avant d'ouvrir un compte, chercher le prestataire sur les listes publiées par l'AMF et vérifier son statut.","Consulter aussi les listes de sites non autorisés signalés par l'AMF.","Se renseigner sur la fiscalité des cryptos auprès de sources officielles : elle existe et évolue."],
+    limits:["Être enregistré ou agréé ne signifie pas que les gains sont garantis, ni que les fonds sont protégés comme des dépôts bancaires.","La situation exacte est à vérifier auprès des sources officielles à la date où vous lisez."] }
+];
+
+/* ============ AFFICHAGE DES LEÇONS ============ */
+const list = items => `<ul class="mt-2 space-y-2">${items.map(x => `<li class="flex gap-2"><span class="mt-0.5 text-brandBlue">•</span><span>${esc(x)}</span></li>`).join('')}</ul>`;
+
+function lessonHtml(l) {
+  return `<details id="${l.id}" class="rounded-xl border border-borderSubtle bg-cardBg">
+    <summary class="flex cursor-pointer items-start gap-3 p-5">
+      <span class="chev mt-1 text-brandBlue transition-transform" aria-hidden="true">▶</span>
+      <span><span class="block font-heading text-lg font-semibold text-white">${esc(l.title)}</span><span class="mt-1 block text-sm text-slate-400">${esc(l.summary)}</span></span>
+    </summary>
+    <div class="border-t border-borderSubtle p-5 text-sm leading-relaxed text-slate-300 space-y-5">
+      <div><p class="text-xs font-semibold uppercase tracking-wide text-slate-500">Le principe</p><p class="mt-1">${esc(l.what)}</p>
+        ${l.formula ? `<p class="mt-3 rounded-lg border border-borderSubtle bg-darkBg px-3 py-2 font-mono text-xs text-brandBlue">${esc(l.formula)}</p>` : ''}</div>
+      <div><p class="text-xs font-semibold uppercase tracking-wide text-slate-500">Comment le lire</p>${list(l.how)}</div>
+      <div><p class="text-xs font-semibold uppercase tracking-wide text-red-300">Ses limites</p>${list(l.limits)}</div>
+      ${l.link ? `<a href="${l.link[0]}" class="inline-block rounded-lg bg-brandBlue px-4 py-2 text-xs font-semibold text-white hover:bg-sky-600">${esc(l.link[1])}</a>` : ''}
+    </div>
+  </details>`;
+}
+
+$('#modules').innerHTML = MODULES.map((m, i) => `<section id="${m.id}" aria-labelledby="h-${m.id}">
+  <p class="text-xs font-semibold text-brandBlue">Module ${i + 1}</p>
+  <h2 id="h-${m.id}" class="font-heading text-2xl font-bold text-white">${esc(m.title)}</h2>
+  <p class="mt-1 mb-5 text-sm text-slate-400">${esc(m.intro)}</p>
+  ${m.id === 'crypto' ? '<p class="mb-5 rounded-lg border border-red-400/30 bg-red-400/5 px-4 py-3 text-xs text-slate-300"><strong class="text-red-300">Attention :</strong> les cryptos sont des actifs très volatils et peuvent perdre l\'essentiel de leur valeur. Ce module est éducatif : il ne recommande ni crypto, ni plateforme.</p>' : ''}
+  <div class="space-y-3">${LESSONS.filter(l => l.module === m.id).map(lessonHtml).join('')}</div>
+</section>`).join('');
+
+$('#moduleNav').innerHTML = MODULES.map((m, i) => `<a href="#${m.id}" class="rounded-xl border border-borderSubtle bg-cardBg p-4 transition hover:border-brandBlue">
+  <span class="text-xs font-semibold text-brandBlue">Module ${i + 1}</span>
+  <span class="mt-1 block font-heading font-semibold text-white">${esc(m.title)}</span>
+  <span class="mt-1 block text-xs text-slate-500">${LESSONS.filter(l => l.module === m.id).length} leçons</span></a>`).join('');
+
+// Un lien du type school.html#rsi ouvre directement la leçon
+function openFromHash() {
+  const d = location.hash && document.getElementById(location.hash.slice(1));
+  if (d && d.tagName === 'DETAILS') { d.open = true; d.scrollIntoView(); }
+}
+window.addEventListener('hashchange', openFromHash);
+openFromHash();
+
+/* ============ LABORATOIRE : GRAPHIQUE SIMULÉ ============ */
+const N = 120, W = 640, H_PRICE = 240, H_RSI = 90, PAD = 8;
+
+// Marche aléatoire : sigma = écart-type de la variation par bougie, en %
+function gaussian() { return Math.sqrt(-2 * Math.log(1 - Math.random())) * Math.cos(2 * Math.PI * Math.random()); }
+function genSeries(sigmaPct) {
+  const s = [100];
+  for (let i = 1; i < N; i++) s.push(s[i - 1] * (1 + gaussian() * sigmaPct / 100));
+  return s;
+}
+const sma = (a, n) => a.map((_, i) => i < n - 1 ? null : a.slice(i - n + 1, i + 1).reduce((x, y) => x + y, 0) / n);
+const stdev = (a, n) => a.map((_, i) => {
+  if (i < n - 1) return null;
+  const w = a.slice(i - n + 1, i + 1), m = w.reduce((x, y) => x + y, 0) / n;
+  return Math.sqrt(w.reduce((x, y) => x + (y - m) ** 2, 0) / n);
+});
+// RSI de Wilder : moyennes lissées des hausses et des baisses
+function rsi(a, n) {
+  const out = Array(a.length).fill(null);
+  let gain = 0, loss = 0;
+  for (let i = 1; i <= n; i++) { const d = a[i] - a[i - 1]; gain += Math.max(d, 0); loss += Math.max(-d, 0); }
+  gain /= n; loss /= n;
+  const val = () => loss === 0 ? 100 : 100 - 100 / (1 + gain / loss);
+  out[n] = val();
+  for (let i = n + 1; i < a.length; i++) {
+    const d = a[i] - a[i - 1];
+    gain = (gain * (n - 1) + Math.max(d, 0)) / n;
+    loss = (loss * (n - 1) + Math.max(-d, 0)) / n;
+    out[i] = val();
+  }
+  return out;
+}
+
+let series = genSeries(0.8);
+const xAt = i => PAD + i * (W - 2 * PAD) / (N - 1);
+// Trace une ligne en sautant les valeurs absentes (début des indicateurs)
+const path = (vals, y) => vals.map((v, i) => v == null ? '' : `${path.started(vals, i) ? 'M' : 'L'}${xAt(i).toFixed(1)},${y(v).toFixed(1)}`).join('');
+path.started = (vals, i) => i === 0 || vals[i - 1] == null;
+
+function renderChart() {
+  const useSma = $('#optSma').checked, useBoll = $('#optBoll').checked, useRsi = $('#optRsi').checked;
+  const mid = sma(series, 20), sd = stdev(series, 20);
+  const up = mid.map((m, i) => m == null ? null : m + 2 * sd[i]);
+  const lo = mid.map((m, i) => m == null ? null : m - 2 * sd[i]);
+  const all = series.concat(useBoll ? up.filter(v => v != null).concat(lo.filter(v => v != null)) : []);
+  const min = Math.min(...all), max = Math.max(...all), span = (max - min) || 1;
+  const y = v => PAD + (max - v) / span * (H_PRICE - 2 * PAD);
+
+  let svg = `<svg viewBox="0 0 ${W} ${H_PRICE}" class="w-full min-w-[480px]" role="img" aria-label="Graphique de prix simulé avec les indicateurs choisis">`;
+  if (useBoll) {
+    const idx = series.map((_, i) => i).filter(i => up[i] != null);
+    const poly = idx.map(i => `${xAt(i).toFixed(1)},${y(up[i]).toFixed(1)}`).concat(idx.slice().reverse().map(i => `${xAt(i).toFixed(1)},${y(lo[i]).toFixed(1)}`)).join(' ');
+    svg += `<polygon points="${poly}" class="fill-brandBlue/10"/>`
+         + `<path d="${path(up, y)}" class="fill-none stroke-brandBlue" stroke-width="1.2"/><path d="${path(lo, y)}" class="fill-none stroke-brandBlue" stroke-width="1.2"/>`;
+  }
+  if (useSma || useBoll) svg += `<path d="${path(mid, y)}" class="fill-none ${useSma ? 'stroke-yellow-300' : 'stroke-brandBlue/60'}" stroke-width="1.2" ${useBoll && !useSma ? 'stroke-dasharray="4 3"' : ''}/>`;
+  svg += `<path d="${path(series, y)}" class="fill-none stroke-slate-100" stroke-width="1.6"/></svg>`;
+
+  const r = rsi(series, 14);
+  if (useRsi) {
+    const yr = v => PAD + (100 - v) / 100 * (H_RSI - 2 * PAD);
+    svg += `<svg viewBox="0 0 ${W} ${H_RSI}" class="mt-2 w-full min-w-[480px]" role="img" aria-label="RSI simulé sur 14 périodes">
+      <rect x="${PAD}" y="${yr(70)}" width="${W - 2 * PAD}" height="${yr(30) - yr(70)}" class="fill-slate-500/10"/>
+      <line x1="${PAD}" x2="${W - PAD}" y1="${yr(70)}" y2="${yr(70)}" class="stroke-red-400/60" stroke-dasharray="4 3"/>
+      <line x1="${PAD}" x2="${W - PAD}" y1="${yr(30)}" y2="${yr(30)}" class="stroke-brandGreen/60" stroke-dasharray="4 3"/>
+      <text x="${PAD + 2}" y="${yr(70) - 3}" class="fill-slate-500" font-size="10">70</text><text x="${PAD + 2}" y="${yr(30) - 3}" class="fill-slate-500" font-size="10">30</text>
+      <path d="${path(r, yr)}" class="fill-none stroke-brandGreen" stroke-width="1.4"/></svg>`;
+  }
+  $('#chartBox').innerHTML = svg;
+
+  // Lecture automatique : on décrit, on ne conseille pas
+  const last = series.length - 1, notes = [];
+  if (useBoll) notes.push(`Largeur des bandes : ${((up[last] - lo[last]) / mid[last] * 100).toFixed(1)} % du prix (plus c'est large, plus le marché est agité).`);
+  if (useRsi) {
+    const v = r[last];
+    notes.push(`RSI actuel : ${v.toFixed(0)} (${v > 70 ? 'au-dessus de 70, zone dite de « surachat »' : v < 30 ? 'en dessous de 30, zone dite de « survente »' : 'zone neutre entre 30 et 70'}). Cela décrit les mouvements récents, pas la suite.`);
+  }
+  if (useSma) notes.push(`Dernier prix ${series[last] >= mid[last] ? 'au-dessus' : 'en dessous'} de la moyenne mobile 20.`);
+  $('#chartReading').textContent = notes.length ? notes.join(' ') : 'Activez un indicateur pour afficher sa lecture.';
+}
+
+['optSma', 'optBoll', 'optRsi'].forEach(id => $('#' + id).addEventListener('change', renderChart));
+$('#optVol').addEventListener('change', () => { series = genSeries(parseFloat($('#optVol').value)); renderChart(); });
+$('#optNew').addEventListener('click', () => { series = genSeries(parseFloat($('#optVol').value)); renderChart(); });
+renderChart();
+</script>
+</body>
+</html>

@@ -15,6 +15,7 @@ const SITE = {
   eduNotice: 'Contenu éducatif — pas de conseil en investissement.',
   // Liens en « index.html#… » pour fonctionner aussi depuis les pages légales
   nav: [
+    ['school.html', 'fxNOL School'],
     ['index.html#formation', 'Formation & Quiz'],
     ['index.html#calculateur', 'Calculateur de Risque'],
     ['index.html#partenaires', 'Partenaires'],
@@ -22,6 +23,7 @@ const SITE = {
     ['index.html#risques', 'Risques']
   ],
   footerNav: [
+    ['school.html', 'fxNOL School'],
     ['index.html#formation', 'Quiz'],
     ['index.html#calculateur', 'Calculateur'],
     ['index.html#partenaires', 'Partenaires'],
@@ -55,17 +57,17 @@ function renderHeader() {
           <rect x="32" y="7" width="8" height="2" rx="1" class="fill-brandBlue" opacity="0.9"/>
         </svg>
       </a>
-      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300" aria-label="Principale">
+      <nav class="hidden lg:flex items-center gap-5 xl:gap-8 text-[13px] xl:text-sm whitespace-nowrap font-medium text-slate-300" aria-label="Principale">
         ${linkList(SITE.nav, 'hover:text-brandBlue transition-colors')}
       </nav>
       <div class="flex items-center gap-2">
         <a href="index.html#calculateur" class="hidden sm:inline-flex px-4 py-2.5 text-xs font-semibold rounded-lg bg-brandBlue text-white hover:bg-sky-600 transition-all shadow-sm">Lancer l'outil</a>
-        <button id="menuBtn" class="md:hidden rounded-lg border border-borderSubtle p-2" aria-label="Menu" aria-expanded="false">
+        <button id="menuBtn" class="lg:hidden rounded-lg border border-borderSubtle p-2" aria-label="Menu" aria-expanded="false">
           <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h16M3 11h16M3 16h16"/></svg>
         </button>
       </div>
     </div>
-    <div id="mobileMenu" class="hidden md:hidden border-t border-borderSubtle bg-darkBg">
+    <div id="mobileMenu" class="hidden lg:hidden border-t border-borderSubtle bg-darkBg">
       <div class="flex flex-col px-6 py-2 text-sm font-medium text-slate-300">${linkList(SITE.nav, 'py-3')}</div>
     </div>
   </header>`;
