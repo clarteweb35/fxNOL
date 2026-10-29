@@ -81,6 +81,7 @@ Chaque information vit à **un seul endroit**, tout le reste en dérive.
 4. Inscrire l'action dans « Travaux en cours » de la spec avant de modifier un fichier.
 5. Coder en respectant la section 3.
 6. Vérifier (section 5), puis mettre à jour la spec et l'avancement.
+7. Commiter et pousser sur `main` sans demander (règle détaillée dans `claude.md`, « Commit et push »).
 
 ## 7. Quand t'arrêter et demander
 

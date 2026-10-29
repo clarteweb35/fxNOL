@@ -97,9 +97,19 @@ Je préfixe ma demande par un tag. Sans tag, appliquer `[strict]` par défaut.
 - `[strict]` — Avant de coder : dis quoi, pourquoi, comment, et dans quels fichiers. Puis code.
 - `[rapide]` — Code directement, explication minimale. Interdit de toucher à l'architecture (découpage des fichiers, dépendances, build, déploiement). Si le changement l'exige, arrête-toi et repasse en `[strict]`.
 
-## Mise en ligne
+## Commit et push (important)
 
-Pas encore de mise en ligne ni de Git. **Ne rien publier ni déployer sans me le demander.** Quand Git et l'hébergement seront en place, on définira ici la règle de commit et de push.
+Dépôt GitHub : https://github.com/clarteweb35/fxNOL.git, branche `main`.
+
+**Après chaque modification que je demande : vérifier, puis commiter et pousser sur `main` directement, sans me demander si je le souhaite.** Ne pas poser la question.
+
+- Un commit par demande, message court en français, terminé par la ligne de co-auteur.
+- `git add` nominatif des fichiers de la tâche (jamais `git add -A`) : d'autres modifications en attente peuvent exister, les laisser telles quelles.
+- `git pull --rebase` avant le push si le dépôt distant a avancé.
+- Ne pas pousser si la vérification échoue : me le dire.
+- Mettre à jour la spec et l'avancement dans le même commit.
+- Cela ne couvre pas les actions destructrices (`push --force`, suppression de branche, réécriture de l'historique) : toujours me demander avant.
+- Pas d'hébergement pour l'instant : le push ne met pas le site en ligne.
 
 ## Explication du code
 
