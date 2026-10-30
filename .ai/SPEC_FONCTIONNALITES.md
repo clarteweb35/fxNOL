@@ -79,7 +79,7 @@ Site en **pages séparées** (une par rubrique) : HTML + Tailwind CDN + JS vanil
 
 ### Pages légales
 - `mentions-legales.html`, `confidentialite.html`, `transparence-affiliation.html`, `contact.html`.
-- Chacune porte un encadré jaune « Page à compléter » : identité de l'éditeur, hébergeur, e-mail, méthode de notation sont marqués `[À COMPLÉTER]`.
+- Chacune porte un encadré jaune « Page à compléter » : identité de l'éditeur, hébergeur, méthode de notation sont marqués `[À COMPLÉTER]`. L'e-mail de contact (contact@fxnol.fr, défini une seule fois dans `SITE.contactEmail`) s'affiche sur Contact, Mentions légales et Confidentialité.
 - La politique de confidentialité décrit l'état actuel : pas de mesure d'audience, compteur de clics local au navigateur, polices Google et Tailwind chargés depuis des serveurs tiers. À mettre à jour dès qu'un outil de mesure est ajouté.
 
 ### Fichiers partagés

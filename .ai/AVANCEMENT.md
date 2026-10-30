@@ -37,7 +37,7 @@ https://clarteweb35.github.io/fxNOL/ publie `main`, mais n'est pas référencé 
 Déploiement : un run bloqué en file d'attente (2026-10-29) empêchait les mises en ligne ; débloqué le 2026-10-30 en annulant le run puis en relançant (Settings → Pages : branche sur None puis main). Si ça se reproduit : annuler le run dans l'onglet Actions, puis relancer.
 
 ## Prochaine action
-Compléter les `[À COMPLÉTER]` des pages légales (éditeur, hébergeur, e-mail), puis candidater aux 6 programmes d'affiliation (récupérer liens et logos du kit média) et vérifier chaque courtier sur REGAFI.
+Compléter les `[À COMPLÉTER]` des pages légales (éditeur, hébergeur ; l'e-mail contact@fxnol.fr est en place, la boîte doit être activée chez le registrar du domaine fxnol.fr, acheté le 2026-10-31), puis candidater aux 6 programmes d'affiliation (récupérer liens et logos du kit média) et vérifier chaque courtier sur REGAFI.
 
 ## Ensuite (voir `claude.md`, section 5)
 Domaine et hébergement → programmes d'affiliation → vrais partenaires (retirer les fictifs et la phrase « notes éditoriales ») → héberger polices et Tailwind localement → suivi → contenu SEO.

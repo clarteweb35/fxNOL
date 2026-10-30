@@ -20,6 +20,8 @@ const SITE = {
   tagline: 'Maîtriser le Forex par la connaissance : culture, outils et partenaires.',
   // Libellé affiché sous chaque lien d'affiliation (texte unique)
   affiliateLabel: 'Lien partenaire · publicité',
+  // Adresse de contact unique : affichée là où une page porte [data-contact-email]
+  contactEmail: 'contact@fxnol.fr',
   eduNotice: 'Contenu éducatif — pas de conseil en investissement.',
   // Une page par rubrique ; « #risques » pointe sur l'avertissement du pied de page de la page courante
   nav: [
@@ -131,3 +133,4 @@ function renderFooter() {
 
 renderHeader();
 renderFooter();
+$$('[data-contact-email]').forEach(a => { a.textContent = SITE.contactEmail; a.href = 'mailto:' + SITE.contactEmail; });
