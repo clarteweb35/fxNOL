@@ -10,7 +10,7 @@ Pages : `index.html` (accueil) + 4 pages légales. HTML + Tailwind CDN + JS vani
 | Zone | Ancre | Contenu |
 |---|---|---|
 | En-tête | `#top` | Logo « fx NOL », menu de navigation (desktop), slogan « Maîtriser le Forex par la connaissance » |
-| Ticker | — | Bandeau défilant : EUR/USD, GBP/USD, USD/JPY, GBP/JPY, XAU/USD, BTC/USD, ETH/USD |
+| Ticker | — | Bandeau défilant : EUR/USD, GBP/USD, USD/JPY, GBP/JPY, XAU/USD, BTC/USD, ETH/USD, US500, FR40 (indices simulés) |
 | Défilé logos | — | Bandeau défilant des logos de brokers, sous le ticker (page d'accueil) |
 | Formation | `#formation` | Quiz de 10 questions |
 | Calculateur | `#calculateur` | Calculateur de taille de lot |
@@ -28,12 +28,14 @@ Pages : `index.html` (accueil) + 4 pages légales. HTML + Tailwind CDN + JS vani
 
 ### fxNOL School (`school.html`)
 - Page de formation, lien « fxNOL School » en tête du menu et dans le footer. **2 niveaux** au choix en haut de page (mémorisé dans le navigateur) : **Débutant** (expliqué simplement, analogies de la vie courante, comme pour un enfant de 12 ans) et **Pro** (langage professionnel). Mêmes leçons, mêmes outils, mêmes questions : seuls les mots changent. Une note rappelle que le trading est réservé aux majeurs.
-- 4 modules, **21 leçons** dépliables, toutes sur le même plan : le principe, comment le lire, ses limites (formule en plus quand elle existe).
-  1. **Lire un graphique** (4) : chandeliers, tendance / supports / résistances, unités de temps, volumes.
-  2. **Indicateurs** (6) : moyennes mobiles, Bollinger, RSI, MACD, stochastique, Fibonacci.
-  3. **Gérer son risque** (5) : stop loss et ratio risque/rendement, taille de position (lien vers le calculateur), types d'ordres, psychologie du trader, plan de trading.
-  4. **Cryptos** (6) : bases, différences avec le Forex, conservation (plateforme / wallet), risques et arnaques, cadre réglementaire en France, fiscalité (repères). Encadré d'avertissement ; aucun prestataire ni lien d'affiliation.
-- **Mini-quiz** de 3 questions à la fin de chaque module (12 au total), correction et explication adaptées au niveau choisi, score par module.
+- 6 modules, **29 leçons** dépliables, toutes sur le même plan : le principe, comment le lire, ses limites (formule en plus quand elle existe).
+  1. **Les marchés** (3) : grandes familles de marchés, indices boursiers, actions et matières premières.
+  2. **Lire un graphique** (4) : chandeliers, tendance / supports / résistances, unités de temps, volumes.
+  3. **Indicateurs** (6) : moyennes mobiles, Bollinger, RSI, MACD, stochastique, Fibonacci.
+  4. **Gérer son risque** (5) : stop loss et ratio risque/rendement, taille de position (lien vers le calculateur), types d'ordres, psychologie du trader, plan de trading.
+  5. **Produits dérivés** (5) : définition, CFD et levier, options (call / put), grecques, « Trading et pari : quelle différence ? » (options binaires interdites aux particuliers dans l'UE, jeux d'argent hors périmètre du site). Encadré d'avertissement ; aucun produit ni courtier recommandé.
+  6. **Cryptos** (6) : bases, différences avec le Forex, conservation (plateforme / wallet), risques et arnaques, cadre réglementaire en France, fiscalité (repères). Encadré d'avertissement ; aucun prestataire ni lien d'affiliation.
+- **Mini-quiz** de 3 questions à la fin de chaque module (19 au total), correction et explication adaptées au niveau choisi, score par module.
 - **Laboratoire** : graphique de prix simulé (SVG) avec Moyenne mobile (20), Bollinger (20, 2), RSI (14), Stochastique (14, 3) et MACD (12, 26, 9), choix de volatilité (calme / normale / agitée), bouton pour régénérer la série, et phrases de lecture automatiques (descriptives, sans conseil) dans le langage du niveau choisi.
 - Un lien `school.html#rsi` ouvre directement la leçon. Le contenu (modules, leçons en deux niveaux, quiz) est dans `assets/school-data.js` : pour ajouter une leçon, ajouter un objet avec ses versions `pro` et `kid`.
 - Menu : la navigation desktop ne s'affiche qu'à partir de 1024 px, en dessous bouton hamburger.

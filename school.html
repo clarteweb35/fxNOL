@@ -164,7 +164,7 @@ function renderPage() {
     <p class="text-xs font-semibold text-brandBlue">Module ${i + 1}</p>
     <h2 id="h-${m.id}" class="font-heading text-2xl font-bold text-white">${esc(m.title)}</h2>
     <p class="mt-1 mb-5 text-sm text-slate-400">${esc(m[level])}</p>
-    ${m.id === 'crypto' ? '<p class="mb-5 rounded-lg border border-red-400/30 bg-red-400/5 px-4 py-3 text-xs text-slate-300"><strong class="text-red-300">Attention :</strong> les cryptos sont des actifs très volatils et peuvent perdre l\'essentiel de leur valeur. Ce module est éducatif : il ne recommande ni crypto, ni plateforme.</p>' : ''}
+    ${m.warning ? `<p class="mb-5 rounded-lg border border-red-400/30 bg-red-400/5 px-4 py-3 text-xs text-slate-300"><strong class="text-red-300">Attention :</strong> ${esc(m.warning)}</p>` : ''}
     <div class="space-y-3">${LESSONS.filter(l => l.module === m.id).map(lessonHtml).join('')}</div>
     ${quizHtml(m.id)}
   </section>`).join('');

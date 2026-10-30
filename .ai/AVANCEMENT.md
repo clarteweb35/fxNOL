@@ -12,7 +12,12 @@ Dernière mise à jour : 2026-10-29
 
 - Page `journal.html` : calendrier économique TradingView, chargé après clic (option A).
 
-- Page `school.html` (fxNOL School) : 4 modules, 21 leçons en 2 niveaux (Débutant / Pro), mini-quiz par module, laboratoire (Bollinger, RSI, stochastique, MACD, moyenne mobile). Contenu dans `assets/school-data.js`. ETH/USD ajouté au ticker.
+- Page `school.html` (fxNOL School) : 6 modules, 29 leçons en 2 niveaux (Débutant / Pro), mini-quiz par module, laboratoire (Bollinger, RSI, stochastique, MACD, moyenne mobile). Contenu dans `assets/school-data.js`. ETH/USD ajouté au ticker.
+
+## Décisions (2026-10-30)
+- **Périmètre** : marchés financiers (Forex, indices, actions, matières premières, produits dérivés dont options, cryptos). **Pas de paris en ligne ni de jeux d'argent** sur ce site (autre cadre légal, ANJ ; sinon site et marque séparés, opérateurs agréés uniquement, juriste en amont). Pas de promotion d'options binaires (interdites aux particuliers dans l'UE).
+- **Affiliation** : uniquement des courtiers vérifiés sur REGAFI et la liste noire de l'AMF.
+- **Nom** : « fxNOL » à reconsidérer avant l'achat du domaine (« fx » = Forex seulement ; « NOL » = abréviation fiscale américaine courante). À décider ; vérifier INPI, domaines .fr / .com et réseaux sociaux.
 
 ## Idées en réserve (fxNOL School)
 - Brancher le quiz de l'accueil sur les leçons ; plus de leçons (ichimoku, ATR, ordres avancés, gestion de portefeuille).

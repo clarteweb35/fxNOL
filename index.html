@@ -150,7 +150,10 @@ const MARKET = {
   'GBP/JPY': { price: 196.30,  dec: 2, ticker: true,  calc: true,  pip: pipJpy },
   'XAU/USD': { price: 2335.80, dec: 2, ticker: true,  calc: true,  pip: () => PIP_USD }, // or : 100 oz × 0,10 $
   'BTC/USD': { price: 67450,   dec: 0, ticker: true,  calc: false, pip: null, crypto: true },
-  'ETH/USD': { price: 3450,    dec: 2, ticker: true,  calc: false, pip: null, crypto: true }
+  'ETH/USD': { price: 3450,    dec: 2, ticker: true,  calc: false, pip: null, crypto: true },
+  // Indices (valeurs simulées) : pas de pip, donc absents du calculateur
+  'US500':   { price: 5800,    dec: 0, ticker: true,  calc: false, pip: null },
+  'FR40':    { price: 7700,    dec: 0, ticker: true,  calc: false, pip: null }
 };
 Object.values(MARKET).forEach(m => m.open = m.price);
 const TICKER = Object.keys(MARKET).filter(s => MARKET[s].ticker);

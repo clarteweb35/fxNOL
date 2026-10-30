@@ -62,6 +62,7 @@ Chaque information vit à **un seul endroit**, tout le reste en dérive.
 - **Brokers** : uniquement des courtiers autorisés en France, vérifiés sur REGAFI et la liste noire de l'AMF ; `regulator` et `regNumber` renseignés avant affichage.
 - **Prop firms** : zone grise, lire leurs conditions, ne rien promettre.
 - **Jamais de fausses notes ni de faux avis** sur de vraies sociétés. Tant que les partenaires sont fictifs, le site ne se met pas en ligne.
+- **Périmètre** : marchés financiers uniquement. Pas de paris en ligne ni de jeux d'argent (autre cadre légal : ANJ), pas de promotion d'options binaires. Toute affiliation est limitée aux courtiers vérifiés sur REGAFI et la liste noire de l'AMF.
 - Aucun outil de mesure ni cookie non essentiel sans bandeau de consentement.
 - Le cadre exact en 2026 reste à vérifier et à faire valider par un juriste ou l'AMF. Ce n'est pas un conseil juridique.
 
