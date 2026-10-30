@@ -15,7 +15,7 @@
 
 ## 3. Ce qui existe (livré dans la session précédente)
 
-Fichier unique : **`index.html`**. HTML5 + Tailwind CSS (CDN) + JavaScript vanilla, sans build.
+Site en **pages séparées** (`index.html`, `quiz.html`, `calculateur.html`, `partenaires.html`, `journal.html`, `school.html` + 4 pages légales). HTML5 + Tailwind CSS (CDN) + JavaScript vanilla, sans build. Données et éléments communs dans `assets/`. Les sections ci-dessous décrivent les fonctionnalités ; le détail à jour est dans `.ai/SPEC_FONCTIONNALITES.md`.
 
 **Design** : style sobre « institutionnel » (issu d'une proposition Gemini) : fond `#0B0F19`, cartes `#111827`, bordures `#1F2937`, accent bleu `#0EA5E9`, vert `#10B981`. Polices Plus Jakarta Sans (titres) et Inter (texte). Logo SVG texte « fx » + « NOL ». Slogan : « Maîtriser le Forex par la connaissance ». Responsive mobile/desktop.
 
