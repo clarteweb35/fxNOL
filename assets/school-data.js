@@ -198,14 +198,14 @@ const LESSONS = [
       formula:"Taille de lot = risque en $ ÷ (stop loss en pips × valeur du pip par lot)",
       how:["Déterminer le risque en $ : capital × pourcentage de risque.","Mesurer la distance du stop en pips.","Utiliser le calculateur du site pour obtenir la taille de lot."],
       limits:["La valeur du pip du calculateur est une estimation : à vérifier dans votre plateforme.","Le levier ne réduit pas le risque : il agrandit la taille des positions possibles."],
-      link:["index.html#calculateur","Ouvrir le calculateur"] },
+      link:["calculateur.html","Ouvrir le calculateur"] },
     kid:{
       summary:"Choisir la taille de sa mise pour ne jamais perdre trop.",
       what:"Avant de jouer, on décide combien on accepte de perdre au maximum, par exemple 1 ou 2 euros sur 100. Ensuite, on choisit la taille de sa mise pour que, si on perd, on ne perde pas plus que cela. C'est un petit calcul que le calculateur du site fait pour vous.",
       formula:"Taille = somme acceptée à perdre ÷ (distance jusqu'à la sortie en pips × valeur d'un pip)",
       how:["Calculez la somme que vous acceptez de perdre : capital × pourcentage (1 à 2 %).","Mesurez la distance jusqu'au point de sortie, en pips.","Laissez le calculateur trouver la taille."],
       limits:["La valeur du pip du calculateur est une estimation : vérifiez-la dans votre plateforme.","Le levier ne rend pas le jeu moins risqué : il permet seulement de miser plus gros."],
-      link:["index.html#calculateur","Ouvrir le calculateur"] } },
+      link:["calculateur.html","Ouvrir le calculateur"] } },
 
   { id:'ordres', module:'risque', title:"Les types d'ordres",
     pro:{

@@ -3,19 +3,22 @@
 Ce que le visiteur voit et peut faire sur le site. À mettre à jour à chaque ajout ou modification visible (pas pour les refactos internes).
 
 Dernière mise à jour : 2026-10-29
-Pages : `index.html` (accueil) + 4 pages légales. HTML + Tailwind CDN + JS vanilla, sans build.
+Site en **pages séparées** (une par rubrique) : HTML + Tailwind CDN + JS vanilla, sans build.
 
-## Structure de la page
+## Pages
 
-| Zone | Ancre | Contenu |
+| Page | Fichier | Contenu |
 |---|---|---|
-| En-tête | `#top` | Logo « fx NOL », menu de navigation (desktop), slogan « Maîtriser le Forex par la connaissance » |
-| Ticker | — | Bandeau défilant : EUR/USD, GBP/USD, USD/JPY, GBP/JPY, XAU/USD, BTC/USD, ETH/USD, US500, FR40 (indices simulés) |
-| Défilé logos | — | Bandeau défilant des logos de brokers, sous le ticker (page d'accueil) |
-| Formation | `#formation` | Quiz de 10 questions |
-| Calculateur | `#calculateur` | Calculateur de taille de lot |
-| Partenaires | `#partenaires` | Grille filtrable de partenaires d'affiliation |
-| Pied de page | `#risques` | Avertissement légal, liens Naviguer / Légal, copyright |
+| Accueil | `index.html` | Message principal, boutons vers fxNOL School et le quiz, cartes vers chaque rubrique |
+| fxNOL School | `school.html` | Formation : 6 modules, 29 leçons, 2 niveaux, mini-quiz, laboratoire |
+| Quiz | `quiz.html` | Quiz de 10 questions |
+| Calculateur | `calculateur.html` | Calculateur de taille de lot |
+| Partenaires | `partenaires.html` | Grille filtrable de partenaires d'affiliation |
+| Journal du jour | `journal.html` | Calendrier économique TradingView (chargé après clic) |
+| Pages légales | `mentions-legales.html`, `confidentialite.html`, `transparence-affiliation.html`, `contact.html` | Voir plus bas |
+
+**Sur toutes les pages** : en-tête collant avec le menu (fxNOL School, Quiz, Calculateur, Partenaires, Journal du jour, Risques), deux bandeaux défilants (cotations simulées, logos des courtiers), pied de page avec l'avertissement sur les risques.
+**Menu mobile** (moins de 1024 px) : bouton à trois traits horizontaux, qui devient une croix quand le menu est ouvert ; se ferme au clic sur un lien ou avec la touche Échap.
 
 ## Fonctionnalités
 
@@ -23,7 +26,7 @@ Pages : `index.html` (accueil) + 4 pages légales. HTML + Tailwind CDN + JS vani
 - Prix **simulés** (marche aléatoire), pas de vraies cotations. À assumer comme pédagogique ou à brancher sur une API.
 
 ### Défilé des logos
-- Bandeau défilant sous le ticker, même hauteur (40 px), avec les logos des brokers qui ont un fichier dans `assets/logos/` (même taille de tuile pour tous). Clic : renvoie à la section Partenaires. Pause au survol, arrêté si l'utilisateur réduit les animations.
+- Bandeau défilant sous le ticker, sur toutes les pages, même hauteur (40 px), avec les logos des brokers qui ont un fichier dans `assets/logos/` (même taille de tuile pour tous). Clic : renvoie à la section Partenaires. Pause au survol, arrêté si l'utilisateur réduit les animations.
 - Alimenté automatiquement par `PARTNERS` : ajouter un logo à un broker l'ajoute au bandeau.
 
 ### fxNOL School (`school.html`)
@@ -80,7 +83,11 @@ Pages : `index.html` (accueil) + 4 pages légales. HTML + Tailwind CDN + JS vani
 - La politique de confidentialité décrit l'état actuel : pas de mesure d'audience, compteur de clics local au navigateur, polices Google et Tailwind chargés depuis des serveurs tiers. À mettre à jour dès qu'un outil de mesure est ajouté.
 
 ### Fichiers partagés
-- `assets/tailwind-config.js` : couleurs et polices. `assets/site.js` : nom, menu, liens légaux, avertissement de risque, mention d'affiliation, header et footer.
+- `assets/tailwind-config.js` : couleurs et polices.
+- `assets/site.js` : nom, menu, liens légaux, avertissement de risque, mention d'affiliation, header, bandeaux et footer.
+- `assets/market.js` : marché simulé (prix, ticker, valeur du pip pour le calculateur).
+- `assets/partners.js` : liste des partenaires, réglages d'affiliation, bandeau des logos.
+- `assets/school-data.js` : contenu de fxNOL School.
 
 ## Pas encore fait
 - Compléter les pages légales avec les vraies informations, puis les faire valider par un juriste.

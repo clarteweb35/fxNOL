@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quiz Forex — fxNOL</title>
+<meta name="description" content="Quiz fxNOL : 10 questions sur les pips, le levier, la gestion du risque, les paires et les marges. Chaque réponse est corrigée avec une explication. Contenu éducatif.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="assets/tailwind-config.js"></script>
+</head>
+<body class="bg-darkBg text-slate-100 font-sans antialiased selection:bg-brandBlue selection:text-white">
+<div id="siteHeader"></div>
+
+<main id="top">
+<section class="py-20 border-t border-borderSubtle bg-altBg">
+  <div class="max-w-3xl mx-auto px-6">
+    <div class="text-center mb-12">
+      <h2 class="font-heading text-2xl md:text-3xl font-bold text-white mb-3">Évaluation des fondamentaux</h2>
+      <p class="text-slate-400 text-sm">Pips, levier, gestion du risque, paires majeures et croisées : chaque réponse est corrigée avec une explication.</p>
+    </div>
+    <div class="bg-cardBg border border-borderSubtle rounded-xl p-6 md:p-8 shadow-xl" id="quizBox"></div>
+  </div>
+</section>
+</main>
+
+<div id="siteFooter"></div>
+<script src="assets/site.js"></script>
+<script src="assets/market.js"></script>
+<script src="assets/partners.js"></script>
+<script>
+'use strict';
+/* ============ QUIZ ============ */
+const QUESTIONS = [
+  { cat:'Gestion du risque', q:"Quel est l'impact principal d'un effet de levier élevé sur un compte de trading ?", opts:["Il garantit des gains plus élevés","Il amplifie à la fois les gains et les pertes","Il réduit les frais de courtage","Il supprime le risque de margin call"], a:1, ex:"Le levier permet de contrôler une grosse position avec peu de marge, mais les pertes sont multipliées autant que les gains. Un levier excessif est la première cause de comptes liquidés." },
+  { cat:'Vocabulaire', q:"Sur EUR/USD, que représente 1 pip ?", opts:["0,01","0,0001","0,1","1,00"], a:1, ex:"Sur la plupart des paires, 1 pip = 0,0001. Sur les paires avec le yen (USD/JPY), 1 pip = 0,01." },
+  { cat:'Gestion du risque', q:"Quelle est la règle de risque par trade la plus répandue chez les traders prudents ?", opts:["20 à 30 % du compte","1 à 2 % du capital","Ne jamais mettre de stop","Tout le capital sur le meilleur setup"], a:1, ex:"Risquer 1 à 2 % par trade permet d'encaisser des séries de pertes. Après 10 pertes à 1 %, il reste environ 90 % du capital." },
+  { cat:'Paires', q:"Laquelle de ces paires est une paire majeure ?", opts:["EUR/GBP","GBP/JPY","EUR/USD","AUD/NZD"], a:2, ex:"Les paires majeures incluent toutes le dollar américain. Ce sont les plus liquides, avec généralement les spreads les plus serrés." },
+  { cat:'Paires', q:"Qu'est-ce qu'une paire croisée (cross) ?", opts:["Une paire sans dollar américain","Une paire cotée le week-end","Une paire à levier doublé","Une paire or/argent"], a:0, ex:"Une croisée oppose deux devises hors USD (EUR/GBP, EUR/JPY, GBP/JPY…). Elle est souvent plus volatile, avec des spreads plus larges." },
+  { cat:'Vocabulaire', q:"EUR/USD = 1,0850. Que signifie ce prix ?", opts:["1 USD vaut 1,0850 EUR","1 EUR vaut 1,0850 USD","Le spread est de 1,0850","L'euro a gagné 1,085 %"], a:1, ex:"Dans BASE/COTATION, le prix indique combien d'unités de la devise de cotation (USD) il faut pour 1 unité de la devise de base (EUR)." },
+  { cat:'Coûts', q:"Qu'est-ce que le spread ?", opts:["L'écart entre prix d'achat (Ask) et de vente (Bid)","La marge exigée","La durée d'un trade","La commission de l'analyste"], a:0, ex:"Le spread est un coût d'entrée implicite : on achète au Ask et on revend au Bid. Il s'élargit souvent lors des annonces économiques." },
+  { cat:'Calcul', q:"Valeur approximative d'un pip pour 1 lot standard sur EUR/USD ?", opts:["0,10 $","1 $","10 $","100 $"], a:2, ex:"1 lot standard = 100 000 unités. 100 000 × 0,0001 = 10 $ par pip. Un mini-lot (0,1) vaut ~1 $, un micro-lot (0,01) ~0,10 $." },
+  { cat:'Gestion du risque', q:"Un ratio risque/rendement de 1:2 signifie que…", opts:["Tu risques 2 pour gagner 1","Tu risques 1 pour viser un gain potentiel de 2","Le trade dure 2 heures","Tu as 2 stops loss"], a:1, ex:"Avec un R:R de 1:2, un taux de réussite d'environ 34 % suffit à l'équilibre (hors frais). Le ratio ne garantit rien : il structure l'espérance." },
+  { cat:'Levier', q:"Que se passe-t-il lors d'un margin call ?", opts:["Le courtier offre un bonus","Le compte ne couvre plus la marge requise : positions potentiellement clôturées","Le compte passe en démo","Les frais sont remboursés"], a:1, ex:"Quand l'equity tombe sous la marge requise, le courtier peut clôturer des positions (stop out). Levier excessif et absence de stop loss en sont les causes classiques." }
+];
+const quiz = { i: 0, score: 0, results: [], order: [] };
+const shuffle = a => { const b = a.slice(); for (let i = b.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [b[i], b[j]] = [b[j], b[i]]; } return b; };
+
+function startQuiz() { quiz.i = 0; quiz.score = 0; quiz.results = []; quiz.order = shuffle(QUESTIONS.map((_, i) => i)); renderQ(); }
+function renderQ() {
+  const q = QUESTIONS[quiz.order[quiz.i]], n = QUESTIONS.length;
+  $('#quizBox').innerHTML = `
+    <div class="flex justify-between items-center text-xs text-slate-400 mb-3 font-medium"><span>Question ${quiz.i + 1} sur ${n}</span><span class="text-brandBlue">${esc(q.cat)}</span></div>
+    <div class="h-1 rounded-full bg-darkBg mb-6 overflow-hidden"><div class="h-full bg-brandBlue" style="width:${quiz.i / n * 100}%"></div></div>
+    <h3 class="text-lg font-semibold text-white mb-6">${esc(q.q)}</h3>
+    <div id="opts" class="space-y-3 mb-6">${q.opts.map((o, i) => `<button type="button" data-i="${i}" class="w-full text-left px-4 py-3 rounded-lg border border-borderSubtle bg-darkBg text-sm text-slate-300 hover:border-brandBlue transition-all">${esc(o)}</button>`).join('')}</div>
+    <div id="fb" aria-live="polite"></div>`;
+  $$('#opts button').forEach(b => b.addEventListener('click', () => answer(+b.dataset.i)));
+}
+function answer(idx) {
+  const q = QUESTIONS[quiz.order[quiz.i]], ok = idx === q.a, last = quiz.i === QUESTIONS.length - 1;
+  if (ok) quiz.score++; quiz.results.push(ok);
+  $$('#opts button').forEach((b, k) => {
+    b.disabled = true;
+    b.className = 'w-full text-left px-4 py-3 rounded-lg border text-sm ' + (k === q.a ? 'border-brandGreen bg-brandGreen/10 text-white' : k === idx ? 'border-red-400 bg-red-400/10 text-white' : 'border-borderSubtle bg-darkBg text-slate-500');
+  });
+  $('#fb').innerHTML = `<div class="p-4 rounded-lg bg-slate-900 border border-borderSubtle mb-4 text-sm"><strong class="${ok ? 'text-brandGreen' : 'text-red-400'}">${ok ? 'Correct.' : 'Incorrect.'}</strong> <span class="text-slate-300">${esc(q.ex)}</span></div>
+    <button id="next" type="button" class="w-full py-3 rounded-lg bg-brandBlue text-white font-medium text-sm hover:bg-sky-600 transition-all">${last ? 'Voir mon score' : 'Question suivante'}</button>`;
+  $('#next').addEventListener('click', () => { quiz.i++; last ? renderResult() : renderQ(); });
+}
+function renderResult() {
+  const n = QUESTIONS.length, pct = quiz.score / n * 100;
+  const [lvl, msg] = pct >= 90 ? ['Niveau institutionnel', "Excellente maîtrise. Passez en compte démo avec un plan de trading écrit avant tout engagement réel."]
+    : pct >= 70 ? ['Niveau confirmé', "Bon score. Revoyez les points manqués puis exercez-vous avec le calculateur."]
+    : pct >= 50 ? ['Niveau intermédiaire', "Les bases sont là, mais levier et gestion du risque méritent d'être consolidés avant de trader en réel."]
+    : ['Niveau débutant', "Pas de souci : relisez les explications et refaites le quiz. Restez en démo tant que ces notions ne sont pas acquises."];
+  $('#quizBox').innerHTML = `<div class="text-center py-4">
+    <p class="text-xs text-slate-400">Score final</p>
+    <p class="font-heading text-5xl font-bold text-brandBlue my-3">${quiz.score}<span class="text-2xl text-slate-500">/${n}</span></p>
+    <p class="font-semibold text-white">${lvl}</p><p class="mx-auto mt-2 max-w-md text-sm text-slate-400">${msg}</p>
+    <div class="mt-5 flex justify-center gap-1.5">${quiz.results.map(r => `<span class="h-2 w-5 rounded-full ${r ? 'bg-brandGreen' : 'bg-red-400'}"></span>`).join('')}</div>
+    <div class="mt-7 flex flex-col sm:flex-row justify-center gap-3">
+      <button id="retry" class="px-5 py-2.5 rounded-lg bg-brandBlue text-white text-sm font-medium hover:bg-sky-600">Recommencer</button>
+      <a href="calculateur.html" class="px-5 py-2.5 rounded-lg bg-darkBg border border-borderSubtle text-sm text-slate-300 hover:text-white">Aller au calculateur</a>
+      <a href="school.html" class="px-5 py-2.5 rounded-lg bg-darkBg border border-borderSubtle text-sm text-slate-300 hover:text-white">Revoir les leçons</a></div></div>`;
+  $('#retry').addEventListener('click', startQuiz);
+}
+startQuiz();
+
+</script>
+</body>
+</html>

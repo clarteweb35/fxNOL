@@ -1,10 +1,18 @@
 'use strict';
-/* Éléments communs à toutes les pages : données du site + header + footer.
+/* Éléments communs à toutes les pages : données du site + header + bandeaux + footer.
    Pour changer le menu, un lien légal ou l'avertissement de risque, c'est ICI et nulle part ailleurs. */
 
 const $ = (s, r = document) => r.querySelector(s);
 const $$ = (s, r = document) => [...r.querySelectorAll(s)];
 const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+// Styles communs (défilement des bandeaux, champs sombres, animations coupées sur demande)
+document.head.appendChild(Object.assign(document.createElement('style'), { textContent: `
+  @keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+  .animate-marquee { animation: marquee 40s linear infinite; }
+  .ticker:hover .animate-marquee { animation-play-state: paused; }
+  input, select { color-scheme: dark; }
+  @media (prefers-reduced-motion: reduce) { .animate-marquee { animation:none; } html { scroll-behavior:auto; } }` }));
 
 const SITE = {
   name: 'fxNOL',
@@ -13,22 +21,22 @@ const SITE = {
   // Libellé affiché sous chaque lien d'affiliation (texte unique)
   affiliateLabel: 'Lien partenaire · publicité',
   eduNotice: 'Contenu éducatif — pas de conseil en investissement.',
-  // Liens en « index.html#… » pour fonctionner aussi depuis les pages légales
+  // Une page par rubrique ; « #risques » pointe sur l'avertissement du pied de page de la page courante
   nav: [
     ['school.html', 'fxNOL School'],
-    ['index.html#formation', 'Formation & Quiz'],
-    ['index.html#calculateur', 'Calculateur de Risque'],
-    ['index.html#partenaires', 'Partenaires'],
+    ['quiz.html', 'Quiz'],
+    ['calculateur.html', 'Calculateur'],
+    ['partenaires.html', 'Partenaires'],
     ['journal.html', 'Journal du jour'],
-    ['index.html#risques', 'Risques']
+    ['#risques', 'Risques']
   ],
   footerNav: [
     ['school.html', 'fxNOL School'],
-    ['index.html#formation', 'Quiz'],
-    ['index.html#calculateur', 'Calculateur'],
-    ['index.html#partenaires', 'Partenaires'],
+    ['quiz.html', 'Quiz'],
+    ['calculateur.html', 'Calculateur'],
+    ['partenaires.html', 'Partenaires'],
     ['journal.html', 'Journal du jour'],
-    ['index.html#top', 'Haut de page']
+    ['index.html', 'Accueil']
   ],
   legalNav: [
     ['mentions-legales.html', 'Mentions légales'],
@@ -46,11 +54,16 @@ const SITE = {
 
 const linkList = (items, cls = '') => items.map(([href, label]) => `<a class="${cls}" href="${href}">${label}</a>`).join('');
 
+// Icône du bouton de menu : trois traits horizontaux (fermé) ou croix (ouvert)
+const MENU_ICON = { closed: 'M3 6h16M3 11h16M3 16h16', open: 'M5 5l12 12M17 5L5 17' };
+
 function renderHeader() {
-  $('#siteHeader').innerHTML = `
+  const box = $('#siteHeader');
+  box.className = 'contents';   // le header collant se repère alors sur toute la page, pas seulement sur ce bloc
+  box.innerHTML = `
   <header class="sticky top-0 z-50 bg-darkBg/90 backdrop-blur-md border-b border-borderSubtle">
     <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-      <a href="index.html#top" class="flex items-center" aria-label="${SITE.name} accueil">
+      <a href="index.html" class="flex items-center" aria-label="${SITE.name} accueil">
         <svg width="130" height="36" viewBox="0 0 130 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <text x="0" y="25" class="fill-slate-50" font-family="Plus Jakarta Sans, sans-serif" font-weight="700" font-size="22" letter-spacing="-0.5">fx</text>
           <text x="30" y="25" class="fill-brandBlue" font-family="Plus Jakarta Sans, sans-serif" font-weight="500" font-size="22" letter-spacing="-0.5">NOL</text>
@@ -61,21 +74,33 @@ function renderHeader() {
         ${linkList(SITE.nav, 'hover:text-brandBlue transition-colors')}
       </nav>
       <div class="flex items-center gap-2">
-        <a href="index.html#calculateur" class="hidden sm:inline-flex px-4 py-2.5 text-xs font-semibold rounded-lg bg-brandBlue text-white hover:bg-sky-600 transition-all shadow-sm">Lancer l'outil</a>
-        <button id="menuBtn" class="lg:hidden rounded-lg border border-borderSubtle p-2" aria-label="Menu" aria-expanded="false">
-          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h16M3 11h16M3 16h16"/></svg>
+        <a href="calculateur.html" class="hidden sm:inline-flex px-4 py-2.5 text-xs font-semibold rounded-lg bg-brandBlue text-white hover:bg-sky-600 transition-all shadow-sm">Lancer l'outil</a>
+        <button id="menuBtn" type="button" class="lg:hidden grid h-11 w-11 place-items-center rounded-lg border border-borderSubtle text-slate-200 hover:border-brandBlue" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobileMenu">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path id="menuIcon" d="${MENU_ICON.closed}"/></svg>
         </button>
       </div>
     </div>
     <div id="mobileMenu" class="hidden lg:hidden border-t border-borderSubtle bg-darkBg">
-      <div class="flex flex-col px-6 py-2 text-sm font-medium text-slate-300">${linkList(SITE.nav, 'py-3')}</div>
+      <nav class="flex flex-col px-6 py-2 text-base font-medium text-slate-200 divide-y divide-borderSubtle" aria-label="Menu mobile">${linkList(SITE.nav, 'py-3.5')}</nav>
     </div>
-  </header>`;
-  $('#menuBtn').addEventListener('click', e => {
-    const open = $('#mobileMenu').classList.toggle('hidden') === false;
-    e.currentTarget.setAttribute('aria-expanded', String(open));
-  });
-  $$('#mobileMenu a').forEach(a => a.addEventListener('click', () => $('#mobileMenu').classList.add('hidden')));
+  </header>
+  <!-- Bandeaux défilants (remplis par market.js et partners.js) -->
+  <div class="ticker bg-deepBg border-b border-borderSubtle h-10 flex items-center overflow-hidden whitespace-nowrap text-xs text-slate-400" aria-label="Cotations simulées">
+    <div id="ticker" class="inline-flex shrink-0 animate-marquee"></div>
+  </div>
+  <div class="ticker bg-deepBg border-b border-borderSubtle h-10 flex items-center overflow-hidden whitespace-nowrap" aria-label="Courtiers présentés">
+    <div id="logoBand" class="inline-flex shrink-0 items-center animate-marquee"></div>
+  </div>`;
+
+  const setMenu = open => {
+    $('#mobileMenu').classList.toggle('hidden', !open);
+    $('#menuBtn').setAttribute('aria-expanded', String(open));
+    $('#menuBtn').setAttribute('aria-label', open ? 'Fermer le menu' : 'Ouvrir le menu');
+    $('#menuIcon').setAttribute('d', open ? MENU_ICON.open : MENU_ICON.closed);
+  };
+  $('#menuBtn').addEventListener('click', () => setMenu($('#mobileMenu').classList.contains('hidden')));
+  $$('#mobileMenu a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(false); });
 }
 
 function renderFooter() {

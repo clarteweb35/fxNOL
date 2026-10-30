@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Partenaires et courtiers — fxNOL</title>
+<meta name="description" content="Partenaires fxNOL : courtiers, prop firms et outils d'analyse. Comparez, lisez les conditions et vérifiez l'agrément avant tout dépôt. Liens d'affiliation signalés.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="assets/tailwind-config.js"></script>
+</head>
+<body class="bg-darkBg text-slate-100 font-sans antialiased selection:bg-brandBlue selection:text-white">
+<div id="siteHeader"></div>
+
+<main id="top">
+<section class="py-20 border-t border-borderSubtle bg-altBg">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="mb-8 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+      <div class="max-w-2xl">
+        <h2 class="font-heading text-2xl md:text-3xl font-bold text-white mb-3">Partenaires &amp; Brokers</h2>
+        <p class="text-slate-400 text-sm">Brokers, prop firms et outils d'analyse. Comparez, lisez les conditions et vérifiez l'agrément avant tout dépôt.</p>
+      </div>
+      <div id="filters" class="flex flex-wrap gap-2" role="tablist" aria-label="Filtrer les partenaires"></div>
+    </div>
+
+    <p class="mb-6 rounded-lg border border-brandBlue/30 bg-brandBlue/5 px-4 py-3 text-xs text-slate-300">
+      <strong class="text-white">Publicité / affiliation :</strong> fxNOL perçoit une commission si vous ouvrez un compte via les liens marqués « Lien partenaire ». Cela n'augmente pas vos coûts. Les notes sont éditoriales. Contenu non personnalisé, ne constituant pas un conseil en investissement.
+    </p>
+
+    <div id="partnerGrid" class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3"></div>
+
+    <!-- Tableau de bord clics (visible avec ?admin=1) -->
+    <div id="adminPanel" class="hidden mt-10 rounded-xl border border-borderSubtle bg-cardBg p-5">
+      <div class="flex items-center justify-between">
+        <h3 class="font-heading font-semibold text-white">Clics d'affiliation (local à ce navigateur)</h3>
+        <button id="resetClicks" class="text-xs text-red-300 hover:underline">Réinitialiser</button>
+      </div>
+      <div id="adminTable" class="mt-3 overflow-x-auto text-sm"></div>
+      <p class="mt-3 text-xs text-slate-500">Données stockées dans ce navigateur uniquement. Pour un suivi réel, renseigne <code class="text-brandBlue">CONFIG.trackingEndpoint</code> ou utilise Google Analytics / Plausible via <code class="text-brandBlue">dataLayer</code>.</p>
+    </div>
+  </div>
+</section>
+</main>
+
+<div id="siteFooter"></div>
+<script src="assets/site.js"></script>
+<script src="assets/market.js"></script>
+<script src="assets/partners.js"></script>
+<script>
+'use strict';
+const FILTERS = [['all','Tous'],['broker','Brokers'],['prop','Prop Firms'],['outil','Outils']];
+let filter = 'all';
+
+function buildUrl(p) {
+  if (!p.url || p.url === NO_LINK) return NO_LINK;
+  if (!CONFIG.appendUtm) return p.url;
+  try {
+    const u = new URL(p.url);
+    u.searchParams.set('utm_source', CONFIG.utmSource);
+    u.searchParams.set('utm_medium', 'affiliate');
+    u.searchParams.set('utm_campaign', 'partner-card');
+    u.searchParams.set('utm_content', p.id);
+    return u.toString();
+  } catch { return p.url; }
+}
+function trackClick(p) {
+  const evt = { event:'affiliate_click', partner:p.id, type:p.type, ts:new Date().toISOString() };
+  (window.dataLayer = window.dataLayer || []).push(evt);
+  try {
+    const c = JSON.parse(localStorage.getItem(CONFIG.storageKey) || '{}');
+    c[p.id] = (c[p.id] || 0) + 1;
+    localStorage.setItem(CONFIG.storageKey, JSON.stringify(c));
+  } catch {}
+  if (CONFIG.trackingEndpoint && navigator.sendBeacon) {
+    navigator.sendBeacon(CONFIG.trackingEndpoint, new Blob([JSON.stringify(evt)], { type:'application/json' }));
+  }
+  renderAdmin();
+}
+// Pastille aux initiales quand on n'a pas (encore) le logo officiel
+const initialsHtml = p => `<span class="grid h-12 w-12 shrink-0 place-items-center rounded-lg border border-borderSubtle bg-darkBg text-xs font-bold text-slate-300" aria-hidden="true">${esc(p.name.slice(0, 2).toUpperCase())}</span>`;
+// Tuile blanche 2:1 : les logos sont larges et certains sont sombres, illisibles sur le fond de la page
+const logoHtml = p => p.logo
+  ? `<img src="${esc(p.logo)}" alt="Logo ${esc(p.name)}" data-pid="${p.id}" width="96" height="48" loading="lazy" class="logo h-12 w-24 shrink-0 rounded-lg bg-white object-contain">`
+  : initialsHtml(p);
+const stars = r => '★'.repeat(Math.round(r)) + '<span class="text-slate-600">' + '★'.repeat(5 - Math.round(r)) + '</span>';
+
+function renderFilters() {
+  $('#filters').innerHTML = FILTERS.map(([k, l]) => {
+    const n = k === 'all' ? PARTNERS.length : PARTNERS.filter(p => p.type === k).length, on = k === filter;
+    return `<button type="button" role="tab" aria-selected="${on}" data-f="${k}" class="rounded-lg border px-4 py-2 text-sm font-medium transition ${on ? 'bg-brandBlue border-brandBlue text-white' : 'border-borderSubtle bg-cardBg text-slate-300 hover:border-brandBlue'}">${l} <span class="text-xs opacity-70">${n}</span></button>`;
+  }).join('');
+  $$('#filters button').forEach(b => b.addEventListener('click', () => { filter = b.dataset.f; renderFilters(); renderPartners(); }));
+}
+function renderPartners() {
+  const list = PARTNERS.filter(p => filter === 'all' || p.type === filter);
+  $('#partnerGrid').innerHTML = list.map(p => {
+    const [label, cls] = TYPES[p.type];
+    const reg = p.type === 'broker' ? `<p class="mt-3 text-[11px] text-slate-500">Agrément : ${esc(p.regulator || 'à renseigner')}${p.regNumber ? ' · n° ' + esc(p.regNumber) : ''}</p>` : '';
+    return `<article class="flex flex-col rounded-xl border border-borderSubtle bg-cardBg p-5 transition hover:border-brandBlue/60">
+      <div class="flex items-start justify-between gap-3">
+        <div class="flex items-center gap-3">${logoHtml(p)}<h3 class="font-heading text-lg font-semibold leading-tight text-white">${esc(p.name)}</h3></div>
+        <span class="shrink-0 rounded-full border px-2.5 py-1 text-[11px] font-semibold ${cls}">${label}</span>
+      </div>
+      ${p.rating ? `<div class="mt-3 flex items-center gap-2 text-sm"><span class="text-yellow-300" aria-hidden="true">${stars(p.rating)}</span><span class="font-semibold">${p.rating.toFixed(1)}</span><span class="text-slate-500">(${p.reviews.toLocaleString('fr-FR')} avis)</span></div>` : ''}
+      ${p.pros.length
+        ? `<ul class="mt-4 flex-1 space-y-2 text-sm text-slate-300">${p.pros.map(x => `<li class="flex gap-2"><span class="text-brandGreen">✓</span><span>${esc(x)}</span></li>`).join('')}</ul>`
+        : '<p class="mt-4 flex-1 text-sm text-slate-500">Fiche détaillée à venir.</p>'}
+      ${reg}
+      <a href="${esc(buildUrl(p))}" data-pid="${p.id}" target="_blank" rel="sponsored nofollow noopener noreferrer" class="aff mt-4 block rounded-lg bg-brandBlue px-4 py-2.5 text-center text-sm font-semibold text-white transition hover:bg-sky-600">${esc(p.cta)} →</a>
+      <p class="mt-2 text-center text-[10px] uppercase tracking-wide text-slate-500">${SITE.affiliateLabel}</p>
+    </article>`;
+  }).join('');
+  // Logo introuvable (fichier absent) : on retombe sur les initiales
+  $$('img.logo').forEach(img => img.addEventListener('error', () => {
+    img.outerHTML = initialsHtml(PARTNERS.find(x => x.id === img.dataset.pid));
+  }));
+  $$('.aff').forEach(a => a.addEventListener('click', e => {
+    const p = PARTNERS.find(x => x.id === a.dataset.pid);
+    if (a.getAttribute('href') === NO_LINK) e.preventDefault();
+    trackClick(p);
+  }));
+}
+function renderAdmin() {
+  if (!/[?&]admin=1/.test(location.search)) return;
+  $('#adminPanel').classList.remove('hidden');
+  let c = {}; try { c = JSON.parse(localStorage.getItem(CONFIG.storageKey) || '{}'); } catch {}
+  const total = Object.values(c).reduce((a, b) => a + b, 0);
+  $('#adminTable').innerHTML = `<table class="w-full text-left"><thead class="text-xs text-slate-500"><tr><th class="py-1">Partenaire</th><th>Type</th><th class="text-right">Clics</th></tr></thead><tbody>
+    ${PARTNERS.map(p => `<tr class="border-t border-borderSubtle"><td class="py-1.5">${esc(p.name)}</td><td class="text-slate-400">${TYPES[p.type][0]}</td><td class="text-right font-semibold">${c[p.id] || 0}</td></tr>`).join('')}
+    <tr class="border-t border-borderSubtle font-semibold"><td class="py-1.5" colspan="2">Total</td><td class="text-right">${total}</td></tr></tbody></table>`;
+}
+$('#resetClicks').addEventListener('click', () => { try { localStorage.removeItem(CONFIG.storageKey); } catch {} renderAdmin(); });
+
+renderFilters(); renderPartners(); renderAdmin();
+</script>
+</body>
+</html>

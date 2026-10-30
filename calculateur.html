@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculateur de taille de lot — fxNOL</title>
+<meta name="description" content="Calculateur fxNOL : déterminez la taille de votre lot selon votre capital, votre risque en pourcentage et votre stop loss. Contenu éducatif.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="assets/tailwind-config.js"></script>
+</head>
+<body class="bg-darkBg text-slate-100 font-sans antialiased selection:bg-brandBlue selection:text-white">
+<div id="siteHeader"></div>
+
+<main id="top">
+<section class="py-20 border-t border-borderSubtle">
+  <div class="max-w-4xl mx-auto px-6">
+    <div class="text-center mb-12">
+      <h2 class="font-heading text-2xl md:text-3xl font-bold text-white mb-3">Calculateur de Risque &amp; Position</h2>
+      <p class="text-slate-400 text-sm">Calculez la taille de votre lot en fonction de votre capital, de votre risque et de votre stop loss.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 bg-cardBg border border-borderSubtle rounded-xl p-6 md:p-8">
+      <div class="space-y-4">
+        <label class="block text-xs text-slate-400">Capital du compte ($)
+          <input id="capital" type="number" min="1" step="any" value="10000" class="mt-1 w-full rounded-lg bg-darkBg border border-borderSubtle px-3 py-2.5 text-slate-100 focus:outline-none focus:border-brandBlue"></label>
+        <label class="block text-xs text-slate-400">Risque par trade (%)
+          <input id="riskPct" type="number" min="0.01" max="100" step="any" value="1" class="mt-1 w-full rounded-lg bg-darkBg border border-borderSubtle px-3 py-2.5 text-slate-100 focus:outline-none focus:border-brandBlue"></label>
+        <label class="block text-xs text-slate-400">Stop Loss (pips)
+          <input id="slPips" type="number" min="0.1" step="any" value="30" class="mt-1 w-full rounded-lg bg-darkBg border border-borderSubtle px-3 py-2.5 text-slate-100 focus:outline-none focus:border-brandBlue"></label>
+        <label class="block text-xs text-slate-400">Paire
+          <select id="pair" class="mt-1 w-full rounded-lg bg-darkBg border border-borderSubtle px-3 py-2.5 text-slate-100 focus:outline-none focus:border-brandBlue"></select></label>
+      </div>
+      <div class="flex flex-col justify-center gap-4">
+        <p id="calcError" class="hidden rounded-lg border border-red-400/40 bg-red-400/10 px-3 py-2 text-xs text-red-300" role="alert"></p>
+        <div class="rounded-lg bg-darkBg border border-borderSubtle p-4">
+          <p class="text-xs text-slate-400">Risque en $</p>
+          <p id="resRisk" class="font-heading text-2xl font-bold text-red-400">—</p>
+        </div>
+        <div class="rounded-lg bg-darkBg border border-brandBlue/40 p-4">
+          <p class="text-xs text-slate-400">Taille de lot (standards)</p>
+          <p id="resLots" class="font-heading text-3xl font-bold text-brandBlue">—</p>
+        </div>
+        <p class="text-xs text-slate-500">Soit <span id="resMini" class="text-slate-300">—</span> mini-lots ou <span id="resMicro" class="text-slate-300">—</span> micro-lots. Valeur du pip : <span id="resPip" class="text-slate-300">—</span> par lot (estimation, à vérifier dans votre plateforme).</p>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<div id="siteFooter"></div>
+<script src="assets/site.js"></script>
+<script src="assets/market.js"></script>
+<script src="assets/partners.js"></script>
+<script>
+'use strict';
+/* ============ CALCULATEUR ============ */
+$('#pair').innerHTML = PAIRS.map(p => `<option>${p}</option>`).join('');
+const usd = n => n.toLocaleString('fr-FR', { style:'currency', currency:'USD' });
+function updateCalc() {
+  const cap = parseFloat($('#capital').value), r = parseFloat($('#riskPct').value), sl = parseFloat($('#slPips').value), err = $('#calcError');
+  const set = v => ['resRisk','resLots','resMini','resMicro','resPip'].forEach(id => $('#' + id).textContent = v);
+  const msg = !(cap > 0) ? 'Entrez un capital supérieur à 0.' : !(r > 0 && r <= 100) ? 'Le risque doit être compris entre 0,01 % et 100 %.' : !(sl > 0) ? 'Le stop loss doit être supérieur à 0 pip.' : '';
+  if (msg) { err.textContent = msg; err.classList.remove('hidden'); set('—'); return; }
+  err.classList.add('hidden');
+  const risk = cap * r / 100, pv = MARKET[$('#pair').value].pip(), lots = risk / (sl * pv);
+  $('#resRisk').textContent = usd(risk); $('#resLots').textContent = lots.toFixed(2);
+  $('#resMini').textContent = (lots * 10).toFixed(2); $('#resMicro').textContent = (lots * 100).toFixed(1); $('#resPip').textContent = usd(pv);
+}
+['capital','riskPct','slPips','pair'].forEach(id => $('#' + id).addEventListener('input', updateCalc));
+updateCalc();
+
+</script>
+</body>
+</html>
