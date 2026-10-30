@@ -26,7 +26,7 @@ Site en **pages séparées** (une par rubrique) : HTML + Tailwind CDN + JS vanil
 - Prix **simulés** (marche aléatoire), pas de vraies cotations. À assumer comme pédagogique ou à brancher sur une API.
 
 ### Défilé des logos
-- Bandeau défilant sous le ticker, sur toutes les pages, même hauteur (40 px), avec les logos des brokers qui ont un fichier dans `assets/logos/` (même taille de tuile pour tous). Clic : renvoie à la section Partenaires. Pause au survol, arrêté si l'utilisateur réduit les animations.
+- Bandeau défilant sous le ticker, sur toutes les pages, même hauteur (56 px) que le ticker, avec les logos des brokers qui ont un fichier dans `assets/logos/` (tuiles de 80 × 40 px, même taille pour tous). Clic : renvoie à la section Partenaires. Pause au survol, arrêté si l'utilisateur réduit les animations.
 - Alimenté automatiquement par `PARTNERS` : ajouter un logo à un broker l'ajoute au bandeau.
 
 ### fxNOL School (`school.html`)
@@ -64,7 +64,7 @@ Site en **pages séparées** (une par rubrique) : HTML + Tailwind CDN + JS vanil
 - Carte : badge de type, note, nombre d'avis, points forts, champ « agrément » (brokers), bouton d'affiliation.
 - Liens en `rel="sponsored nofollow noopener noreferrer"`, mention « Lien partenaire · publicité » sous chaque bouton, bandeau de transparence au-dessus de la grille.
 - **Brokers (réels, 6)** : XTB, eToro, Exness, Vantage, AvaTrade, XM. Sans note ni avis (pas de méthode de notation), carte « Fiche détaillée à venir », agrément « À vérifier sur REGAFI » (à contrôler un par un avant mise en ligne), liens `#` tant que les programmes d'affiliation ne sont pas signés.
-- **Logos** : les 6 brokers affichent leur logo (`assets/logos/*.png`, tuile blanche 2:1 à côté du nom). Sans fichier, pastille d'initiales. Fichiers fournis par l'éditeur : à remplacer par ceux du kit média officiel de chaque programme (voir `assets/logos/LISEZ-MOI.md`).
+- **Logos** : les 6 brokers affichent leur logo (`assets/logos/*.png`, tuile blanche 2:1 de 128 × 64 px à côté du nom). Sans fichier, pastille d'initiales. Fichiers fournis par l'éditeur : à remplacer par ceux du kit média officiel de chaque programme (voir `assets/logos/LISEZ-MOI.md`).
 - **Outil réel : TradingView** (graphiques), sans note ni avis, « Fiche détaillée à venir », lien `#` en attendant le programme d'affiliation, pastille d'initiales (logo à ajouter, id `tradingview`).
 - **Prop firms et outils : 6 partenaires FICTIFS** (liens `#`, notes inventées) : FundedEdge, Vertex Capital Funding, PipForge Challenge ; ChartLab Pro, MacroPulse Calendar, JournalFX. À remplacer avant toute mise en ligne.
 

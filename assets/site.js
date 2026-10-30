@@ -85,10 +85,10 @@ function renderHeader() {
     </div>
   </header>
   <!-- Bandeaux défilants (remplis par market.js et partners.js) -->
-  <div class="ticker bg-deepBg border-b border-borderSubtle h-10 flex items-center overflow-hidden whitespace-nowrap text-xs text-slate-400" aria-label="Cotations simulées">
+  <div class="ticker bg-deepBg border-b border-borderSubtle h-14 flex items-center overflow-hidden whitespace-nowrap text-xs text-slate-400" aria-label="Cotations simulées">
     <div id="ticker" class="inline-flex shrink-0 animate-marquee"></div>
   </div>
-  <div class="ticker bg-deepBg border-b border-borderSubtle h-10 flex items-center overflow-hidden whitespace-nowrap" aria-label="Courtiers présentés">
+  <div class="ticker bg-deepBg border-b border-borderSubtle h-14 flex items-center overflow-hidden whitespace-nowrap" aria-label="Courtiers présentés">
     <div id="logoBand" class="inline-flex shrink-0 items-center animate-marquee"></div>
   </div>`;
 

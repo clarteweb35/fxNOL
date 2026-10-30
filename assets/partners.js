@@ -41,7 +41,7 @@ function renderLogoBand() {
   const logos = PARTNERS.filter(p => p.type === 'broker' && p.logo);
   if (!logos.length) return;
   const REPEAT = 6;
-  const tile = (p, first) => `<a href="partenaires.html" ${first ? '' : 'tabindex="-1" aria-hidden="true"'} class="mx-4 block h-7 w-14 shrink-0"><img src="${esc(p.logo)}" alt="${first ? esc(p.name) : ''}" width="56" height="28" class="h-7 w-14 rounded bg-white object-contain"></a>`;
+  const tile = (p, first) => `<a href="partenaires.html" ${first ? '' : 'tabindex="-1" aria-hidden="true"'} class="mx-5 block h-10 w-20 shrink-0"><img src="${esc(p.logo)}" alt="${first ? esc(p.name) : ''}" width="80" height="40" class="h-10 w-20 rounded bg-white object-contain"></a>`;
   const half = readable => Array.from({ length: REPEAT }, (_, i) => logos.map(p => tile(p, readable && i === 0)).join('')).join('');
   $('#logoBand').innerHTML = `<div class="flex items-center">${half(true)}</div><div class="flex items-center" aria-hidden="true">${half(false)}</div>`;
 }

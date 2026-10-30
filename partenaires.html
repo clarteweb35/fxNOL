@@ -82,7 +82,7 @@ function trackClick(p) {
 const initialsHtml = p => `<span class="grid h-12 w-12 shrink-0 place-items-center rounded-lg border border-borderSubtle bg-darkBg text-xs font-bold text-slate-300" aria-hidden="true">${esc(p.name.slice(0, 2).toUpperCase())}</span>`;
 // Tuile blanche 2:1 : les logos sont larges et certains sont sombres, illisibles sur le fond de la page
 const logoHtml = p => p.logo
-  ? `<img src="${esc(p.logo)}" alt="Logo ${esc(p.name)}" data-pid="${p.id}" width="96" height="48" loading="lazy" class="logo h-12 w-24 shrink-0 rounded-lg bg-white object-contain">`
+  ? `<img src="${esc(p.logo)}" alt="Logo ${esc(p.name)}" data-pid="${p.id}" width="128" height="64" loading="lazy" class="logo h-16 w-32 shrink-0 rounded-lg bg-white object-contain">`
   : initialsHtml(p);
 const stars = r => '★'.repeat(Math.round(r)) + '<span class="text-slate-600">' + '★'.repeat(5 - Math.round(r)) + '</span>';
 
