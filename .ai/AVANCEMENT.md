@@ -32,7 +32,7 @@ Dernière mise à jour : 2026-10-29
 
 ## Site en ligne sur GitHub Pages (décision du 2026-10-29)
 https://clarteweb35.github.io/fxNOL/ publie `main`, mais n'est pas référencé ni diffusé : **on le laisse tel quel jusqu'à l'achat du domaine.** Il montre encore 6 partenaires fictifs avec notes inventées, la phrase « notes éditoriales » et des pages légales incomplètes : **ne pas communiquer l'adresse ni candidater aux programmes d'affiliation avant d'avoir corrigé cela.**
-Constaté le 2026-10-29 : les envois après `b0c8280` n'ont pas déclenché de déploiement (logos, journal et TradingView absents en ligne). Non traité pour l'instant ; à vérifier dans l'onglet Actions du dépôt (https://github.com/clarteweb35/fxNOL/actions) avant l'achat du domaine.
+Déploiement : un run bloqué en file d'attente (2026-10-29) empêchait les mises en ligne ; débloqué le 2026-10-30 en annulant le run puis en relançant (Settings → Pages : branche sur None puis main). Si ça se reproduit : annuler le run dans l'onglet Actions, puis relancer.
 
 ## Prochaine action
 Compléter les `[À COMPLÉTER]` des pages légales (éditeur, hébergeur, e-mail), puis candidater aux 6 programmes d'affiliation (récupérer liens et logos du kit média) et vérifier chaque courtier sur REGAFI.
