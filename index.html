@@ -60,7 +60,7 @@ const RUBRIQUES = [
   { href:'journal.html',      icon:'M5 4h14v16H5zM8 8h8M8 12h8M8 16h5', title:'Journal du jour',
     text:"Le calendrier des publications économiques qui peuvent faire bouger les marchés, expliqué simplement." },
   { href:'partenaires.html',  icon:'M8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM16 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM3 19c0-3 2.5-5 5-5s5 2 5 5M13 19c0-2 1.5-4 4-4s4 2 4 4', title:'Partenaires',
-    text:"Courtiers, prop firms et outils d'analyse. Comparez, lisez les conditions et vérifiez l'agrément avant tout dépôt." }
+    text:"Courtiers et outils d'analyse. Comparez, lisez les conditions et vérifiez l'agrément avant tout dépôt." }
 ];
 $('#rubriques').innerHTML = RUBRIQUES.map(r => `<a href="${r.href}" class="group flex w-full flex-col rounded-xl border border-borderSubtle bg-cardBg p-6 transition hover:border-brandBlue sm:w-[calc(50%-10px)] lg:w-[calc(33.333%-14px)]">
   <span class="grid h-11 w-11 place-items-center rounded-lg bg-brandBlue/10 text-brandBlue" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="${r.icon}"/></svg></span>

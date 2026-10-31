@@ -23,7 +23,7 @@ Site en **pages séparées** (`index.html`, `quiz.html`, `calculateur.html`, `pa
 1. **Header + ticker** défilant (EUR/USD, GBP/USD, USD/JPY, GBP/JPY, XAU/USD, BTC/USD). Les prix sont **simulés** (marche aléatoire), pas des cotations réelles.
 2. **Quiz** : 10 questions mélangées (pips, levier, risque, paires majeures/croisées, spread, margin call…), correction immédiate avec explication, barre de progression, score final avec niveau.
 3. **Calculateur de lot** : capital, % de risque, stop loss en pips, choix de la paire (10 instruments). Résultat : risque en $, lots standards, mini et micro-lots, valeur du pip. Formule : `lot = risque$ / (SL pips × valeur du pip par lot)`. Valeur du pip **estimée** à partir des prix simulés (pas fiable à 100 %).
-4. **Partenaires** : grille de cartes filtrable (Tous / Brokers / Prop Firms / Outils) avec badge de type, note, avis, points forts, champ « agrément » pour les brokers, bouton d'affiliation.
+4. **Partenaires** : grille de cartes filtrable (Tous / Brokers / Outils) avec badge de type, champ « agrément » pour les brokers, bouton d'affiliation.
 5. **Footer** : avertissement légal complet sur les risques Forex/CFD, liens de navigation, copyright.
 
 **Mécanique d'affiliation déjà en place (dans le script) :**
@@ -35,7 +35,7 @@ Site en **pages séparées** (`index.html`, `quiz.html`, `calculateur.html`, `pa
 
 ## 2bis. À savoir avant de modifier
 
-- **Les 9 partenaires sont FICTIFS** (AlphaECN Markets, FundedEdge, ChartLab Pro, etc.) avec des liens `#` et des notes inventées. **À remplacer par de vrais partenaires et leurs vrais liens d'affiliation avant toute mise en ligne.** Ne jamais publier de fausses notes/avis sur de vraies sociétés.
+- **Les partenaires affichés sont réels** (6 courtiers + TradingView), sans note ni avis, avec des liens `#` tant que les programmes d'affiliation ne sont pas signés. Les partenaires fictifs ont été retirés le 2026-10-31. Ne jamais publier de fausses notes/avis sur de vraies sociétés.
 - Le ticker et le calculateur utilisent des prix simulés : à brancher sur une vraie API de cotations si on veut de la précision (ou assumer le côté « pédagogique »).
 - Le suivi des clics en `localStorage` est local à chaque navigateur : pour des statistiques réelles, il faut un vrai backend ou un outil d'analytics.
 
@@ -55,7 +55,7 @@ Mes recherches ont montré que la France **encadre la publicité en ligne pour l
 2. **Pages légales** (obligatoires et demandées par les programmes d'affiliation) : mentions légales, politique de confidentialité, page « Transparence affiliation », contact. Prévoir un bandeau cookies si on ajoute des outils de mesure.
 3. **Nom de domaine + hébergement** (site statique : Netlify, Vercel, Cloudflare Pages ou OVH), HTTPS.
 4. **Candidater aux programmes d'affiliation** (brokers régulés accessibles aux Français, outils de trading type journal/graphiques, éventuellement prop firms après analyse des conditions). La plupart exigent un site en ligne avec pages légales : d'où les étapes 2 et 3 avant.
-5. **Remplacer les partenaires fictifs** par les vrais (liens fournis par les programmes), renseigner `regulator` / `regNumber` pour les brokers.
+5. **Renseigner les vrais liens d'affiliation** (fournis par les programmes), renseigner `regulator` / `regNumber` pour les brokers.
 6. **Suivi** : brancher Plausible ou Google Analytics (via `dataLayer`) ou un petit endpoint pour `CONFIG.trackingEndpoint`.
 7. **Contenu SEO** : articles pédagogiques (qu'est-ce qu'un pip, gérer son risque, comment choisir un courtier régulé…) pour amener du trafic sans promesse de gains. À terme, découper le site en plusieurs pages ou passer sur un générateur statique (type Astro).
 8. **Améliorations** : plus de questions de quiz, vraies cotations, mode comparateur de brokers, accessibilité et performance (Lighthouse).
@@ -109,7 +109,7 @@ Dépôt GitHub : https://github.com/clarteweb35/fxNOL.git, branche `main`.
 - Ne pas pousser si la vérification échoue : me le dire.
 - Mettre à jour la spec et l'avancement dans le même commit.
 - Cela ne couvre pas les actions destructrices (`push --force`, suppression de branche, réécriture de l'historique) : toujours me demander avant.
-- **Le site est déjà public** : GitHub Pages publie la branche `main` sur https://fxnol.fr (ancienne adresse : https://clarteweb35.github.io/fxNOL/) (chaque push déclenche une mise en ligne). Il contient encore des partenaires fictifs et des pages légales à compléter : à traiter en priorité (voir `.ai/AVANCEMENT.md`).
+- **Le site est déjà public** : GitHub Pages publie la branche `main` sur https://fxnol.fr (ancienne adresse : https://clarteweb35.github.io/fxNOL/) (chaque push déclenche une mise en ligne). Il contient encore des pages légales à compléter et des agréments de courtiers à vérifier : à traiter en priorité (voir `.ai/AVANCEMENT.md`).
 
 ## Explication du code
 

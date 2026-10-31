@@ -14,7 +14,7 @@ Garder fxNOL **simple, cohérent et facile à faire évoluer** par un développe
 
 - Aujourd'hui : site en pages HTML séparées (accueil, quiz, calculateur, partenaires, journal, fxNOL School, pages légales) + JS vanilla et Tailwind CDN, sans build. Données partagées dans `assets/` (`site.js`, `market.js`, `partners.js`, `school-data.js`). Hébergé sur GitHub Pages.
 - Évolution prévue : renommer en `index.html`, puis découper (CSS, JS, données, pages légales), éventuellement un générateur statique plus tard.
-- Les 9 partenaires sont **fictifs**. Les prix du ticker et du calculateur sont **simulés**.
+- Les partenaires affichés sont des **vrais** (6 courtiers + TradingView), sans note ni avis, liens `#` tant que les programmes ne sont pas signés. Les prix du ticker et du calculateur sont **simulés**.
 - Fichiers de référence : `claude.md` (règles de travail), `.ai/SPEC_FONCTIONNALITES.md` (ce que fait le site), `.ai/AVANCEMENT.md` (où on en est).
 
 ## 3. Règles d'architecture
@@ -61,7 +61,7 @@ Chaque information vit à **un seul endroit**, tout le reste en dérive.
 - Chaque lien d'affiliation : `rel="sponsored nofollow noopener noreferrer"` + mention « Lien partenaire · publicité ». Un bandeau de transparence reste au-dessus des partenaires.
 - **Brokers** : uniquement des courtiers autorisés en France, vérifiés sur REGAFI et la liste noire de l'AMF ; `regulator` et `regNumber` renseignés avant affichage.
 - **Prop firms** : zone grise, lire leurs conditions, ne rien promettre.
-- **Jamais de fausses notes ni de faux avis** sur de vraies sociétés. Tant que les partenaires sont fictifs, le site ne se met pas en ligne.
+- **Jamais de fausses notes ni de faux avis** sur de vraies sociétés. Aucun partenaire fictif ne doit apparaître sur le site public.
 - **Périmètre** : marchés financiers uniquement. Pas de paris en ligne ni de jeux d'argent (autre cadre légal : ANJ), pas de promotion d'options binaires. Toute affiliation est limitée aux courtiers vérifiés sur REGAFI et la liste noire de l'AMF.
 - Aucun outil de mesure ni cookie non essentiel sans bandeau de consentement.
 - Le cadre exact en 2026 reste à vérifier et à faire valider par un juriste ou l'AMF. Ce n'est pas un conseil juridique.

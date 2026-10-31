@@ -33,11 +33,11 @@ Dernière mise à jour : 2026-10-29
 - **Trading Central** (analyse technique, existe toujours en 2026) : distribué via les courtiers, pas de widget public ; ses niveaux et signaux sont à éviter sur le site (risque de conseil en investissement). Seule idée : le mentionner dans une fiche courtier si celui-ci l'indique lui-même.
 
 ## Site en ligne sur GitHub Pages (décision du 2026-10-29)
-https://clarteweb35.github.io/fxNOL/ publie `main`, mais n'est pas référencé ni diffusé : **domaine fxnol.fr acheté le 2026-10-31, DNS OVH branché sur GitHub Pages (fichier `CNAME`, HTTPS à cocher dans Settings → Pages).** Il montre encore 6 partenaires fictifs avec notes inventées, la phrase « notes éditoriales » et des pages légales incomplètes : **ne pas communiquer l'adresse ni candidater aux programmes d'affiliation avant d'avoir corrigé cela.**
+https://clarteweb35.github.io/fxNOL/ publie `main`, mais n'est pas référencé ni diffusé : **domaine fxnol.fr acheté le 2026-10-31, DNS OVH branché sur GitHub Pages (fichier `CNAME`, HTTPS à cocher dans Settings → Pages).** Les partenaires fictifs et la phrase « notes éditoriales » ont été retirés le 2026-10-31. Il reste des pages légales incomplètes (éditeur, hébergeur) et les agréments des courtiers à vérifier : **ne pas candidater aux programmes d'affiliation avant d'avoir corrigé cela.**
 Déploiement : un run bloqué en file d'attente (2026-10-29) empêchait les mises en ligne ; débloqué le 2026-10-30 en annulant le run puis en relançant (Settings → Pages : branche sur None puis main). Si ça se reproduit : annuler le run dans l'onglet Actions, puis relancer.
 
 ## Prochaine action
 Compléter les `[À COMPLÉTER]` des pages légales (éditeur, hébergeur ; l'e-mail contact@fxnol.fr est en place, la boîte doit être activée chez le registrar du domaine fxnol.fr, acheté le 2026-10-31), puis candidater aux 6 programmes d'affiliation (récupérer liens et logos du kit média) et vérifier chaque courtier sur REGAFI.
 
 ## Ensuite (voir `claude.md`, section 5)
-Domaine et hébergement → programmes d'affiliation → vrais partenaires (retirer les fictifs et la phrase « notes éditoriales ») → héberger polices et Tailwind localement → suivi → contenu SEO.
+Domaine et hébergement → programmes d'affiliation → vrais liens d'affiliation (les fictifs sont retirés) → héberger polices et Tailwind localement → suivi → contenu SEO.

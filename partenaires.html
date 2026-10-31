@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Partenaires et courtiers — fxNOL</title>
-<meta name="description" content="Partenaires fxNOL : courtiers, prop firms et outils d'analyse. Comparez, lisez les conditions et vérifiez l'agrément avant tout dépôt. Liens d'affiliation signalés.">
+<meta name="description" content="Partenaires fxNOL : courtiers et outils d'analyse. Comparez, lisez les conditions et vérifiez l'agrément avant tout dépôt. Liens d'affiliation signalés.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap" rel="stylesheet">
@@ -20,13 +20,13 @@
     <div class="mb-8 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
       <div class="max-w-2xl">
         <h2 class="font-heading text-2xl md:text-3xl font-bold text-white mb-3">Partenaires &amp; Brokers</h2>
-        <p class="text-slate-400 text-sm">Brokers, prop firms et outils d'analyse. Comparez, lisez les conditions et vérifiez l'agrément avant tout dépôt.</p>
+        <p class="text-slate-400 text-sm">Brokers et outils d'analyse. Comparez, lisez les conditions et vérifiez l'agrément avant tout dépôt.</p>
       </div>
       <div id="filters" class="flex flex-wrap gap-2" role="tablist" aria-label="Filtrer les partenaires"></div>
     </div>
 
     <p class="mb-6 rounded-lg border border-brandBlue/30 bg-brandBlue/5 px-4 py-3 text-xs text-slate-300">
-      <strong class="text-white">Publicité / affiliation :</strong> fxNOL perçoit une commission si vous ouvrez un compte via les liens marqués « Lien partenaire ». Cela n'augmente pas vos coûts. Les notes sont éditoriales. Contenu non personnalisé, ne constituant pas un conseil en investissement.
+      <strong class="text-white">Publicité / affiliation :</strong> fxNOL perçoit une commission si vous ouvrez un compte via les liens marqués « Lien partenaire ». Cela n'augmente pas vos coûts. Contenu non personnalisé, ne constituant pas un conseil en investissement.
     </p>
 
     <div id="partnerGrid" class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3"></div>
@@ -50,7 +50,7 @@
 <script src="assets/partners.js"></script>
 <script>
 'use strict';
-const FILTERS = [['all','Tous'],['broker','Brokers'],['prop','Prop Firms'],['outil','Outils']];
+const FILTERS = [['all','Tous'],['broker','Brokers'],['outil','Outils']];
 let filter = 'all';
 
 function buildUrl(p) {

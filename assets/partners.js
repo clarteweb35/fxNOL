@@ -9,8 +9,8 @@ const CONFIG = {
   storageKey: 'fxnol_clicks'
 };
 
-/* ⚠️ PARTENAIRES D'EXEMPLE FICTIFS : remplace par tes vrais partenaires.
-   - url : TON lien d'affiliation fourni par le programme
+/* Partenaires réels uniquement : jamais de note ni d'avis inventés.
+   - url : TON lien d'affiliation fourni par le programme (« # » tant qu'il n'est pas signé)
    - regulator / regNumber : agrément à vérifier sur REGAFI (ex. passeport MiFID II) ; laisse '' pour les outils
    - disclosure : mention spécifique éventuellement exigée par le programme */
 const PARTNERS = [
@@ -23,16 +23,10 @@ const PARTNERS = [
   { id:'vantage', name:'Vantage', type:'broker', rating:null, reviews:0, pros:[], url:'#', cta:'Voir le courtier', regulator:'À vérifier sur REGAFI', regNumber:'', logo:'assets/logos/vantage.png', affiliateProgram:'Vantage Partners' },
   { id:'avatrade', name:'AvaTrade', type:'broker', rating:null, reviews:0, pros:[], url:'#', cta:'Voir le courtier', regulator:'À vérifier sur REGAFI', regNumber:'', logo:'assets/logos/avatrade.png', affiliateProgram:'AvaPartner' },
   { id:'xm', name:'XM', type:'broker', rating:null, reviews:0, pros:[], url:'#', cta:'Voir le courtier', regulator:'À vérifier sur REGAFI', regNumber:'', logo:'assets/logos/xm.png', affiliateProgram:'XM Partners' },
-  { id:'fundededge', name:'FundedEdge', type:'prop', rating:4.5, reviews:2150, pros:['Challenge en 1 ou 2 phases','Partage des profits jusqu\'à 90 %','Drawdown clairement défini'], url:'#', cta:'Démarrer le challenge', regulator:'', regNumber:'' },
-  { id:'vertex', name:'Vertex Capital Funding', type:'prop', rating:4.2, reviews:970, pros:['Pas de limite de temps','Scaling du capital','Retraits bimensuels'], url:'#', cta:'Voir les règles', regulator:'', regNumber:'' },
-  { id:'pipforge', name:'PipForge Challenge', type:'prop', rating:3.9, reviews:410, pros:["Frais d'entrée abordables",'Règles simples','Communauté active'], url:'#', cta:'Démarrer le challenge', regulator:'', regNumber:'' },
-  { id:'tradingview', name:'TradingView', type:'outil', rating:null, reviews:0, pros:[], url:'#', cta:"Voir l'outil", regulator:'', regNumber:'', logo:'', affiliateProgram:'TradingView (programme à vérifier)' },
-  { id:'chartlab', name:'ChartLab Pro', type:'outil', rating:4.8, reviews:3400, pros:['Graphiques multi-timeframes','Alertes personnalisées','Backtesting visuel'], url:'#', cta:'Essayer gratuitement', regulator:'', regNumber:'' },
-  { id:'macropulse', name:'MacroPulse Calendar', type:'outil', rating:4.3, reviews:720, pros:['Calendrier économique en direct','Filtres par impact','Notifications mobiles'], url:'#', cta:'Découvrir', regulator:'', regNumber:'' },
-  { id:'journalfx', name:'JournalFX', type:'outil', rating:4.5, reviews:1100, pros:['Journal de trading automatisé','Statistiques de performance','Import MT4/MT5'], url:'#', cta:'Essayer gratuitement', regulator:'', regNumber:'' }
+  { id:'tradingview', name:'TradingView', type:'outil', rating:null, reviews:0, pros:[], url:'#', cta:"Voir l'outil", regulator:'', regNumber:'', logo:'', affiliateProgram:'TradingView (programme à vérifier)' }
 ];
-const NO_LINK = '#'; // partenaire sans lien d'affiliation réel (exemples fictifs)
-const TYPES = { broker:['Broker','border-brandBlue/40 bg-brandBlue/10 text-brandBlue'], prop:['Prop Firm','border-brandGreen/40 bg-brandGreen/10 text-brandGreen'], outil:["Outil d'analyse",'border-slate-500/40 bg-slate-500/10 text-slate-300'] };
+const NO_LINK = '#'; // partenaire sans lien d'affiliation réel (programme pas encore signé)
+const TYPES = { broker:['Broker','border-brandBlue/40 bg-brandBlue/10 text-brandBlue'], outil:["Outil d'analyse",'border-slate-500/40 bg-slate-500/10 text-slate-300'] };
 
 /* ============ BANDEAU DES LOGOS (haut de chaque page) ============ */
 // Chaque moitié doit être plus large que l'écran pour que la boucle soit continue, d'où la répétition ;

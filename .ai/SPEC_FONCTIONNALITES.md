@@ -60,13 +60,13 @@ Site en **pages séparées** (une par rubrique) : HTML + Tailwind CDN + JS vanil
 - Valeur du pip **estimée** depuis les prix simulés (non fiable à 100 %).
 
 ### Partenaires
-- Filtres : Tous / Brokers / Prop Firms / Outils.
-- Carte : badge de type, note, nombre d'avis, points forts, champ « agrément » (brokers), bouton d'affiliation.
+- Filtres : Tous / Brokers / Outils.
+- Carte : badge de type, champ « agrément » (brokers), bouton d'affiliation ; note, avis et points forts s'affichent seulement s'ils sont renseignés (aucun pour l'instant).
 - Liens en `rel="sponsored nofollow noopener noreferrer"`, mention « Lien partenaire · publicité » sous chaque bouton, bandeau de transparence au-dessus de la grille.
 - **Brokers (réels, 6)** : XTB, eToro, Exness, Vantage, AvaTrade, XM. Sans note ni avis (pas de méthode de notation), carte « Fiche détaillée à venir », agrément « À vérifier sur REGAFI » (à contrôler un par un avant mise en ligne), liens `#` tant que les programmes d'affiliation ne sont pas signés.
 - **Logos** : les 6 brokers affichent leur logo (`assets/logos/*.png`, tuile blanche 2:1 de 128 × 64 px à côté du nom). Sans fichier, pastille d'initiales. Fichiers fournis par l'éditeur : à remplacer par ceux du kit média officiel de chaque programme (voir `assets/logos/LISEZ-MOI.md`).
 - **Outil réel : TradingView** (graphiques), sans note ni avis, « Fiche détaillée à venir », lien `#` en attendant le programme d'affiliation, pastille d'initiales (logo à ajouter, id `tradingview`).
-- **Prop firms et outils : 6 partenaires FICTIFS** (liens `#`, notes inventées) : FundedEdge, Vertex Capital Funding, PipForge Challenge ; ChartLab Pro, MacroPulse Calendar, JournalFX. À remplacer avant toute mise en ligne.
+- **Plus aucun partenaire fictif** (retirés le 2026-10-31) : la page ne montre que 7 partenaires réels. Pas de prop firm pour l'instant. Aucune note ni avis n'est publié ; la page Transparence l'explique.
 
 ### Suivi des clics d'affiliation (invisible pour le visiteur)
 - `CONFIG` : `appendUtm`, `trackingEndpoint`, `storageKey`.
