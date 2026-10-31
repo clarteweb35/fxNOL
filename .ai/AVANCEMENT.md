@@ -45,6 +45,9 @@ Google Analytics (`G-9XYXKBM02F`) est branché derrière un bandeau de consentem
 ## En attente : structure éditrice (décision du 2026-10-31)
 Le propriétaire (Julien GUILLOIS) n'a pas de SIRET pour fxNOL pour l'instant. Il a déjà une structure, qui pourra accueillir l'activité à partir de janvier 2027, et envisage une autre structure (VTC + services en ligne). **La structure qui édite fxNOL est à choisir** : elle donne son nom, son statut, son SIRET et son adresse aux mentions légales, et c'est elle qui candidate aux programmes et reçoit les commissions. Pas de nouvelle candidature d'affiliation avant ce choix. La boîte contact@fxnol.fr est active (OVH, 2026-10-31). Hébergeur à mentionner : GitHub, Inc. (adresse à vérifier sur github.com).
 
+## Robots de trading (décision du 2026-10-31)
+Voulus par Julien, en 3 étapes : (1) page pédagogique `robots.html` (faite, sans recommandation) ; (2) robots gratuits (à faire : sélection et lecture des conditions) ; (3) affiliation de robots (à faire : vérification de chaque vendeur, relecture juridique ; règles dans `.ai/SYSTEM_PROMPT.md` §4).
+
 ## Prochaine action
 Dès la structure choisie : compléter les `[À COMPLÉTER]` des pages légales (éditeur, hébergeur), puis candidater aux 6 programmes d'affiliation (récupérer liens et logos du kit média) et vérifier chaque courtier sur REGAFI.
 

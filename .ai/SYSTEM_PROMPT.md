@@ -62,7 +62,8 @@ Chaque information vit à **un seul endroit**, tout le reste en dérive.
 - **Brokers** : uniquement des courtiers autorisés en France, vérifiés sur REGAFI et la liste noire de l'AMF ; `regulator` et `regNumber` renseignés avant affichage.
 - **Prop firms** : zone grise, lire leurs conditions, ne rien promettre.
 - **Jamais de fausses notes ni de faux avis** sur de vraies sociétés. Aucun partenaire fictif ne doit apparaître sur le site public.
-- **Périmètre** : marchés financiers uniquement. Pas de paris en ligne ni de jeux d'argent (autre cadre légal : ANJ), pas de promotion d'options binaires. Toute affiliation est limitée aux courtiers vérifiés sur REGAFI et la liste noire de l'AMF.
+- **Périmètre** : marchés financiers uniquement. Pas de paris en ligne ni de jeux d'argent (autre cadre légal : ANJ), pas de promotion d'options binaires. Toute affiliation de courtier est limitée aux courtiers vérifiés sur REGAFI et la liste noire de l'AMF.
+- **Robots de trading** (décision du 2026-10-31) : autorisés au périmètre, par étapes. (1) Contenu pédagogique seul (`robots.html`). (2) Robots gratuits : seulement après lecture de leurs conditions, sans chiffre de gain ni capture de performance. (3) Affiliation de robots : seulement après vérification de chaque vendeur ; interdits : promesse de gains ou de revenus, martingale ou grille sans limite de perte, résultats non vérifiables, service de gestion de compte non autorisé. Mention « Lien partenaire · publicité » et avertissement de risque sur chaque fiche. À faire relire par un juriste avant l'étape 3 (l'AMF a alerté sur des offres frauduleuses de robots).
 - Aucun outil de mesure ni cookie non essentiel sans bandeau de consentement.
 - Le cadre exact en 2026 reste à vérifier et à faire valider par un juriste ou l'AMF. Ce n'est pas un conseil juridique.
 

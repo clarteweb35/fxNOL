@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Robots de trading — fxNOL</title>
+<meta name="description" content="Robots de trading (Expert Advisors) : comment ils fonctionnent, leurs limites, les pièges à éviter et comment les tester sans risque. Contenu éducatif.">
+<link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/styles.css">
+<style>
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior:auto; } }
+</style>
+</head>
+<body class="bg-darkBg text-slate-100 font-sans antialiased selection:bg-brandBlue selection:text-white">
+<div id="siteHeader"></div>
+
+<main id="top" class="max-w-3xl mx-auto px-6 py-16">
+  <h1 class="font-heading text-3xl md:text-4xl font-bold text-white mb-3">Robots de trading</h1>
+  <p class="text-sm text-slate-400 mb-10">Comprendre ce qu'est un robot, ce qu'il ne fait pas, et comment le tester sans risque.</p>
+
+  <p class="mb-10 rounded-lg border border-borderSubtle bg-cardBg px-4 py-3 text-xs text-slate-300" role="note">
+    <strong class="text-white">Contenu éducatif.</strong> Cette page explique le fonctionnement des robots de trading. Elle ne recommande aucun robot et ne promet aucun résultat : un robot ne supprime pas le risque de perte.
+  </p>
+
+  <div class="space-y-10 text-sm leading-relaxed text-slate-300">
+    <section>
+      <h2 class="font-heading text-xl font-semibold text-white mb-3">1. Qu'est-ce qu'un robot de trading ?</h2>
+      <p>Un robot de trading (on dit aussi <strong>Expert Advisor</strong>, ou « EA », sur la plateforme MetaTrader) est un programme qui passe des ordres à votre place, selon des règles écrites à l'avance. Il n'a ni intuition ni jugement : il applique ses règles, à chaque fois, sans fatigue ni émotion.</p>
+      <p class="mt-3">L'outil en lui-même est légal et courant. Ce qui pose problème, ce sont certaines offres commerciales qui l'entourent (voir la section 4).</p>
+    </section>
+
+    <section>
+      <h2 class="font-heading text-xl font-semibold text-white mb-3">2. Comment ça marche ?</h2>
+      <p>Un robot suit en général quatre étapes, en boucle :</p>
+      <ul class="list-disc pl-5 space-y-1 mt-3">
+        <li><strong>Lire le marché :</strong> prix, indicateurs (moyenne mobile, RSI…), heures de la journée.</li>
+        <li><strong>Décider :</strong> si les conditions programmées sont réunies, il ouvre une position.</li>
+        <li><strong>Gérer le risque :</strong> taille de la position, stop loss, objectif de gain.</li>
+        <li><strong>Exécuter :</strong> il envoie l'ordre au courtier, puis suit la position jusqu'à sa clôture.</li>
+      </ul>
+      <p class="mt-3">Pour voir comment fonctionnent les indicateurs que les robots utilisent souvent, essayez le laboratoire de <a class="text-brandBlue hover:underline" href="school.html">fxNOL School</a>.</p>
+    </section>
+
+    <section>
+      <h2 class="font-heading text-xl font-semibold text-white mb-3">3. Ce qu'un robot ne fait pas</h2>
+      <ul class="list-disc pl-5 space-y-1">
+        <li>Il ne <strong>garantit aucun gain</strong> et ne supprime pas le risque de perte, qui peut aller jusqu'à la totalité du capital.</li>
+        <li>Il ne s'adapte pas toujours quand le marché change : une règle qui a bien fonctionné hier peut échouer demain.</li>
+        <li>Il peut subir des coûts qui rongent le résultat : spread, commissions, glissement (« slippage »).</li>
+        <li>Il ne remplace pas votre compréhension : sans savoir ce qu'il fait, vous ne pouvez pas juger s'il se comporte normalement.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 class="font-heading text-xl font-semibold text-white mb-3">4. Les pièges à connaître</h2>
+      <ul class="list-disc pl-5 space-y-3">
+        <li><strong>La martingale et la « grille » :</strong> le robot double sa mise après chaque perte pour « se refaire ». La courbe paraît régulière pendant longtemps, puis une seule mauvaise séquence peut effacer le compte.</li>
+        <li><strong>Le backtest trop beau :</strong> un test sur des données passées peut être « ajusté » jusqu'à donner un résultat superbe qui ne se reproduira pas en réel (on parle de surajustement).</li>
+        <li><strong>Les résultats non vérifiables :</strong> captures d'écran, comptes sans historique public, performances annoncées sans preuve. Méfiez-vous de tout vendeur qui promet des revenus réguliers ou une « méthode sans risque ».</li>
+        <li><strong>Les offres frauduleuses :</strong> l'AMF a mis en garde le public, en 2023, contre des offres d'investissement frauduleuses proposées via des robots de trading. Consultez son <a class="text-brandBlue hover:underline" href="https://www.amf-france.org/fr/actualites-publications/communiques/communiques-de-lamf/lamf-met-en-garde-le-public-sur-des-offres-frauduleuses-dinvestissement-par-le-biais-de-robots-de" target="_blank" rel="noopener">communiqué</a>.</li>
+        <li><strong>Confier son argent à un tiers :</strong> un service qui gère votre compte « avec un robot » doit être autorisé. Vérifiez son statut sur le registre de l'AMF avant tout versement.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 class="font-heading text-xl font-semibold text-white mb-3">5. Comment le tester sans risque</h2>
+      <ol class="list-decimal pl-5 space-y-2">
+        <li><strong>Compte de démonstration :</strong> faites tourner le robot avec de l'argent fictif, plusieurs semaines, dans des conditions de marché variées.</li>
+        <li><strong>Backtest, puis test en direct :</strong> le test sur le passé n'est qu'une première étape. Seul le fonctionnement en temps réel (même en démo) montre comment il se comporte vraiment.</li>
+        <li><strong>Limiter la perte :</strong> fixez à l'avance la perte maximale que vous acceptez, et calculez la taille des positions avec le <a class="text-brandBlue hover:underline" href="calculateur.html">calculateur de lot</a>.</li>
+        <li><strong>Comparer au réel :</strong> si les résultats réels s'écartent fortement de ceux du test, arrêtez et cherchez pourquoi.</li>
+      </ol>
+    </section>
+
+    <section>
+      <h2 class="font-heading text-xl font-semibold text-white mb-3">6. Checklist avant d'utiliser un robot</h2>
+      <ul class="list-disc pl-5 space-y-1">
+        <li>Je comprends la logique du robot (pas de « boîte noire » inexpliquée).</li>
+        <li>Il n'utilise ni martingale ni grille sans limite de perte.</li>
+        <li>Ses résultats sont vérifiables par un tiers, sur une durée suffisante.</li>
+        <li>Le vendeur ne promet ni gain ni revenu régulier.</li>
+        <li>Je l'ai testé en démo avant d'engager le moindre euro.</li>
+        <li>Mon courtier est autorisé en France (REGAFI, liste noire de l'AMF).</li>
+        <li>Je ne risque que de l'argent que je peux me permettre de perdre.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 class="font-heading text-xl font-semibold text-white mb-3">7. Et les robots proposés par fxNOL ?</h2>
+      <p>À ce jour, fxNOL ne présente ni ne recommande aucun robot. Si des robots gratuits ou partenaires sont un jour présentés ici, ils le seront avec la mention « Lien partenaire · publicité » lorsque fxNOL perçoit une commission, sans promesse de gains, et expliqués sur la page <a class="text-brandBlue hover:underline" href="transparence-affiliation.html">Transparence affiliation</a>.</p>
+    </section>
+  </div>
+
+  <p class="mt-12 text-xs text-slate-400">Dernière mise à jour : 31 octobre 2026</p>
+</main>
+
+<div id="siteFooter"></div>
+<script src="assets/site.js"></script>
+<script src="assets/market.js"></script>
+<script src="assets/partners.js"></script>
+</body>
+</html>

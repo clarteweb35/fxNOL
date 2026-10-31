@@ -13,11 +13,12 @@ Site en **pages séparées** (une par rubrique) : HTML + CSS Tailwind compilé (
 | fxNOL School | `school.html` | Formation : 6 modules, 29 leçons, 2 niveaux, mini-quiz, laboratoire |
 | Quiz | `quiz.html` | Quiz de 10 questions |
 | Calculateur | `calculateur.html` | Calculateur de taille de lot |
+| Robots de trading | `robots.html` | Page éducative : définition, fonctionnement, limites, pièges (martingale, backtests truqués, offres frauduleuses signalées par l'AMF), test en démo, checklist. Ne recommande aucun robot ; lien vers le communiqué de l'AMF |
 | Partenaires | `partenaires.html` | Grille filtrable de partenaires d'affiliation |
 | Journal du jour | `journal.html` | Calendrier économique TradingView (chargé après clic) |
 | Pages légales | `mentions-legales.html`, `confidentialite.html`, `transparence-affiliation.html`, `contact.html` | Voir plus bas |
 
-**Sur toutes les pages** : en-tête collant avec le menu (fxNOL School, Quiz, Calculateur, Partenaires, Journal du jour, Risques), deux bandeaux défilants (cotations simulées, logos des courtiers), pied de page avec l'avertissement sur les risques.
+**Sur toutes les pages** : en-tête collant avec le menu (fxNOL School, Quiz, Calculateur, Robots, Partenaires, Journal du jour, Risques), deux bandeaux défilants (cotations simulées, logos des courtiers), pied de page avec l'avertissement sur les risques.
 **Menu mobile** (moins de 1024 px) : bouton à trois traits horizontaux, qui devient une croix quand le menu est ouvert ; se ferme au clic sur un lien ou avec la touche Échap.
 
 ## Fonctionnalités

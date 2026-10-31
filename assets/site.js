@@ -37,6 +37,7 @@ const SITE = {
     ['school.html', 'fxNOL School'],
     ['quiz.html', 'Quiz'],
     ['calculateur.html', 'Calculateur'],
+    ['robots.html', 'Robots'],
     ['partenaires.html', 'Partenaires'],
     ['journal.html', 'Journal du jour'],
     ['#risques', 'Risques']
@@ -45,6 +46,7 @@ const SITE = {
     ['school.html', 'fxNOL School'],
     ['quiz.html', 'Quiz'],
     ['calculateur.html', 'Calculateur'],
+    ['robots.html', 'Robots de trading'],
     ['partenaires.html', 'Partenaires'],
     ['journal.html', 'Journal du jour'],
     ['index.html', 'Accueil']
