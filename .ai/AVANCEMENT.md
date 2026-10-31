@@ -36,6 +36,9 @@ Dernière mise à jour : 2026-10-29
 https://clarteweb35.github.io/fxNOL/ publie `main`, mais n'est pas référencé ni diffusé : **domaine fxnol.fr acheté le 2026-10-31, DNS OVH branché sur GitHub Pages (fichier `CNAME`, HTTPS à cocher dans Settings → Pages).** Les partenaires fictifs et la phrase « notes éditoriales » ont été retirés le 2026-10-31. Il reste des pages légales incomplètes (éditeur, hébergeur) et les agréments des courtiers à vérifier : **ne pas candidater aux programmes d'affiliation avant d'avoir corrigé cela.**
 Déploiement : un run bloqué en file d'attente (2026-10-29) empêchait les mises en ligne ; débloqué le 2026-10-30 en annulant le run puis en relançant (Settings → Pages : branche sur None puis main). Si ça se reproduit : annuler le run dans l'onglet Actions, puis relancer.
 
+## Éco-conception (2026-10-31)
+Score EcoIndex B (78/100) avant les changements : page de 395 Ko, 20 requêtes. Fait : logos en WebP (167 Ko → 21 Ko) et polices hébergées sur le site (7 requêtes Google en moins). **Reste à décider : remplacer Tailwind CDN (127 Ko de script) par un CSS compilé**, ce qui ajoute une étape de fabrication (accord requis). Badge Website Carbon A+ en place (statique) ; badge EcoIndex éventuel à faire en statique aussi. À remesurer sur ecoindex.fr après la mise en ligne.
+
 ## Mesure d'audience (2026-10-31)
 Google Analytics (`G-9XYXKBM02F`) est branché derrière un bandeau de consentement (`assets/site.js`), confidentialité mise à jour. À faire côté Google Analytics : régler la conservation des données au minimum, vérifier le flux de données (fxnol.fr), couper le partage de données avec Google. À valider par un juriste (transferts hors UE). Search Console (vérification par ligne TXT dans la zone DNS OVH) pas encore faite.
 

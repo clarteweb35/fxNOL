@@ -64,7 +64,7 @@ Site en **pages séparées** (une par rubrique) : HTML + Tailwind CDN + JS vanil
 - Carte : badge de type, champ « agrément » (brokers), bouton d'affiliation ; note, avis et points forts s'affichent seulement s'ils sont renseignés (aucun pour l'instant).
 - Liens en `rel="sponsored nofollow noopener noreferrer"`, mention « Lien partenaire · publicité » sous chaque bouton, bandeau de transparence au-dessus de la grille.
 - **Brokers (réels, 6)** : XTB, eToro, Exness, Vantage, AvaTrade, XM. Sans note ni avis (pas de méthode de notation), carte « Fiche détaillée à venir », agrément « À vérifier sur REGAFI » (à contrôler un par un avant mise en ligne), liens `#` tant que les programmes d'affiliation ne sont pas signés.
-- **Logos** : les 6 brokers affichent leur logo (`assets/logos/*.png`, tuile blanche 2:1 de 128 × 64 px à côté du nom). Sans fichier, pastille d'initiales. Fichiers fournis par l'éditeur : à remplacer par ceux du kit média officiel de chaque programme (voir `assets/logos/LISEZ-MOI.md`).
+- **Logos** : les 6 brokers affichent leur logo (`assets/logos/*.webp`, 256 px de large au maximum, 21 Ko au total ; tuile blanche 2:1 de 128 × 64 px à côté du nom). Sans fichier, pastille d'initiales. Fichiers fournis par l'éditeur : à remplacer par ceux du kit média officiel de chaque programme (voir `assets/logos/LISEZ-MOI.md`).
 - **Outil réel : TradingView** (graphiques), sans note ni avis, « Fiche détaillée à venir », lien `#` en attendant le programme d'affiliation, pastille d'initiales (logo à ajouter, id `tradingview`).
 - **Plus aucun partenaire fictif** (retirés le 2026-10-31) : la page ne montre que 7 partenaires réels. Pas de prop firm pour l'instant. Aucune note ni avis n'est publié ; la page Transparence l'explique.
 
@@ -81,7 +81,7 @@ Site en **pages séparées** (une par rubrique) : HTML + Tailwind CDN + JS vanil
 ### Pages légales
 - `mentions-legales.html`, `confidentialite.html`, `transparence-affiliation.html`, `contact.html`.
 - Chacune porte un encadré jaune « Page à compléter » : identité de l'éditeur, hébergeur, méthode de notation sont marqués `[À COMPLÉTER]`. L'e-mail de contact (contact@fxnol.fr, défini une seule fois dans `SITE.contactEmail`) s'affiche sur Contact, Mentions légales et Confidentialité.
-- La politique de confidentialité décrit l'état actuel : mesure d'audience Google Analytics **uniquement après consentement**, compteur de clics local au navigateur, polices Google et Tailwind chargés depuis des serveurs tiers. À mettre à jour dès qu'un autre outil de mesure est ajouté.
+- La politique de confidentialité décrit l'état actuel : mesure d'audience Google Analytics **uniquement après consentement**, compteur de clics local au navigateur, Tailwind chargé depuis un serveur tiers (les polices sont hébergées sur le site). À mettre à jour dès qu'un autre outil de mesure est ajouté.
 
 ### Bandeau de consentement (mesure d'audience)
 - Sur toutes les pages, à la première visite : bandeau fixe en bas « Refuser » / « Accepter » (même taille), lien « En savoir plus » vers la confidentialité.
@@ -93,6 +93,7 @@ Site en **pages séparées** (une par rubrique) : HTML + Tailwind CDN + JS vanil
 - `assets/site.js` : nom, menu, liens légaux, avertissement de risque, mention d'affiliation, header, bandeaux et footer.
 - `assets/market.js` : marché simulé (prix, ticker, valeur du pip pour le calculateur).
 - `assets/partners.js` : liste des partenaires, réglages d'affiliation, bandeau des logos.
+- `assets/fonts.css` et `assets/fonts/` : polices Inter et Plus Jakarta Sans hébergées sur le site (licence OFL, `fonts/LICENCES.md`), au lieu de Google Fonts : plus de connexion à Google pour les polices.
 - `assets/school-data.js` : contenu de fxNOL School.
 
 ## Pas encore fait

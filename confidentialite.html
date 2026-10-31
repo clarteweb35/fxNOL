@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Politique de confidentialité — fxNOL</title>
 <meta name="description" content="Politique de confidentialité de fxNOL : données traitées, stockage local, services tiers, vos droits.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/fonts.css">
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="assets/tailwind-config.js"></script>
 <style>
@@ -57,11 +57,11 @@
       <h2 class="font-heading text-xl font-semibold text-white mb-3">5. Services tiers chargés par le site</h2>
       <p>Pour s'afficher, les pages chargent des ressources depuis des serveurs tiers. Votre adresse IP et des informations techniques de navigation leur sont alors transmises :</p>
       <ul class="list-disc pl-5 space-y-1 mt-3">
-        <li><strong>Google Fonts</strong> (polices de caractères) ;</li>
         <li><strong>Tailwind CDN</strong> (mise en forme).</li>
       </ul>
+      <p class="mt-3">Les polices de caractères sont hébergées sur le site lui-même : aucune connexion à Google Fonts n'est faite pour les afficher.</p>
       <p class="mt-3">Sur la page <a class="text-brandBlue hover:underline" href="journal.html">Journal du jour</a>, le calendrier économique est fourni par <strong>TradingView</strong>. Il n'est chargé <strong>qu'après votre clic</strong> sur « Afficher le calendrier » : avant, aucune connexion à TradingView n'est établie. Une fois affiché, TradingView peut déposer des cookies et traite vos données selon sa propre politique de confidentialité.</p>
-      <p class="mt-3">[À COMPLÉTER / À TRAITER : héberger ces ressources sur le site lui-même pour éviter ces transferts avant la mise en ligne.]</p>
+      <p class="mt-3">[À TRAITER : héberger aussi la mise en forme (Tailwind) sur le site lui-même pour éviter ce transfert.]</p>
     </section>
 
     <section>

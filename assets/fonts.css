@@ -1,0 +1,16 @@
+/* Polices hébergées sur le site (licence OFL, voir fonts/LICENCES.md) : plus aucune requête vers Google à chaque visite.
+   Chaque fichier est une police « variable » : un seul fichier couvre tous les poids utilisés. */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url(fonts/inter-latin.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 500 700;
+  font-display: swap;
+  src: url(fonts/plus-jakarta-sans-latin.woff2) format('woff2');
+}

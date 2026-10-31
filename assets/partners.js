@@ -17,12 +17,12 @@ const PARTNERS = [
   // Vrais courtiers : pas de note ni d'avis tant qu'on n'a pas de méthode de notation réelle.
   // logo : chemin du fichier déposé dans assets/logos/ (voir LISEZ-MOI.md) ; vide = initiales.
   // affiliateProgram : nom du programme (non affiché, pour mémoire).
-  { id:'xtb', name:'XTB', type:'broker', rating:null, reviews:0, pros:[], url:'#', cta:'Voir le courtier', regulator:'À vérifier sur REGAFI', regNumber:'', logo:'assets/logos/xtb.png', affiliateProgram:'XTB Partners' },
-  { id:'etoro', name:'eToro', type:'broker', rating:null, reviews:0, pros:[], url:'#', cta:'Voir le courtier', regulator:'À vérifier sur REGAFI', regNumber:'', logo:'assets/logos/etoro.png', affiliateProgram:'eToro Partners' },
-  { id:'exness', name:'Exness', type:'broker', rating:null, reviews:0, pros:[], url:'#', cta:'Voir le courtier', regulator:'À vérifier sur REGAFI', regNumber:'', logo:'assets/logos/exness.png', affiliateProgram:'Exness Affiliates' },
-  { id:'vantage', name:'Vantage', type:'broker', rating:null, reviews:0, pros:[], url:'#', cta:'Voir le courtier', regulator:'À vérifier sur REGAFI', regNumber:'', logo:'assets/logos/vantage.png', affiliateProgram:'Vantage Partners' },
-  { id:'avatrade', name:'AvaTrade', type:'broker', rating:null, reviews:0, pros:[], url:'#', cta:'Voir le courtier', regulator:'À vérifier sur REGAFI', regNumber:'', logo:'assets/logos/avatrade.png', affiliateProgram:'AvaPartner' },
-  { id:'xm', name:'XM', type:'broker', rating:null, reviews:0, pros:[], url:'#', cta:'Voir le courtier', regulator:'À vérifier sur REGAFI', regNumber:'', logo:'assets/logos/xm.png', affiliateProgram:'XM Partners' },
+  { id:'xtb', name:'XTB', type:'broker', rating:null, reviews:0, pros:[], url:'#', cta:'Voir le courtier', regulator:'À vérifier sur REGAFI', regNumber:'', logo:'assets/logos/xtb.webp', affiliateProgram:'XTB Partners' },
+  { id:'etoro', name:'eToro', type:'broker', rating:null, reviews:0, pros:[], url:'#', cta:'Voir le courtier', regulator:'À vérifier sur REGAFI', regNumber:'', logo:'assets/logos/etoro.webp', affiliateProgram:'eToro Partners' },
+  { id:'exness', name:'Exness', type:'broker', rating:null, reviews:0, pros:[], url:'#', cta:'Voir le courtier', regulator:'À vérifier sur REGAFI', regNumber:'', logo:'assets/logos/exness.webp', affiliateProgram:'Exness Affiliates' },
+  { id:'vantage', name:'Vantage', type:'broker', rating:null, reviews:0, pros:[], url:'#', cta:'Voir le courtier', regulator:'À vérifier sur REGAFI', regNumber:'', logo:'assets/logos/vantage.webp', affiliateProgram:'Vantage Partners' },
+  { id:'avatrade', name:'AvaTrade', type:'broker', rating:null, reviews:0, pros:[], url:'#', cta:'Voir le courtier', regulator:'À vérifier sur REGAFI', regNumber:'', logo:'assets/logos/avatrade.webp', affiliateProgram:'AvaPartner' },
+  { id:'xm', name:'XM', type:'broker', rating:null, reviews:0, pros:[], url:'#', cta:'Voir le courtier', regulator:'À vérifier sur REGAFI', regNumber:'', logo:'assets/logos/xm.webp', affiliateProgram:'XM Partners' },
   { id:'tradingview', name:'TradingView', type:'outil', rating:null, reviews:0, pros:[], url:'#', cta:"Voir l'outil", regulator:'', regNumber:'', logo:'', affiliateProgram:'TradingView (programme à vérifier)' }
 ];
 const NO_LINK = '#'; // partenaire sans lien d'affiliation réel (programme pas encore signé)
