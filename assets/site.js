@@ -122,7 +122,7 @@ function renderFooter() {
   $('#siteFooter').innerHTML = `
   <footer id="risques" class="border-t border-borderSubtle bg-deepBg">
     <div class="max-w-7xl mx-auto px-6 py-14">
-      <div class="rounded-xl border border-red-400/30 bg-red-400/5 p-5 sm:p-7">
+      <div id="riskBox" class="rounded-xl border border-red-400/30 bg-red-400/5 p-5 sm:p-7">
         <h3 class="font-heading text-lg font-bold text-red-300">Avertissement sur les risques</h3>
         <div class="mt-3 space-y-3 text-sm leading-relaxed text-slate-300">${SITE.riskWarning.map(p => `<p>${p}</p>`).join('')}</div>
       </div>
@@ -210,6 +210,27 @@ function showConsentBanner() {
 
 renderHeader();
 renderFooter();
+
+// Gyrophare : l'avertissement clignote en rouge deux fois (animation CSS « risk-beacon ») dès qu'il apparaît à l'écran,
+// puis à chaque clic sur « Risques ». Retirer puis remettre la classe relance l'animation.
+const riskBox = $('#riskBox');
+let riskSeen = false;
+function playRiskBeacon() {
+  riskBox.classList.remove('risk-beacon');
+  void riskBox.offsetWidth; // force le navigateur à relire la classe pour repartir de zéro
+  riskBox.classList.add('risk-beacon');
+}
+if (riskBox && 'IntersectionObserver' in window) {
+  const seenObserver = new IntersectionObserver(([entry]) => {
+    if (!entry.isIntersecting) return;
+    riskSeen = true;
+    playRiskBeacon();
+    seenObserver.disconnect();
+  }, { threshold: 0.6 });
+  seenObserver.observe(riskBox);
+  // Si l'avertissement a déjà été vu, le clic le relance ; sinon l'observateur s'en charge à l'arrivée.
+  $$('a[href="#risques"]').forEach(a => a.addEventListener('click', () => { if (riskSeen) playRiskBeacon(); }));
+}
 $$('[data-contact-email]').forEach(a => { a.textContent = SITE.contactEmail; a.href = 'mailto:' + SITE.contactEmail; });
 
 const savedConsent = readConsent();

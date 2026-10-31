@@ -3,6 +3,14 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Gyrophare de l'avertissement sur les risques : seul le milieu est décrit, le début et la fin gardent l'aspect normal.
+   Deux passages, coupés si le visiteur demande de réduire les animations. */
+@keyframes riskBeacon {
+  40% { border-color: rgb(248 113 113); background-color: rgb(239 68 68 / .55); box-shadow: 0 0 36px rgb(239 68 68 / .75); }
+}
+.risk-beacon { animation: riskBeacon 1.4s ease-in-out 2; }
+@media (prefers-reduced-motion: reduce) { .risk-beacon { animation: none; } }
+
 /* Polices hébergées sur le site (licence OFL, voir fonts/LICENCES.md) : plus aucune requête vers Google à chaque visite.
    Chaque fichier est une police « variable » : un seul fichier couvre tous les poids utilisés. */
 @font-face {
