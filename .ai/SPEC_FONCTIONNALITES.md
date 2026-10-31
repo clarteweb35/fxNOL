@@ -2,8 +2,8 @@
 
 Ce que le visiteur voit et peut faire sur le site. À mettre à jour à chaque ajout ou modification visible (pas pour les refactos internes).
 
-Dernière mise à jour : 2026-10-29
-Site en **pages séparées** (une par rubrique) : HTML + Tailwind CDN + JS vanilla, sans build.
+Dernière mise à jour : 2026-10-31
+Site en **pages séparées** (une par rubrique) : HTML + CSS Tailwind compilé (`assets/styles.css`) + JS vanilla. Un seul outil de fabrication : Tailwind, lancé par `npm run build` après toute modification de classes ou de couleurs.
 
 ## Pages
 
@@ -89,11 +89,11 @@ Site en **pages séparées** (une par rubrique) : HTML + Tailwind CDN + JS vanil
 - Choix mémorisé dans le navigateur (`fxnol_consent`), redemandé après 6 mois. Lien « Gérer les cookies » en bas de chaque page pour le modifier.
 
 ### Fichiers partagés
-- `assets/tailwind-config.js` : couleurs et polices.
+- `tailwind.config.js` (couleurs et polices), `assets/styles.src.css` (source) et `assets/styles.css` (CSS fabriqué par `npm run build`, à commiter) : le site ne charge plus de script Tailwind externe. Boutons à texte blanc en bleu foncé (`brandBlueDeep`) et gris secondaires éclaircis pour respecter les contrastes d'accessibilité.
 - `assets/site.js` : nom, menu, liens légaux, avertissement de risque, mention d'affiliation, header, bandeaux et footer.
 - `assets/market.js` : marché simulé (prix, ticker, valeur du pip pour le calculateur).
 - `assets/partners.js` : liste des partenaires, réglages d'affiliation, bandeau des logos.
-- `assets/fonts.css` et `assets/fonts/` : polices Inter et Plus Jakarta Sans hébergées sur le site (licence OFL, `fonts/LICENCES.md`), au lieu de Google Fonts : plus de connexion à Google pour les polices.
+- `assets/fonts/` (déclarées dans `assets/styles.src.css`) : polices Inter et Plus Jakarta Sans hébergées sur le site (licence OFL, `fonts/LICENCES.md`), au lieu de Google Fonts : plus de connexion à Google pour les polices.
 - `assets/school-data.js` : contenu de fxNOL School.
 
 ## Pas encore fait
@@ -103,6 +103,5 @@ Site en **pages séparées** (une par rubrique) : HTML + Tailwind CDN + JS vanil
 - Contenu SEO (articles pédagogiques).
 
 ## Travaux en cours
-_Aucun._
 
 <!-- Format d'une entrée : date · objectif · fichiers · étapes faites / restantes. Retirer l'entrée une fois l'action terminée. -->

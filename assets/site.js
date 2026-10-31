@@ -80,7 +80,7 @@ function renderHeader() {
         ${linkList(SITE.nav, 'hover:text-brandBlue transition-colors')}
       </nav>
       <div class="flex items-center gap-2">
-        <a href="calculateur.html" class="hidden sm:inline-flex px-4 py-2.5 text-xs font-semibold rounded-lg bg-brandBlue text-white hover:bg-sky-600 transition-all shadow-sm">Lancer l'outil</a>
+        <a href="calculateur.html" class="hidden sm:inline-flex px-4 py-2.5 text-xs font-semibold rounded-lg bg-brandBlueDeep text-white hover:bg-sky-800 transition-all shadow-sm">Lancer l'outil</a>
         <button id="menuBtn" type="button" class="lg:hidden grid h-11 w-11 place-items-center rounded-lg border border-borderSubtle text-slate-200 hover:border-brandBlue" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobileMenu">
           <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path id="menuIcon" d="${MENU_ICON.closed}"/></svg>
         </button>
@@ -127,7 +127,7 @@ function renderFooter() {
         ${col('Naviguer', SITE.footerNav, 'Navigation')}
         ${col('Légal', SITE.legalNav, 'Légal')}
       </div>
-      <div class="mt-10 flex flex-col sm:flex-row justify-between gap-2 border-t border-borderSubtle pt-6 text-xs text-slate-500">
+      <div class="mt-10 flex flex-col sm:flex-row justify-between gap-2 border-t border-borderSubtle pt-6 text-xs text-slate-400">
         <p>© ${new Date().getFullYear()} ${SITE.name}. Tous droits réservés. · <button type="button" id="cookieSettings" class="underline hover:text-brandBlue">Gérer les cookies</button></p>
         <a href="${SITE.carbon.url}" target="_blank" rel="noopener" class="inline-flex w-fit items-center gap-2 rounded-full border border-borderSubtle px-3 py-1 hover:border-brandGreen" aria-label="Site noté ${SITE.carbon.grade} sur Website Carbon (nouvel onglet)">
           <span class="font-bold text-brandGreen">${SITE.carbon.grade}</span><span>Site léger · Website Carbon</span></a>
@@ -189,7 +189,7 @@ function showConsentBanner() {
     <p class="text-sm leading-relaxed text-slate-300">Ce site peut mesurer son audience avec Google Analytics pour s'améliorer. Rien n'est mesuré sans votre accord. <a class="text-brandBlue hover:underline" href="confidentialite.html">En savoir plus</a></p>
     <div class="flex shrink-0 gap-3">
       <button type="button" data-consent="denied" class="${btn} bg-slate-700 hover:bg-slate-600">Refuser</button>
-      <button type="button" data-consent="granted" class="${btn} bg-brandBlue hover:bg-sky-600">Accepter</button>
+      <button type="button" data-consent="granted" class="${btn} bg-brandBlueDeep hover:bg-sky-800">Accepter</button>
     </div></div>`;
   box.addEventListener('click', e => {
     const choice = e.target.closest('[data-consent]');

@@ -15,7 +15,7 @@
 
 ## 3. Ce qui existe (livré dans la session précédente)
 
-Site en **pages séparées** (`index.html`, `quiz.html`, `calculateur.html`, `partenaires.html`, `journal.html`, `school.html` + 4 pages légales). HTML5 + Tailwind CSS (CDN) + JavaScript vanilla, sans build. Données et éléments communs dans `assets/`. Les sections ci-dessous décrivent les fonctionnalités ; le détail à jour est dans `.ai/SPEC_FONCTIONNALITES.md`.
+Site en **pages séparées** (`index.html`, `quiz.html`, `calculateur.html`, `partenaires.html`, `journal.html`, `school.html` + 4 pages légales). HTML5 + Tailwind CSS compilé + JavaScript vanilla (seul outil de fabrication : `npm run build`). Données et éléments communs dans `assets/`. Les sections ci-dessous décrivent les fonctionnalités ; le détail à jour est dans `.ai/SPEC_FONCTIONNALITES.md`.
 
 **Design** : style sobre « institutionnel » (issu d'une proposition Gemini) : fond `#0B0F19`, cartes `#111827`, bordures `#1F2937`, accent bleu `#0EA5E9`, vert `#10B981`. Polices Plus Jakarta Sans (titres) et Inter (texte). Logo SVG texte « fx » + « NOL ». Slogan : « Maîtriser le Forex par la connaissance ». Responsive mobile/desktop.
 
@@ -67,7 +67,7 @@ Mes recherches ont montré que la France **encadre la publicité en ligne pour l
 ## Conventions
 
 - Langue : français (UI, commentaires, docs). Vouvoiement dans l'interface, tutoiement avec moi.
-- Style : HTML + Tailwind (CDN) + JS vanilla, **aucune librairie ni dépendance ajoutée sans accord** ; animations en CSS pur, désactivées si l'utilisateur demande de réduire les animations.
+- Style : HTML + Tailwind (CSS compilé via `npm run build` : à relancer après toute modification de classes, puis commiter `assets/styles.css`) + JS vanilla, **aucune librairie ni dépendance ajoutée sans accord** ; animations en CSS pur, désactivées si l'utilisateur demande de réduire les animations.
 - Accessibilité : conserver `aria-*`, `role`, `alt` ; liens externes en `rel="noopener"` (affiliation : `sponsored nofollow noopener noreferrer`).
 - Performance : pas d'image ni de script externe inutile ; hauteurs fixes pour les bandeaux animés (pas de décalage de mise en page). Aucun outil de mesure (Google Analytics, etc.) sans bandeau de consentement.
 - Commentaires de code courts, en français, qui expliquent le pourquoi.

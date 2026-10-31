@@ -1,0 +1,11 @@
+{
+  "name": "fxnol",
+  "private": true,
+  "description": "Site fxNOL : le seul outil de fabrication est Tailwind (CSS).",
+  "scripts": {
+    "build": "tailwindcss -c tailwind.config.js -i assets/styles.src.css -o assets/styles.css --minify"
+  },
+  "devDependencies": {
+    "tailwindcss": "3.4.17"
+  }
+}

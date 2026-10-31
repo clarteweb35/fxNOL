@@ -1,3 +1,8 @@
+/* Source du CSS du site. Ne pas lier cette page : lancer « npm run build » pour fabriquer assets/styles.css. */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /* Polices hébergées sur le site (licence OFL, voir fonts/LICENCES.md) : plus aucune requête vers Google à chaque visite.
    Chaque fichier est une police « variable » : un seul fichier couvre tous les poids utilisés. */
 @font-face {

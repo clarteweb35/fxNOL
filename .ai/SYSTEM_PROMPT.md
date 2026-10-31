@@ -12,7 +12,7 @@ Garder fxNOL **simple, cohérent et facile à faire évoluer** par un développe
 
 ## 2. Contexte à connaître
 
-- Aujourd'hui : site en pages HTML séparées (accueil, quiz, calculateur, partenaires, journal, fxNOL School, pages légales) + JS vanilla et Tailwind CDN, sans build. Données partagées dans `assets/` (`site.js`, `market.js`, `partners.js`, `school-data.js`). Hébergé sur GitHub Pages.
+- Aujourd'hui : site en pages HTML séparées (accueil, quiz, calculateur, partenaires, journal, fxNOL School, pages légales) + JS vanilla et CSS Tailwind compilé (`npm run build` produit `assets/styles.css`, à commiter ; pas d'autre build). Données partagées dans `assets/` (`site.js`, `market.js`, `partners.js`, `school-data.js`). Hébergé sur GitHub Pages.
 - Évolution prévue : renommer en `index.html`, puis découper (CSS, JS, données, pages légales), éventuellement un générateur statique plus tard.
 - Les partenaires affichés sont des **vrais** (6 courtiers + TradingView), sans note ni avis, liens `#` tant que les programmes ne sont pas signés. Les prix du ticker et du calculateur sont **simulés**.
 - Fichiers de référence : `claude.md` (règles de travail), `.ai/SPEC_FONCTIONNALITES.md` (ce que fait le site), `.ai/AVANCEMENT.md` (où on en est).

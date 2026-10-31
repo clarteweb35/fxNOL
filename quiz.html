@@ -7,9 +7,7 @@
 <meta name="description" content="Quiz fxNOL : 10 questions sur les pips, le levier, la gestion du risque, les paires et les marges. Chaque réponse est corrigée avec une explication. Contenu éducatif.">
 <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/fonts.css">
-<script src="https://cdn.tailwindcss.com"></script>
-<script src="assets/tailwind-config.js"></script>
+<link rel="stylesheet" href="assets/styles.css">
 </head>
 <body class="bg-darkBg text-slate-100 font-sans antialiased selection:bg-brandBlue selection:text-white">
 <div id="siteHeader"></div>
@@ -64,10 +62,10 @@ function answer(idx) {
   if (ok) quiz.score++; quiz.results.push(ok);
   $$('#opts button').forEach((b, k) => {
     b.disabled = true;
-    b.className = 'w-full text-left px-4 py-3 rounded-lg border text-sm ' + (k === q.a ? 'border-brandGreen bg-brandGreen/10 text-white' : k === idx ? 'border-red-400 bg-red-400/10 text-white' : 'border-borderSubtle bg-darkBg text-slate-500');
+    b.className = 'w-full text-left px-4 py-3 rounded-lg border text-sm ' + (k === q.a ? 'border-brandGreen bg-brandGreen/10 text-white' : k === idx ? 'border-red-400 bg-red-400/10 text-white' : 'border-borderSubtle bg-darkBg text-slate-400');
   });
   $('#fb').innerHTML = `<div class="p-4 rounded-lg bg-slate-900 border border-borderSubtle mb-4 text-sm"><strong class="${ok ? 'text-brandGreen' : 'text-red-400'}">${ok ? 'Correct.' : 'Incorrect.'}</strong> <span class="text-slate-300">${esc(q.ex)}</span></div>
-    <button id="next" type="button" class="w-full py-3 rounded-lg bg-brandBlue text-white font-medium text-sm hover:bg-sky-600 transition-all">${last ? 'Voir mon score' : 'Question suivante'}</button>`;
+    <button id="next" type="button" class="w-full py-3 rounded-lg bg-brandBlueDeep text-white font-medium text-sm hover:bg-sky-800 transition-all">${last ? 'Voir mon score' : 'Question suivante'}</button>`;
   $('#next').addEventListener('click', () => { quiz.i++; last ? renderResult() : renderQ(); });
 }
 function renderResult() {
@@ -78,11 +76,11 @@ function renderResult() {
     : ['Niveau débutant', "Pas de souci : relisez les explications et refaites le quiz. Restez en démo tant que ces notions ne sont pas acquises."];
   $('#quizBox').innerHTML = `<div class="text-center py-4">
     <p class="text-xs text-slate-400">Score final</p>
-    <p class="font-heading text-5xl font-bold text-brandBlue my-3">${quiz.score}<span class="text-2xl text-slate-500">/${n}</span></p>
+    <p class="font-heading text-5xl font-bold text-brandBlue my-3">${quiz.score}<span class="text-2xl text-slate-400">/${n}</span></p>
     <p class="font-semibold text-white">${lvl}</p><p class="mx-auto mt-2 max-w-md text-sm text-slate-400">${msg}</p>
     <div class="mt-5 flex justify-center gap-1.5">${quiz.results.map(r => `<span class="h-2 w-5 rounded-full ${r ? 'bg-brandGreen' : 'bg-red-400'}"></span>`).join('')}</div>
     <div class="mt-7 flex flex-col sm:flex-row justify-center gap-3">
-      <button id="retry" class="px-5 py-2.5 rounded-lg bg-brandBlue text-white text-sm font-medium hover:bg-sky-600">Recommencer</button>
+      <button id="retry" class="px-5 py-2.5 rounded-lg bg-brandBlueDeep text-white text-sm font-medium hover:bg-sky-800">Recommencer</button>
       <a href="calculateur.html" class="px-5 py-2.5 rounded-lg bg-darkBg border border-borderSubtle text-sm text-slate-300 hover:text-white">Aller au calculateur</a>
       <a href="school.html" class="px-5 py-2.5 rounded-lg bg-darkBg border border-borderSubtle text-sm text-slate-300 hover:text-white">Revoir les leçons</a></div></div>`;
   $('#retry').addEventListener('click', startQuiz);
