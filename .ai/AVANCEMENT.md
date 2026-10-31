@@ -36,6 +36,9 @@ Dernière mise à jour : 2026-10-29
 https://clarteweb35.github.io/fxNOL/ publie `main`, mais n'est pas référencé ni diffusé : **domaine fxnol.fr acheté le 2026-10-31, DNS OVH branché sur GitHub Pages (fichier `CNAME`, HTTPS à cocher dans Settings → Pages).** Les partenaires fictifs et la phrase « notes éditoriales » ont été retirés le 2026-10-31. Il reste des pages légales incomplètes (éditeur, hébergeur) et les agréments des courtiers à vérifier : **ne pas candidater aux programmes d'affiliation avant d'avoir corrigé cela.**
 Déploiement : un run bloqué en file d'attente (2026-10-29) empêchait les mises en ligne ; débloqué le 2026-10-30 en annulant le run puis en relançant (Settings → Pages : branche sur None puis main). Si ça se reproduit : annuler le run dans l'onglet Actions, puis relancer.
 
+## Mesure d'audience (2026-10-31)
+Google Analytics (`G-9XYXKBM02F`) est branché derrière un bandeau de consentement (`assets/site.js`), confidentialité mise à jour. À faire côté Google Analytics : régler la conservation des données au minimum, vérifier le flux de données (fxnol.fr), couper le partage de données avec Google. À valider par un juriste (transferts hors UE). Search Console (vérification par ligne TXT dans la zone DNS OVH) pas encore faite.
+
 ## En attente : structure éditrice (décision du 2026-10-31)
 Le propriétaire (Julien GUILLOIS) n'a pas de SIRET pour fxNOL pour l'instant. Il a déjà une structure, qui pourra accueillir l'activité à partir de janvier 2027, et envisage une autre structure (VTC + services en ligne). **La structure qui édite fxNOL est à choisir** : elle donne son nom, son statut, son SIRET et son adresse aux mentions légales, et c'est elle qui candidate aux programmes et reçoit les commissions. Pas de nouvelle candidature d'affiliation avant ce choix. La boîte contact@fxnol.fr est active (OVH, 2026-10-31). Hébergeur à mentionner : GitHub, Inc. (adresse à vérifier sur github.com).
 

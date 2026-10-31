@@ -22,6 +22,8 @@ const SITE = {
   affiliateLabel: 'Lien partenaire · publicité',
   // Adresse de contact unique : affichée là où une page porte [data-contact-email]
   contactEmail: 'contact@fxnol.fr',
+  // Identifiant Google Analytics (public) : le script ne se charge qu'après consentement
+  analyticsId: 'G-9XYXKBM02F',
   eduNotice: 'Contenu éducatif — pas de conseil en investissement.',
   // Une page par rubrique ; « #risques » pointe sur l'avertissement du pied de page de la page courante
   nav: [
@@ -124,13 +126,81 @@ function renderFooter() {
         ${col('Légal', SITE.legalNav, 'Légal')}
       </div>
       <div class="mt-10 flex flex-col sm:flex-row justify-between gap-2 border-t border-borderSubtle pt-6 text-xs text-slate-500">
-        <p>© ${new Date().getFullYear()} ${SITE.name}. Tous droits réservés.</p>
+        <p>© ${new Date().getFullYear()} ${SITE.name}. Tous droits réservés. · <button type="button" id="cookieSettings" class="underline hover:text-brandBlue">Gérer les cookies</button></p>
         <p>${SITE.eduNotice}</p>
       </div>
     </div>
   </footer>`;
 }
 
+/* ============ MESURE D'AUDIENCE (consentement) ============ */
+// Google Analytics ne se charge qu'après un « Accepter » explicite ; le choix est redemandé au bout de 6 mois (recommandation CNIL).
+const CONSENT_KEY = 'fxnol_consent';
+const CONSENT_MONTHS = 6;
+const GA_COOKIE_DAYS = 390; // ~13 mois : durée maximale conseillée pour un cookie de mesure
+
+function readConsent() {
+  try {
+    const saved = JSON.parse(localStorage.getItem(CONSENT_KEY));
+    if (saved && Date.now() - saved.at < CONSENT_MONTHS * 30 * 864e5) return saved.choice;
+  } catch (e) { /* stockage indisponible : on redemandera */ }
+  return null;
+}
+
+function loadAnalytics() {
+  if (window.gtag || !SITE.analyticsId) return;
+  const s = document.createElement('script');
+  s.async = true;
+  s.src = 'https://www.googletagmanager.com/gtag/js?id=' + SITE.analyticsId;
+  document.head.appendChild(s);
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = function () { dataLayer.push(arguments); };
+  gtag('js', new Date());
+  gtag('config', SITE.analyticsId, { cookie_expires: GA_COOKIE_DAYS * 86400 });
+}
+
+// Un refus (ou un retrait d'accord) supprime les cookies de mesure déjà déposés
+function clearAnalyticsCookies() {
+  const host = location.hostname;
+  document.cookie.split(';').map(c => c.split('=')[0].trim()).filter(n => n.startsWith('_ga')).forEach(n => {
+    [host, '.' + host, ''].forEach(d => { document.cookie = n + '=; Max-Age=0; path=/' + (d ? '; domain=' + d : ''); });
+  });
+}
+
+function applyConsent(choice) {
+  try { localStorage.setItem(CONSENT_KEY, JSON.stringify({ choice, at: Date.now() })); } catch (e) { /* ignoré */ }
+  if (choice === 'granted') loadAnalytics();
+  else { window['ga-disable-' + SITE.analyticsId] = true; clearAnalyticsCookies(); }
+}
+
+function showConsentBanner() {
+  if ($('#consentBanner')) return;
+  const box = document.createElement('div');
+  box.id = 'consentBanner';
+  box.setAttribute('role', 'dialog');
+  box.setAttribute('aria-label', "Mesure d'audience");
+  box.className = 'fixed inset-x-0 bottom-0 z-[60] border-t border-borderSubtle bg-cardBg p-4 shadow-2xl';
+  const btn = 'rounded-lg px-5 py-2.5 text-sm font-semibold text-white transition';
+  box.innerHTML = `<div class="mx-auto flex max-w-5xl flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+    <p class="text-sm leading-relaxed text-slate-300">Ce site peut mesurer son audience avec Google Analytics pour s'améliorer. Rien n'est mesuré sans votre accord. <a class="text-brandBlue hover:underline" href="confidentialite.html">En savoir plus</a></p>
+    <div class="flex shrink-0 gap-3">
+      <button type="button" data-consent="denied" class="${btn} bg-slate-700 hover:bg-slate-600">Refuser</button>
+      <button type="button" data-consent="granted" class="${btn} bg-brandBlue hover:bg-sky-600">Accepter</button>
+    </div></div>`;
+  box.addEventListener('click', e => {
+    const choice = e.target.closest('[data-consent]');
+    if (!choice) return;
+    applyConsent(choice.dataset.consent);
+    box.remove();
+  });
+  document.body.appendChild(box);
+}
+
 renderHeader();
 renderFooter();
 $$('[data-contact-email]').forEach(a => { a.textContent = SITE.contactEmail; a.href = 'mailto:' + SITE.contactEmail; });
+
+const savedConsent = readConsent();
+if (savedConsent === 'granted') loadAnalytics();
+else if (savedConsent === null) showConsentBanner();
+$('#cookieSettings').addEventListener('click', showConsentBanner);

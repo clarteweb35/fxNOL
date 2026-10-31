@@ -80,7 +80,12 @@ Site en **pages séparées** (une par rubrique) : HTML + Tailwind CDN + JS vanil
 ### Pages légales
 - `mentions-legales.html`, `confidentialite.html`, `transparence-affiliation.html`, `contact.html`.
 - Chacune porte un encadré jaune « Page à compléter » : identité de l'éditeur, hébergeur, méthode de notation sont marqués `[À COMPLÉTER]`. L'e-mail de contact (contact@fxnol.fr, défini une seule fois dans `SITE.contactEmail`) s'affiche sur Contact, Mentions légales et Confidentialité.
-- La politique de confidentialité décrit l'état actuel : pas de mesure d'audience, compteur de clics local au navigateur, polices Google et Tailwind chargés depuis des serveurs tiers. À mettre à jour dès qu'un outil de mesure est ajouté.
+- La politique de confidentialité décrit l'état actuel : mesure d'audience Google Analytics **uniquement après consentement**, compteur de clics local au navigateur, polices Google et Tailwind chargés depuis des serveurs tiers. À mettre à jour dès qu'un autre outil de mesure est ajouté.
+
+### Bandeau de consentement (mesure d'audience)
+- Sur toutes les pages, à la première visite : bandeau fixe en bas « Refuser » / « Accepter » (même taille), lien « En savoir plus » vers la confidentialité.
+- Google Analytics (identifiant dans `SITE.analyticsId`) ne se charge **qu'après « Accepter »**. Un refus supprime les cookies `_ga` déjà déposés. Cookies de mesure limités à environ 13 mois.
+- Choix mémorisé dans le navigateur (`fxnol_consent`), redemandé après 6 mois. Lien « Gérer les cookies » en bas de chaque page pour le modifier.
 
 ### Fichiers partagés
 - `assets/tailwind-config.js` : couleurs et polices.
@@ -92,7 +97,6 @@ Site en **pages séparées** (une par rubrique) : HTML + Tailwind CDN + JS vanil
 ## Pas encore fait
 - Compléter les pages légales avec les vraies informations, puis les faire valider par un juriste.
 - Vrais partenaires et liens d'affiliation.
-- Bandeau cookies (nécessaire dès qu'un outil de mesure est branché).
 - Vraies cotations.
 - Contenu SEO (articles pédagogiques).
 
