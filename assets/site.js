@@ -24,6 +24,8 @@ const SITE = {
   contactEmail: 'contact@fxnol.fr',
   // Identifiant Google Analytics (public) : le script ne se charge qu'après consentement
   analyticsId: 'G-9XYXKBM02F',
+  // Badge écologique statique (aucun script tiers) : à remettre à jour si la note du rapport change
+  carbon: { grade: 'A+', url: 'https://www.websitecarbon.com/website/fxnol-fr/' },
   eduNotice: 'Contenu éducatif — pas de conseil en investissement.',
   // Une page par rubrique ; « #risques » pointe sur l'avertissement du pied de page de la page courante
   nav: [
@@ -127,6 +129,8 @@ function renderFooter() {
       </div>
       <div class="mt-10 flex flex-col sm:flex-row justify-between gap-2 border-t border-borderSubtle pt-6 text-xs text-slate-500">
         <p>© ${new Date().getFullYear()} ${SITE.name}. Tous droits réservés. · <button type="button" id="cookieSettings" class="underline hover:text-brandBlue">Gérer les cookies</button></p>
+        <a href="${SITE.carbon.url}" target="_blank" rel="noopener" class="inline-flex w-fit items-center gap-2 rounded-full border border-borderSubtle px-3 py-1 hover:border-brandGreen" aria-label="Site noté ${SITE.carbon.grade} sur Website Carbon (nouvel onglet)">
+          <span class="font-bold text-brandGreen">${SITE.carbon.grade}</span><span>Site léger · Website Carbon</span></a>
         <p>${SITE.eduNotice}</p>
       </div>
     </div>

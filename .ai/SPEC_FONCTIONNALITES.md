@@ -75,6 +75,7 @@ Site en **pages séparées** (une par rubrique) : HTML + Tailwind CDN + JS vanil
 
 ### Pied de page
 - Avertissement complet sur les risques Forex/CFD.
+- Badge « A+ Site léger · Website Carbon » au milieu de la dernière ligne : simple lien vers le rapport (nouvel onglet), sans script tiers. La note est écrite à la main dans `SITE.carbon` : à remettre à jour si le rapport change.
 - Liens « Légal » vers les 4 pages ci-dessous. En-tête et pied de page sont identiques sur toutes les pages (définis une fois dans `assets/site.js`).
 
 ### Pages légales
