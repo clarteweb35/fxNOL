@@ -36,8 +36,11 @@ Dernière mise à jour : 2026-10-29
 https://clarteweb35.github.io/fxNOL/ publie `main`, mais n'est pas référencé ni diffusé : **domaine fxnol.fr acheté le 2026-10-31, DNS OVH branché sur GitHub Pages (fichier `CNAME`, HTTPS à cocher dans Settings → Pages).** Les partenaires fictifs et la phrase « notes éditoriales » ont été retirés le 2026-10-31. Il reste des pages légales incomplètes (éditeur, hébergeur) et les agréments des courtiers à vérifier : **ne pas candidater aux programmes d'affiliation avant d'avoir corrigé cela.**
 Déploiement : un run bloqué en file d'attente (2026-10-29) empêchait les mises en ligne ; débloqué le 2026-10-30 en annulant le run puis en relançant (Settings → Pages : branche sur None puis main). Si ça se reproduit : annuler le run dans l'onglet Actions, puis relancer.
 
+## En attente : structure éditrice (décision du 2026-10-31)
+Le propriétaire (Julien GUILLOIS) n'a pas de SIRET pour fxNOL pour l'instant. Il a déjà une structure, qui pourra accueillir l'activité à partir de janvier 2027, et envisage une autre structure (VTC + services en ligne). **La structure qui édite fxNOL est à choisir** : elle donne son nom, son statut, son SIRET et son adresse aux mentions légales, et c'est elle qui candidate aux programmes et reçoit les commissions. Pas de nouvelle candidature d'affiliation avant ce choix. La boîte contact@fxnol.fr est active (OVH, 2026-10-31). Hébergeur à mentionner : GitHub, Inc. (adresse à vérifier sur github.com).
+
 ## Prochaine action
-Compléter les `[À COMPLÉTER]` des pages légales (éditeur, hébergeur ; l'e-mail contact@fxnol.fr est en place, la boîte doit être activée chez le registrar du domaine fxnol.fr, acheté le 2026-10-31), puis candidater aux 6 programmes d'affiliation (récupérer liens et logos du kit média) et vérifier chaque courtier sur REGAFI.
+Dès la structure choisie : compléter les `[À COMPLÉTER]` des pages légales (éditeur, hébergeur), puis candidater aux 6 programmes d'affiliation (récupérer liens et logos du kit média) et vérifier chaque courtier sur REGAFI.
 
 ## Ensuite (voir `claude.md`, section 5)
 Domaine et hébergement → programmes d'affiliation → vrais liens d'affiliation (les fictifs sont retirés) → héberger polices et Tailwind localement → suivi → contenu SEO.
