@@ -85,6 +85,10 @@ Après tout ajout ou modification de contenu ou de fonctionnalité visible par u
 
 **Dès qu'une action commence** (avant de modifier le moindre fichier), l'inscrire dans la section « Travaux en cours » en bas de la spec : date, objectif, fichiers concernés, étapes faites / restantes. La retirer une fois l'action terminée. But : ne rien perdre si l'intervention plante.
 
+## Périmètre : uniquement ce dossier
+
+Ne travailler que dans le dossier fxNOL confié, **JAMAIS dans un autre projet ou dossier** (ni lecture, ni recherche, ni modification, ni commit), même si une capture d'écran ou une demande y fait penser. Si une demande semble concerner un autre projet : le dire et demander avant toute action. Obligatoire, sans exception.
+
 ## Agents
 
 Ne jamais lancer de sous-agents ni de workflow multi-agents sans me demander d'abord. Obligatoire, sans exception.
