@@ -26,10 +26,11 @@ const SITE = {
   analyticsId: 'G-9XYXKBM02F',
   // Badges statiques (aucun script tiers) : notes écrites à la main, à remettre à jour si un rapport change (dernière mesure : 2026-10-31)
   badges: [
-    { grade: 'A+', label: 'Site léger · Website Carbon', url: 'https://www.websitecarbon.com/website/fxnol-fr/' },
-    { grade: 'A', label: 'Écoconception · EcoIndex', url: 'https://www.ecoindex.fr/resultat/?id=7fe2f7d1-a6df-4742-b334-c2cc84fa90e0' },
-    { grade: '98', label: 'Performance · PageSpeed', url: 'https://pagespeed.web.dev/analysis?url=https%3A%2F%2Ffxnol.fr%2F' }
+    { grade: 'A+', label: 'Website Carbon', url: 'https://www.websitecarbon.com/website/fxnol-fr/' },
+    { grade: 'A', label: 'EcoIndex', url: 'https://www.ecoindex.fr/resultat/?id=7fe2f7d1-a6df-4742-b334-c2cc84fa90e0' },
+    { grade: '98', label: 'PageSpeed', url: 'https://pagespeed.web.dev/analysis?url=https%3A%2F%2Ffxnol.fr%2F' }
   ],
+  credit: { name: 'clarte-web.fr', url: 'https://clarte-web.fr' },
   eduNotice: 'Contenu éducatif — pas de conseil en investissement.',
   // Une page par rubrique ; « #risques » pointe sur l'avertissement du pied de page de la page courante
   nav: [
@@ -132,8 +133,8 @@ function renderFooter() {
         ${col('Légal', SITE.legalNav, 'Légal')}
       </div>
       <div class="mt-10 flex flex-col sm:flex-row justify-between gap-2 border-t border-borderSubtle pt-6 text-xs text-slate-400">
-        <p>© ${new Date().getFullYear()} ${SITE.name}. Tous droits réservés. · <button type="button" id="cookieSettings" class="underline hover:text-brandBlue">Gérer les cookies</button></p>
-        <div class="flex flex-wrap gap-2">${SITE.badges.map(b => `
+        <p>© ${new Date().getFullYear()} ${SITE.name}. Tous droits réservés. · <button type="button" id="cookieSettings" class="underline hover:text-brandBlue">Gérer les cookies</button><br>Écrit et développé par <a href="${SITE.credit.url}" target="_blank" rel="noopener" class="underline hover:text-brandBlue">${SITE.credit.name}</a></p>
+        <div class="flex flex-wrap lg:flex-nowrap gap-2">${SITE.badges.map(b => `
           <a href="${b.url}" target="_blank" rel="noopener" class="inline-flex w-fit items-center gap-2 rounded-full border border-borderSubtle px-3 py-1 hover:border-brandGreen" aria-label="Note ${b.grade} : ${b.label} (nouvel onglet)">
             <span class="font-bold text-brandGreen">${b.grade}</span><span>${b.label}</span></a>`).join('')}</div>
         <p>${SITE.eduNotice}</p>
