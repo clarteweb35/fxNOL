@@ -33,7 +33,7 @@ Dernière mise à jour : 2026-10-29
 - **Trading Central** (analyse technique, existe toujours en 2026) : distribué via les courtiers, pas de widget public ; ses niveaux et signaux sont à éviter sur le site (risque de conseil en investissement). Seule idée : le mentionner dans une fiche courtier si celui-ci l'indique lui-même.
 
 ## Site en ligne sur GitHub Pages (décision du 2026-10-29)
-https://clarteweb35.github.io/fxNOL/ publie `main`, mais n'est pas référencé ni diffusé : **on le laisse tel quel jusqu'à l'achat du domaine.** Il montre encore 6 partenaires fictifs avec notes inventées, la phrase « notes éditoriales » et des pages légales incomplètes : **ne pas communiquer l'adresse ni candidater aux programmes d'affiliation avant d'avoir corrigé cela.**
+https://clarteweb35.github.io/fxNOL/ publie `main`, mais n'est pas référencé ni diffusé : **domaine fxnol.fr acheté le 2026-10-31, DNS OVH branché sur GitHub Pages (fichier `CNAME`, HTTPS à cocher dans Settings → Pages).** Il montre encore 6 partenaires fictifs avec notes inventées, la phrase « notes éditoriales » et des pages légales incomplètes : **ne pas communiquer l'adresse ni candidater aux programmes d'affiliation avant d'avoir corrigé cela.**
 Déploiement : un run bloqué en file d'attente (2026-10-29) empêchait les mises en ligne ; débloqué le 2026-10-30 en annulant le run puis en relançant (Settings → Pages : branche sur None puis main). Si ça se reproduit : annuler le run dans l'onglet Actions, puis relancer.
 
 ## Prochaine action
