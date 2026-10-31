@@ -13,7 +13,7 @@ Site en **pages séparées** (une par rubrique) : HTML + CSS Tailwind compilé (
 | fxNOL School | `school.html` | Formation : 6 modules, 29 leçons, 2 niveaux, mini-quiz, laboratoire |
 | Quiz | `quiz.html` | Quiz de 10 questions |
 | Calculateur | `calculateur.html` | Calculateur de taille de lot |
-| Robots de trading | `robots.html` | Page éducative : définition, fonctionnement, limites, pièges (martingale, backtests truqués, offres frauduleuses signalées par l'AMF), test en démo, checklist. Ne recommande aucun robot ; lien vers le communiqué de l'AMF |
+| Robots de trading | `robots.html` | Page éducative : définition, fonctionnement, limites, pièges (martingale, backtests truqués, offres frauduleuses signalées par l'AMF), test en démo, checklist. Section « Où trouver des robots gratuits » : 4 sources officielles (exemples MetaTrader 5, MQL5 Code Base, cTrader Store, testeur TradingView), liens simples sans affiliation. Ne recommande aucun robot ; lien vers le communiqué de l'AMF |
 | Partenaires | `partenaires.html` | Grille filtrable de partenaires d'affiliation |
 | Journal du jour | `journal.html` | Calendrier économique TradingView (chargé après clic) |
 | Pages légales | `mentions-legales.html`, `confidentialite.html`, `transparence-affiliation.html`, `contact.html` | Voir plus bas |
